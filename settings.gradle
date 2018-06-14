@@ -1,1 +1,1 @@
-include ':app', ':WidgetLibrary', ':VelocimeterLibrary'
+include ':app', ':WidgetLibrary', ':VelocimeterLibrary', ':UtilsLibrary'
