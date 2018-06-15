@@ -9,7 +9,7 @@ import android.telephony.TelephonyManager
  */
 object DeviceUtils {
 
-    fun getImei(context: Context): String {
+    fun getIMEI(context: Context): String {
         val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         return try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
