@@ -147,4 +147,14 @@ object ActivityUtils {
             null
         }
     }
+
+    fun startActivity(context: Context, packageName: String): Boolean {
+        val intent = context.packageManager.getLaunchIntentForPackage(packageName)
+        return try {
+            context.startActivity(intent)
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
 }
