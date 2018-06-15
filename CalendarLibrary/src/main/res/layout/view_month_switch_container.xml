@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <org.caojun.calendar.monthswitchpager.view.MonthSwitchTextView
+        android:id="@+id/monthSwitchTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <org.caojun.calendar.widget.WeekLabelView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white" />
+
+    <org.caojun.calendar.monthswitchpager.view.MonthRecyclerView
+        android:id="@+id/monthRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white" />
+
+</LinearLayout>
