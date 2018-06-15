@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.sdkVersion
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion rootProject.ext.sdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildToolsVersion '27.0.3'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:$androidsupport_version"
+    implementation 'org.jetbrains.anko:anko-common:latest.release'
+    implementation 'com.kirich1409.svgplugin:glide4:latest.release'
+}
