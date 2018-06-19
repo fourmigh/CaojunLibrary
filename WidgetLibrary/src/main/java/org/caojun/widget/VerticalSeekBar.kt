@@ -19,7 +19,7 @@ class VerticalSeekBar: AppCompatSeekBar {
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        for (i in 0..(attrs?.attributeCount?:0 - 1)) {
+        for (i in 0 until (attrs?.attributeCount?:0)) {
             if (attrs?.getAttributeName(i) == "textDirection") {
                 //有设置该属性，即认为是向上
                 isDown = false
@@ -116,16 +116,16 @@ class VerticalSeekBar: AppCompatSeekBar {
 
         // 下面是最小值
         if (y > height - bottom) {
-            if (isDown) {
-                scale = 1.0f
+            scale = if (isDown) {
+                1.0f
             } else {
-                scale = 0.0f
+                0.0f
             }
         } else if (y < top) {
-            if (isDown) {
-                scale = 0.0f
+            scale = if (isDown) {
+                0.0f
             } else {
-                scale = 1.0f
+                1.0f
             }
         } else {
             if (isDown) {
