@@ -3,7 +3,6 @@ package org.caojun.countdown
 import android.app.Activity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_countdown.*
-import org.caojun.library.countdown.R
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
