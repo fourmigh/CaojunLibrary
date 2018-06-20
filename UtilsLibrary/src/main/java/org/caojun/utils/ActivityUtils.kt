@@ -110,6 +110,15 @@ object ActivityUtils {
         context.startActivity(Intent.createChooser(intent, title))
     }
 
+    fun shareText(context: Context, title: String, msg: String) {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+
+        intent.putExtra(Intent.EXTRA_SUBJECT, title)
+        intent.putExtra(Intent.EXTRA_TEXT, msg)
+        context.startActivity(Intent.createChooser(intent, title))
+    }
+
     fun copyClipboardData(context: Context, clipboardData: String) {
         val clipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clipData = ClipData.newPlainText(null, clipboardData)
