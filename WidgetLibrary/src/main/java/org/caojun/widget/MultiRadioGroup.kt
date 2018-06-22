@@ -44,7 +44,7 @@ class MultiRadioGroup: RadioGroup {
         val childCount = childCount
         val maxWidth = r - l
         var x = 0
-        var y = 0
+        var y: Int
         var row = 0
         for (i in 0 until childCount) {
             val child = this.getChildAt(i)

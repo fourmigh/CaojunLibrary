@@ -27,6 +27,7 @@ repositories {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$androidsupport_version"
     implementation 'org.jetbrains.anko:anko-common:latest.release'
     implementation 'com.kirich1409.svgplugin:glide4:latest.release'
