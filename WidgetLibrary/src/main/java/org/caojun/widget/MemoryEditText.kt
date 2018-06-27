@@ -25,9 +25,15 @@ class MemoryEditText: AppCompatEditText, View.OnFocusChangeListener, TextWatcher
     private val array = ArrayList<String>()
     private var isInitSaved = false
 
-    constructor(context: Context?) : this(context, null)
-    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, android.R.attr.editTextStyle)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+//    constructor(context: Context?) : this(context, null)
+//    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, android.R.attr.editTextStyle)
+//    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+//        initView(attrs)
+//        loadText()
+//        doCheckButton()
+//    }
+
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle) : super(context, attrs, defStyleAttr) {
         initView(attrs)
         loadText()
         doCheckButton()

@@ -50,15 +50,24 @@ class MultilineGridView : HorizontalScrollView {
         }
     }
 
-    constructor(context: Context?) : this(context, null)
-    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+//    constructor(context: Context?) : this(context, null)
+//    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
+//    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+//        initialize(attrs)
+//    }
+
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         initialize(attrs)
     }
 
     private fun initialize(attrs: AttributeSet?) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.view_multiline_gridview, this)
+
+        if (attrs == null) {
+            return
+        }
+
         var ta = context.obtainStyledAttributes(attrs, R.styleable.MultilineGridView)
         Lines = ta.getInteger(R.styleable.MultilineGridView_numLines, Lines)
         Columns = ta.getInteger(R.styleable.MultilineGridView_numColumns, Columns)

@@ -16,9 +16,19 @@ class VerticalSeekBar: AppCompatSeekBar {
     private var mIsDragging: Boolean = false
     private var isDown = true
 
-    constructor(context: Context?) : this(context, null)
-    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+//    constructor(context: Context?) : this(context, null)
+//    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
+//    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+//        for (i in 0 until (attrs?.attributeCount?:0)) {
+//            if (attrs?.getAttributeName(i) == "textDirection") {
+//                //有设置该属性，即认为是向上
+//                isDown = false
+//                break
+//            }
+//        }
+//    }
+
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
         for (i in 0 until (attrs?.attributeCount?:0)) {
             if (attrs?.getAttributeName(i) == "textDirection") {
                 //有设置该属性，即认为是向上

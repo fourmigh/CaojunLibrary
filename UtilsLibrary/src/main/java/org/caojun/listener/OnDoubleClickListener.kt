@@ -19,6 +19,7 @@ class OnDoubleClickListener(callback: DoubleClickCallback) : View.OnTouchListene
     }
 
     override fun onTouch(v: View, event: MotionEvent): Boolean {
+        var result = false
         if (MotionEvent.ACTION_DOWN == event.action) {
             count++
             if (1 == count) {
@@ -29,13 +30,14 @@ class OnDoubleClickListener(callback: DoubleClickCallback) : View.OnTouchListene
                     mCallback?.onDoubleClick()
                     count = 0
                     firClick = 0
+                    result = true
                 } else {
                     firClick = secClick
-                    count = 1
+                    count = 0
                 }
                 secClick = 0
             }
         }
-        return true
+        return result
     }
 }

@@ -10,8 +10,10 @@ import android.widget.RadioGroup
  */
 class MultiRadioGroup: RadioGroup {
 
-    constructor(context: Context?) : this(context, null)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+//    constructor(context: Context?) : this(context, null)
+//    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+
+    constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs)
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val maxWidth = View.MeasureSpec.getSize(widthMeasureSpec)

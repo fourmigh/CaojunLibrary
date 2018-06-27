@@ -18,23 +18,29 @@ class SeekBarPreference: DialogPreference, DialogInterface.OnClickListener, Seek
     private val ANDROIDNS = "http://schemas.android.com/apk/res/android"
     private var mSeekBar: SeekBar? = null
     private var mValueText: TextView? = null
-    private var mContext: Context? = null
+//    private var mContext: Context? = null
     private var mDefault = 24
     private var mMax = 24
     private var mValue = 24
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-        mContext = context
+//    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+//        mContext = context
+//        mDefault = attrs?.getAttributeIntValue(ANDROIDNS, "defaultValue", 24)?:24
+//        mMax = attrs?.getAttributeIntValue(ANDROIDNS, "max", 24)?:24
+//    }
+
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+//        mContext = context
         mDefault = attrs?.getAttributeIntValue(ANDROIDNS, "defaultValue", 24)?:24
         mMax = attrs?.getAttributeIntValue(ANDROIDNS, "max", 24)?:24
     }
 
     override fun onCreateDialogView(): View {
-        val layout = LinearLayout(mContext)
+        val layout = LinearLayout(context)
         layout.orientation = LinearLayout.VERTICAL
         layout.setPadding(6, 6, 6, 6)
 
-        mValueText = TextView(mContext)
+        mValueText = TextView(context)
         mValueText?.gravity = Gravity.CENTER_HORIZONTAL
         mValueText?.textSize = 32f
         val params = LinearLayout.LayoutParams(
@@ -42,7 +48,7 @@ class SeekBarPreference: DialogPreference, DialogInterface.OnClickListener, Seek
                 LinearLayout.LayoutParams.WRAP_CONTENT)
         layout.addView(mValueText, params)
 
-        mSeekBar = SeekBar(mContext)
+        mSeekBar = SeekBar(context)
         mSeekBar?.setOnSeekBarChangeListener(this)
         layout.addView(mSeekBar, LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
 

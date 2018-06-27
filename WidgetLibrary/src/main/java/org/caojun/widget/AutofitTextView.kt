@@ -11,11 +11,15 @@ import android.widget.TextView
 class AutofitTextView: TextView, AutofitHelper.OnTextSizeChangeListener {
     private var mHelper: AutofitHelper? = null
 
-    constructor(context: Context): this(context, null)
+//    constructor(context: Context): this(context, null)
+//
+//    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
+//
+//    constructor(context: Context, attrs: AttributeSet?, defStyle: Int): super(context, attrs, defStyle) {
+//        init(attrs, defStyle)
+//    }
 
-    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
-
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int): super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0): super(context, attrs, defStyle) {
         init(attrs, defStyle)
     }
 
