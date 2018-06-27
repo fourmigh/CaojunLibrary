@@ -48,7 +48,7 @@ open class ProgressVelocimeterPainterImp: VelocimeterPainter, ProgressVelocimete
             return
         }
         mShader = SweepGradient((width / 2).toFloat(), (height / 2).toFloat(), colors, null)
-        var mMatrix = Matrix()
+        val mMatrix = Matrix()
         mMatrix.setRotate(90f, (width / 2).toFloat(), (height / 2).toFloat())
         mShader?.setLocalMatrix(mMatrix)
         paint.shader = mShader

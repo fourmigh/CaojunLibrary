@@ -103,10 +103,10 @@ class VelocimeterView: View {
 
     private fun initValueAnimator() {
         progressValueAnimator = ValueAnimator()
-        progressValueAnimator?.setInterpolator(interpolator)
+        progressValueAnimator?.interpolator = interpolator
         progressValueAnimator?.addUpdateListener(ProgressAnimatorListenerImp())
         nidleValueAnimator = ValueAnimator()
-        nidleValueAnimator?.setInterpolator(AccelerateDecelerateInterpolator())
+        nidleValueAnimator?.interpolator = AccelerateDecelerateInterpolator()
         nidleValueAnimator?.addUpdateListener(NeedleAnimatorListenerImp())
     }
 

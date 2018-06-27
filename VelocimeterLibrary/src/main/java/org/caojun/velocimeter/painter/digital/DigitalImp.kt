@@ -15,8 +15,8 @@ open class DigitalImp: VelocimeterPainter, Digital {
 
     private var progress: Float = 0f
     private var typeface: Typeface? = null
-    protected var digitPaint: Paint = Paint()
-    protected var textPaint: Paint = Paint()
+    protected val digitPaint: Paint = Paint()
+    private val textPaint: Paint = Paint()
     private var textSize: Float = 0f
     private var marginTop: Int = 0
     private var centerX: Float = 0f
@@ -40,7 +40,7 @@ open class DigitalImp: VelocimeterPainter, Digital {
         digitPaint.color = colors[0]
         digitPaint.typeface = typeface
         digitPaint.textAlign = Paint.Align.CENTER
-        textPaint = TextPaint()
+//        textPaint = TextPaint()
         textPaint.isAntiAlias = true
         textPaint.textSize = textSize / 3
         textPaint.color = colors[0]
