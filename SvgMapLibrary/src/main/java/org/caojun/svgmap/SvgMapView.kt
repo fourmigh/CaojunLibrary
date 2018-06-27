@@ -62,7 +62,7 @@ class SvgMapView: ScaleCanvasView {
 
     fun hasMap(mapName: String): Boolean {
         return try {
-            var name = mapName.replace('-', '_').toLowerCase()
+            val name = mapName.replace('-', '_').toLowerCase()
             //打开输入流
             val resId = resources.getIdentifier("map_$name", "raw", context.packageName)
             inputStream = resources.openRawResource(resId)
@@ -106,12 +106,12 @@ class SvgMapView: ScaleCanvasView {
                     val defs = de.getElementsByTagName("amcharts:ammap")
                     if (defs != null) {
                         val ammap = defs.item(0) as Element
-                        if (ammap != null) {
+//                        if (ammap != null) {
                             leftLongitude = ammap.getAttribute("leftLongitude")
                             topLatitude = ammap.getAttribute("topLatitude")
                             rightLongitude = ammap.getAttribute("rightLongitude")
                             bottomLatitude = ammap.getAttribute("bottomLatitude")
-                        }
+//                        }
                     }
                 }
                 ////////////////////////////////////////////////////////////////////////

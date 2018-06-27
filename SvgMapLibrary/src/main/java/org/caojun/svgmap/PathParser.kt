@@ -67,7 +67,7 @@ object PathParser {
         while (end < pathData.length) {
             end = nextStart(pathData, end)
             val s = pathData.substring(start, end).trim { it <= ' ' }
-            if (s.length > 0) {
+            if (s.isNotEmpty()) {
                 val `val` = getFloats(s)
                 addNode(list, s[0], `val`)
             }
@@ -237,7 +237,7 @@ object PathParser {
 
             private fun addCommand(path: Path, current: FloatArray,
                                    previousCmd: Char, cmd: Char, `val`: FloatArray) {
-                var previousCmd = previousCmd
+                var preCmd = previousCmd
 
                 var incr = 2
                 var currentX = current[0]
@@ -356,8 +356,8 @@ object PathParser {
                         -> {
                             reflectiveCtrlPointX = 0f
                             reflectiveCtrlPointY = 0f
-                            if (previousCmd == 'c' || previousCmd == 's'
-                                    || previousCmd == 'C' || previousCmd == 'S') {
+                            if (preCmd == 'c' || preCmd == 's'
+                                    || preCmd == 'C' || preCmd == 'S') {
                                 reflectiveCtrlPointX = currentX - ctrlPointX
                                 reflectiveCtrlPointY = currentY - ctrlPointY
                             }
@@ -374,8 +374,8 @@ object PathParser {
                         -> {
                             reflectiveCtrlPointX = currentX
                             reflectiveCtrlPointY = currentY
-                            if (previousCmd == 'c' || previousCmd == 's'
-                                    || previousCmd == 'C' || previousCmd == 'S') {
+                            if (preCmd == 'c' || preCmd == 's'
+                                    || preCmd == 'C' || preCmd == 'S') {
                                 reflectiveCtrlPointX = 2 * currentX - ctrlPointX
                                 reflectiveCtrlPointY = 2 * currentY - ctrlPointY
                             }
@@ -406,8 +406,8 @@ object PathParser {
                         -> {
                             reflectiveCtrlPointX = 0f
                             reflectiveCtrlPointY = 0f
-                            if (previousCmd == 'q' || previousCmd == 't'
-                                    || previousCmd == 'Q' || previousCmd == 'T') {
+                            if (preCmd == 'q' || preCmd == 't'
+                                    || preCmd == 'Q' || preCmd == 'T') {
                                 reflectiveCtrlPointX = currentX - ctrlPointX
                                 reflectiveCtrlPointY = currentY - ctrlPointY
                             }
@@ -422,8 +422,8 @@ object PathParser {
                         -> {
                             reflectiveCtrlPointX = currentX
                             reflectiveCtrlPointY = currentY
-                            if (previousCmd == 'q' || previousCmd == 't'
-                                    || previousCmd == 'Q' || previousCmd == 'T') {
+                            if (preCmd == 'q' || preCmd == 't'
+                                    || preCmd == 'Q' || preCmd == 'T') {
                                 reflectiveCtrlPointX = 2 * currentX - ctrlPointX
                                 reflectiveCtrlPointY = 2 * currentY - ctrlPointY
                             }
@@ -470,7 +470,7 @@ object PathParser {
                             ctrlPointY = currentY
                         }
                     }
-                    previousCmd = cmd
+                    preCmd = cmd
                     k += incr
                 }
                 current[0] = currentX
