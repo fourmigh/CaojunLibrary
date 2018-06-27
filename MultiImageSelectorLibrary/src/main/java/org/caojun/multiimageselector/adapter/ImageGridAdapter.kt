@@ -36,13 +36,12 @@ class ImageGridAdapter: BaseAdapter {
         mContext = context
         this.showCamera = showCamera
         val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        var width: Int
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+        val width = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             val size = Point()
             wm.defaultDisplay.getSize(size)
-            width = size.x
+            size.x
         } else {
-            width = wm.defaultDisplay.width
+            wm.defaultDisplay.width
         }
         mGridWidth = width / column
     }
@@ -169,14 +168,11 @@ class ImageGridAdapter: BaseAdapter {
     }
 
     internal inner class ViewHolder(view: View) {
-        var image: ImageView
-        var indicator: ImageView
-        var mask: View
+        private val image = view.findViewById<ImageView>(R.id.image)
+        private val indicator = view.findViewById<ImageView>(R.id.checkmark)
+        private val mask = view.findViewById<View>(R.id.mask)
 
         init {
-            image = view.findViewById<View>(R.id.image) as ImageView
-            indicator = view.findViewById(R.id.checkmark) as ImageView
-            mask = view.findViewById(R.id.mask)
             view.tag = this
         }
 

@@ -16,7 +16,7 @@ import java.util.ArrayList
 /**
  * Created by CaoJun on 2017-12-20.
  */
-class MultiImageSelector {
+class MultiImageSelector() {
     companion object {
         @JvmField
         val EXTRA_RESULT = MultiImageSelectorActivity.EXTRA_RESULT
@@ -36,7 +36,7 @@ class MultiImageSelector {
     private var mMode = MultiImageSelectorActivity.MODE_MULTI
     private var mOriginData: ArrayList<String>? = null
 
-    constructor()
+//    constructor()
 
     fun showCamera(show: Boolean): MultiImageSelector {
         mShowCamera = show

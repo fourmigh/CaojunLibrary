@@ -45,7 +45,7 @@ import java.util.ArrayList
  */
 class MultiImageSelectorFragment: Fragment() {
     companion object {
-        val TAG = "MultiImageSelectorFragment"
+//        val TAG = "MultiImageSelectorFragment"
         private val REQUEST_STORAGE_WRITE_ACCESS_PERMISSION = 110
         private val REQUEST_CAMERA = 100
 
