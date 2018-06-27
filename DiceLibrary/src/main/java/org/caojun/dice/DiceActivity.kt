@@ -1,5 +1,6 @@
 package org.caojun.dice
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -64,7 +65,8 @@ class DiceActivity : Activity() {
         }).start()
     }
 
-    private val handler = object : Handler() {
+    private val handler = @SuppressLint("HandlerLeak")
+    object : Handler() {
         override fun handleMessage(msg: Message) {
             dice[0] = 0
             for (i in 1..number) {

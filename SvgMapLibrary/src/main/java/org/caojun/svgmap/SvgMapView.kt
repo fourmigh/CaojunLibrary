@@ -21,9 +21,9 @@ class SvgMapView: ScaleCanvasView {
     //保存path对象
     private val pathItems = ArrayList<PathItem>()
 
-    constructor(context: Context): this(context, null)
+//    constructor(context: Context): this(context, null)
 
-    constructor(context: Context, attrs: AttributeSet?): super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet? = null): super(context, attrs) {
         //关闭硬件加速
         setLayerType(View.LAYER_TYPE_SOFTWARE, null)
 

@@ -5,7 +5,7 @@ import android.graphics.*
 
 class PathItem {
 
-    val context: Context
+    private val context: Context
     val index: Int
     val id: String
     val title: String
@@ -14,9 +14,9 @@ class PathItem {
     private var colorSelected: Int = Color.BLUE
     private var colorUnselected: Int = Color.GRAY
 
-    constructor(context: Context, index: Int, id: String, title: String, path: Path): this(context, index, id, title, path, Color.BLUE, Color.GRAY)
+//    constructor(context: Context, index: Int, id: String, title: String, path: Path): this(context, index, id, title, path, Color.BLUE, Color.GRAY)
 
-    constructor(context: Context, index: Int, id: String, title: String, path: Path, colorSelected: Int, colorUnselected: Int) {
+    constructor(context: Context, index: Int, id: String, title: String, path: Path, colorSelected: Int = Color.BLUE, colorUnselected: Int = Color.GRAY) {
         this.context = context
         this.index = index
         this.id = id.replace('-', '_').toLowerCase()

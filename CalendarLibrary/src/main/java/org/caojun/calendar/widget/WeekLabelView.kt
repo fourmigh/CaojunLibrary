@@ -21,11 +21,16 @@ class WeekLabelView: View {
     private var mTextSize: Float = 0.toFloat()
     private var mRowHeight: Int = 0
 
-    constructor(context: Context): this(context, null)
+//    constructor(context: Context): this(context, null)
+//
+//    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
+//
+//    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int): super(context, attrs, defStyleAttr) {
+//        initPaint()
+//        initData()
+//    }
 
-    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int): super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): super(context, attrs, defStyleAttr) {
         initPaint()
         initData()
     }

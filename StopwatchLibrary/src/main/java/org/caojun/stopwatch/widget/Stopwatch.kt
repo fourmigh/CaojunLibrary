@@ -36,9 +36,9 @@ class Stopwatch: View {
     private var mHeight = 0
     private val MaxMill = 999
 
-    constructor(context: Context): this(context, null)
+//    constructor(context: Context): this(context, null)
 
-    constructor(context: Context, attrs: AttributeSet?): super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet? = null): super(context, attrs) {
         init()
     }
 

@@ -44,7 +44,7 @@ class ColorActivity: Activity() {
         val sbColors = arrayOf(sbR, sbG, sbB)
 
         for (i in ivMinuses.indices) {
-            ivMinuses[i].setOnClickListener({
+            ivMinuses[i].setOnClickListener {
                 try {
                     var color = Integer.parseInt(etColors[i].text.toString())
                     color--
@@ -56,11 +56,11 @@ class ColorActivity: Activity() {
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-            })
+            }
         }
 
         for (i in ivPluses.indices) {
-            ivPluses[i].setOnClickListener({
+            ivPluses[i].setOnClickListener {
                 try {
                     var color = Integer.parseInt(etColors[i].text.toString())
                     color++
@@ -72,7 +72,7 @@ class ColorActivity: Activity() {
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-            })
+            }
         }
 
         for (i in etColors.indices) {

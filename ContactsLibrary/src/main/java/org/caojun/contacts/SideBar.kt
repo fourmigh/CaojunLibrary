@@ -13,11 +13,11 @@ import java.util.*
 
 class SideBar: View {
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int): super(context, attrs, defStyle)
+    constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0): super(context, attrs, defStyle)
 
-    constructor(context: Context, attrs: AttributeSet): super(context, attrs)
+//    constructor(context: Context, attrs: AttributeSet): super(context, attrs)
 
-    constructor(context: Context): super(context)
+//    constructor(context: Context): super(context)
 
     interface OnTouchLetterChangedListener {
         fun onTouchLetterChanged(c: Char)

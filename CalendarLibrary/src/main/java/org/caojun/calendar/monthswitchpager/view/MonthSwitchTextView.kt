@@ -27,12 +27,16 @@ class MonthSwitchTextView: RelativeLayout {
     private var mMonthRecyclerView: MonthRecyclerView? = null
     private var mPrePosition: Int = 0
 
-    constructor(context: Context): this(context, null)
+//    constructor(context: Context): this(context, null)
+//
+//    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
+//
+//    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int): super(context, attrs, defStyleAttr) {
+//        initialize(context/*, attrs, defStyleAttr*/)
+//    }
 
-    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int): super(context, attrs, defStyleAttr) {
-        initialize(context/*, attrs, defStyleAttr*/)
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): super(context, attrs, defStyleAttr) {
+        initialize(context)
     }
 
     private fun initialize(context: Context/*, attrs: AttributeSet?, defStyleAttr: Int*/) {
@@ -41,15 +45,15 @@ class MonthSwitchTextView: RelativeLayout {
         mIconRight = view.findViewById(R.id.icon2)
         mTextTitle = view.findViewById(R.id.text)
 
-        mIconLeft?.setOnClickListener({
+        mIconLeft?.setOnClickListener {
             mPosition--
             scrollToPosition()
-        })
+        }
 
-        mIconRight?.setOnClickListener({
+        mIconRight?.setOnClickListener {
             mPosition++
             scrollToPosition()
-        })
+        }
     }
 
     private fun scrollToPosition() {
