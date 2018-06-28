@@ -51,8 +51,8 @@ class NumberPickerDialog: AlertDialog, DialogInterface.OnClickListener, NumberPi
     }
 
     override fun onValueChange(picker: NumberPicker?, oldValue: Int, newValue: Int) {
-        this.oldValue = oldValue;
-        this.newValue = newValue;
+        this.oldValue = oldValue
+        this.newValue = newValue
     }
 
     override fun onSaveInstanceState(): Bundle {

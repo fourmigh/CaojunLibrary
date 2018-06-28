@@ -58,7 +58,7 @@ class WebViewDialog: Activity() {
             clipboardManager.primaryClip = clipData
         }
         if (!TextUtils.isEmpty(toastInfo)) {
-            toast(toastInfo!!).show()
+            toast(toastInfo!!)//.show()
         }
     }
 }

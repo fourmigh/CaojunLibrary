@@ -62,7 +62,8 @@ class AutofitLayout: FrameLayout {
         if (mMinTextSize > 0) {
             helper.setMinTextSize(TypedValue.COMPLEX_UNIT_PX, mMinTextSize)
         }
-        mHelpers.put(textView, helper)
+//        mHelpers.put(textView, helper)
+        mHelpers[textView] = helper
     }
 
     /**

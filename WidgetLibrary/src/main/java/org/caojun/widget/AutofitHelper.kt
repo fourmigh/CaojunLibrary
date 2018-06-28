@@ -1,5 +1,6 @@
 package org.caojun.widget
 
+import android.content.Context
 import android.content.res.Resources
 import android.os.Build
 import android.text.*
@@ -26,19 +27,19 @@ class AutofitHelper {
          * Creates a new instance of `AutofitHelper` that wraps a [TextView] and enables
          * automatically sizing the text to fit.
          */
-        fun create(view: TextView): AutofitHelper = create(view, null, 0)
+//        fun create(view: TextView): AutofitHelper = create(view, null, 0)
 
         /**
          * Creates a new instance of `AutofitHelper` that wraps a [TextView] and enables
          * automatically sizing the text to fit.
          */
-        fun create(view: TextView, attrs: AttributeSet): AutofitHelper = create(view, attrs, 0)
+//        fun create(view: TextView, attrs: AttributeSet): AutofitHelper = create(view, attrs, 0)
 
         /**
          * Creates a new instance of `AutofitHelper` that wraps a [TextView] and enables
          * automatically sizing the text to fit.
          */
-        fun create(view: TextView, attrs: AttributeSet?, defStyle: Int): AutofitHelper {
+        fun create(view: TextView, attrs: AttributeSet? = null, defStyle: Int = 0): AutofitHelper {
             val helper = AutofitHelper(view)
             var sizeToFit = true
             if (attrs != null) {
@@ -85,16 +86,18 @@ class AutofitHelper {
         }
 
         val context = view.context
-        var r = Resources.getSystem()
+//        var r = Resources.getSystem()
         val displayMetrics: DisplayMetrics
 
         var size = maxTextSize
         val high = size
         val low = 0f
 
-        if (context != null) {
-            r = context.resources
-        }
+//        if (context != null) {
+//            r = context.resources
+//        }
+
+        val r = getResources(context)
         displayMetrics = r.displayMetrics
 
         paint.set(view.paint)
@@ -129,35 +132,32 @@ class AutofitHelper {
             lineCount = layout.lineCount
         }
 
-        if (lineCount > maxLines) {
-            // For the case that `text` has more newline characters than `maxLines`.
-            return if (high - low < precision) {
-                low
-            } else getAutofitTextSize(text, paint, targetWidth, maxLines, low, mid, precision, displayMetrics)
-        } else if (lineCount < maxLines) {
-            return getAutofitTextSize(text, paint, targetWidth, maxLines, mid, high, precision, displayMetrics)
-        } else {
-            var maxLineWidth = 0f
-            if (maxLines == 1) {
-                maxLineWidth = paint.measureText(text, 0, text.length)
-            } else {
-                for (i in 0..lineCount - 1) {
-                    if (layout!!.getLineWidth(i) > maxLineWidth) {
-                        maxLineWidth = layout.getLineWidth(i)
+        when {
+            lineCount > maxLines -> // For the case that `text` has more newline characters than `maxLines`.
+                return if (high - low < precision) {
+                    low
+                } else getAutofitTextSize(text, paint, targetWidth, maxLines, low, mid, precision, displayMetrics)
+            lineCount < maxLines -> return getAutofitTextSize(text, paint, targetWidth, maxLines, mid, high, precision, displayMetrics)
+            else -> {
+                var maxLineWidth = 0f
+                if (maxLines == 1) {
+                    maxLineWidth = paint.measureText(text, 0, text.length)
+                } else {
+                    for (i in 0..lineCount - 1) {
+                        if (layout!!.getLineWidth(i) > maxLineWidth) {
+                            maxLineWidth = layout.getLineWidth(i)
+                        }
                     }
                 }
-            }
 
-            return if (high - low < precision) {
-                low
-            } else if (maxLineWidth > targetWidth) {
-                getAutofitTextSize(text, paint, targetWidth, maxLines, low, mid, precision,
-                        displayMetrics)
-            } else if (maxLineWidth < targetWidth) {
-                getAutofitTextSize(text, paint, targetWidth, maxLines, mid, high, precision,
-                        displayMetrics)
-            } else {
-                mid
+                return when {
+                    high - low < precision -> low
+                    maxLineWidth > targetWidth -> getAutofitTextSize(text, paint, targetWidth, maxLines, low, mid, precision,
+                            displayMetrics)
+                    maxLineWidth < targetWidth -> getAutofitTextSize(text, paint, targetWidth, maxLines, mid, high, precision,
+                            displayMetrics)
+                    else -> mid
+                }
             }
         }
     }
@@ -274,9 +274,9 @@ class AutofitHelper {
      *
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
-    fun setMinTextSize(size: Float): AutofitHelper {
-        return setMinTextSize(TypedValue.COMPLEX_UNIT_SP, size)
-    }
+//    fun setMinTextSize(size: Float): AutofitHelper {
+//        return setMinTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+//    }
 
     /**
      * Set the minimum text size to a given unit and value. See TypedValue for the possible
@@ -287,13 +287,15 @@ class AutofitHelper {
      *
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
-    fun setMinTextSize(unit: Int, size: Float): AutofitHelper {
+    fun setMinTextSize(unit: Int = TypedValue.COMPLEX_UNIT_SP, size: Float): AutofitHelper {
         val context = mTextView?.context
-        var r = Resources.getSystem()
+//        var r = Resources.getSystem()
+//
+//        if (context != null) {
+//            r = context.resources
+//        }
 
-        if (context != null) {
-            r = context.resources
-        }
+        val r = getResources(context)
 
         setRawMinTextSize(TypedValue.applyDimension(unit, size, r.displayMetrics))
         return this
@@ -333,11 +335,13 @@ class AutofitHelper {
      */
     fun setMaxTextSize(unit: Int, size: Float): AutofitHelper {
         val context = mTextView?.context
-        var r = Resources.getSystem()
+//        var r = Resources.getSystem()
+//
+//        if (context != null) {
+//            r = context.resources
+//        }
 
-        if (context != null) {
-            r = context.resources
-        }
+        val r = getResources(context)
 
         setRawMaxTextSize(TypedValue.applyDimension(unit, size, r.displayMetrics))
         return this
@@ -407,27 +411,29 @@ class AutofitHelper {
      *
      * @see TextView.setTextSize
      */
-    fun setTextSize(size: Float) {
-        setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
-    }
+//    fun setTextSize(size: Float) {
+//        setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
+//    }
 
     /**
      * Set the original text size of the View.
      *
      * @see TextView.setTextSize
      */
-    fun setTextSize(unit: Int, size: Float) {
+    fun setTextSize(unit: Int = TypedValue.COMPLEX_UNIT_SP, size: Float) {
         if (mIsAutofitting) {
             // We don't want to update the TextView's actual textSize while we're autofitting
             // since it'd get set to the autofitTextSize
             return
         }
         val context = mTextView?.context
-        var r = Resources.getSystem()
+//        var r = Resources.getSystem()
+//
+//        if (context != null) {
+//            r = context.resources
+//        }
 
-        if (context != null) {
-            r = context.resources
-        }
+        val r = getResources(context)
 
         setRawTextSize(TypedValue.applyDimension(unit, size, r.displayMetrics))
     }
@@ -493,5 +499,9 @@ class AutofitHelper {
          * `textSize` from `oldTextSize`.
          */
         fun onTextSizeChange(textSize: Float, oldTextSize: Float)
+    }
+
+    private fun getResources(context: Context?): Resources {
+        return if (context == null) Resources.getSystem() else context.resources
     }
 }

@@ -12,8 +12,8 @@ class DecimalDigitsInputFilter: InputFilter {
 
     private var decimalDigits: Int = 2
 
-    constructor(): this(2)
-    constructor(decimalDigits: Int) {
+//    constructor(): this(2)
+    constructor(decimalDigits: Int = 2) {
         this.decimalDigits = decimalDigits
     }
 
