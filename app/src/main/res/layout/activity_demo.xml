@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <org.caojun.ruler.RulerView
+            android:id="@+id/rulerView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:alphaEnable="true"
+            app:lineColor="@android:color/darker_gray"
+            app:lineMaxHeight="40dp"
+            app:lineMidHeight="30dp"
+            app:lineMinHeight="20dp"
+            app:lineSpaceWidth="10dp"
+            app:lineWidth="2dip"
+            app:textColor="@android:color/black"
+            app:minValue="0"
+            app:maxValue="100000"
+            app:perValue="1000"
+            app:selectorValue="20000"
+            app:isTextTop="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <org.caojun.ruler.RulerView
+            android:id="@+id/rulerView2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:alphaEnable="true"
+            app:lineColor="@android:color/darker_gray"
+            app:lineMaxHeight="40dp"
+            app:lineMidHeight="30dp"
+            app:lineMinHeight="20dp"
+            app:lineSpaceWidth="10dp"
+            app:lineWidth="2dip"
+            app:textColor="@android:color/black"
+            app:minValue="80.0"
+            app:maxValue="250.0"
+            app:perValue="1"
+            app:selectorValue="165.0"
+            app:isTextTop="false"/>
+    </LinearLayout>
+
+
+</LinearLayout>
