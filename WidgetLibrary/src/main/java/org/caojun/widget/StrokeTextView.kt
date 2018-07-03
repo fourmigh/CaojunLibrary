@@ -15,13 +15,9 @@ class StrokeTextView: TextView {
 
     private var mTextColor = 0
 
-//    constructor(context: Context?) : this(context, null)
-//    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
-//    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-//        mTextColor = this.currentTextColor
-//    }
-
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context?) : this(context, null)
+    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         mTextColor = this.currentTextColor
     }
 

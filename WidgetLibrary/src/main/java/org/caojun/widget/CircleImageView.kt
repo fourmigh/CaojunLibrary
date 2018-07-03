@@ -35,19 +35,9 @@ class CircleImageView: ImageView {
     private var mBitmapShader: BitmapShader? = null
     private var mRadius: Float = 0f
 
-//    constructor(context: Context): super(context) {
-//        init()
-//    }
-//
-//    constructor(context: Context, attrs: AttributeSet): super(context, attrs) {
-//        init()
-//    }
-//
-//    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int): super(context, attrs, defStyleAttr) {
-//        init()
-//    }
-
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): super(context, attrs, defStyleAttr) {
+    constructor(context: Context): this(context, null)
+    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int): super(context, attrs, defStyleAttr) {
         init()
     }
 

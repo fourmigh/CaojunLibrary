@@ -67,5 +67,79 @@
             app:isTextTop="false"/>
     </LinearLayout>
 
+    <org.caojun.roundtextview.RoundTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="Round me up !"
+        android:textColor="#fff"
+        app:allCorner="16dp"
+        app:bgColor="#456432" />
+
+    <org.caojun.roundtextview.RoundLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        app:allCorner="16dp"
+        app:bgColor="#EA3238">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Round Any View Group"
+                android:textColor="#fff" />
+
+        </RelativeLayout>
+
+    </org.caojun.roundtextview.RoundLayout>
+
+    <org.caojun.roundtextview.BadgeView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:mainAllCorner="30dp"
+        app:mainText="Wait for transfer"
+        app:subAllCorner="30dp" />
+
+    <org.caojun.roundtextview.BadgeView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:mainAllCorner="30dp"
+        app:mainBgColor="#598dd0"
+        app:mainText="Ask for address"
+        app:subAllCorner="30dp"
+        app:subText="+ 2" />
+
+    <org.caojun.roundtextview.BadgeView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:mainAllCorner="30dp"
+        app:mainBgColor="#6407c1"
+        app:mainText="A very very long long tag g g g g"
+        app:subAllCorner="30dp" />
+
+
+    <org.caojun.roundtextview.BadgeView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:mainAllCorner="30dp"
+        app:mainBgColor="#bab8bc"
+        app:mainText="A very very long long tag g g g g"
+        app:subAllCorner="30dp"
+        app:subText="+ 2" />
 
 </LinearLayout>

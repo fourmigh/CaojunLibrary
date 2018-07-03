@@ -74,7 +74,7 @@ class ParticleView: View {
     private val mStartMinP = PointF()
     private val mEndMinP = PointF()
 
-//    constructor(context: Context, attrs: AttributeSet): this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet): this(context, attrs, 0)
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int = 0): super(context, attrs, defStyleAttr) {
         initView(attrs)

@@ -43,22 +43,9 @@ class DigitalKeyboard: TableLayout, View.OnClickListener {
     private var inputType: Int = 0
     private var isMobile = false
 
-//    constructor(context: Context?) : this(context, null)
-//    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-//        val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-//        inflater.inflate(R.layout.digital_keyboard, this)
-//
-//        buttons = arrayOfNulls(ResId.size)
-//        for (i in ResId.indices) {
-//            buttons[i] = this.findViewById(ResId[i])
-//            buttons[i]?.setOnClickListener(this)
-//        }
-//
-//        visibility = View.GONE
-//    }
-
-    constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs) {
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    constructor(context: Context?) : this(context, null)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+        val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.digital_keyboard, this)
 
         buttons = arrayOfNulls(ResId.size)
