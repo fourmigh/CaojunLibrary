@@ -2,7 +2,9 @@ package org.caojun.library
 
 import android.app.Activity
 import android.os.Bundle
+import com.socks.library.KLog
 import kotlinx.android.synthetic.main.activity_demo.*
+import org.caojun.utils.FormatUtils
 import org.caojun.widget.RulerView
 
 class DemoActivity: Activity() {
@@ -21,5 +23,9 @@ class DemoActivity: Activity() {
             }
 
         })
+
+        KLog.d("numberFormat", FormatUtils.numberFormat(123456789.1))
+        KLog.d("amountFormat", FormatUtils.amountFormat(123456789.2))
+        KLog.d("amount", FormatUtils.amount(123456789.3))
     }
 }

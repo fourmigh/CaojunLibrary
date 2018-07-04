@@ -131,14 +131,16 @@
         app:mainText="A very very long long tag g g g g"
         app:subAllCorner="30dp" />
 
-    <org.caojun.widget.BadgeView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:mainAllCorner="30dp"
-        app:mainBgColor="#bab8bc"
-        app:mainText="A very very long long tag g g g g"
-        app:subAllCorner="30dp"
-        app:subText="+ 2" />
+    <org.caojun.widget.CircleProgressBar
+        android:id="@+id/custom_progress5"
+        app:style="solid_line"
+        app:progress_stroke_width="3dp"
+        app:progress_background_color="@color/holo_darker_gray"
+        app:progress_start_color="@color/holo_green_light"
+        app:progress_end_color="@color/holo_green_light"
+        app:progress_text_color="@color/holo_green_light"
+        app:background_color="@color/holo_purple"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 
 </LinearLayout>

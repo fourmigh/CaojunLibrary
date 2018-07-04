@@ -1,9 +1,9 @@
 package org.caojun.utils
 
-import android.content.Context
 import android.text.TextUtils
 import java.util.Collections
 import java.util.HashSet
+import java.util.regex.Pattern
 
 /**
  * Created by CaoJun on 2017-12-8.
@@ -103,5 +103,15 @@ object MobileUtils {
         val comp = SortComparator()
         Collections.sort<String>(list, comp)
         return list.toTypedArray()
+    }
+
+    fun isMobileNo(mobile: String): Boolean {
+        try {
+            val p = Pattern.compile("^1[3|4|5|7|8][0-9]\\d{8}$")
+            val m = p.matcher(mobile)
+            return m.matches()
+        } catch (e: Exception) {
+        }
+        return false
     }
 }
