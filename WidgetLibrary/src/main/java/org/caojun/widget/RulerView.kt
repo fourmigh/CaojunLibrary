@@ -1,4 +1,4 @@
-package org.caojun.ruler
+package org.caojun.widget
 
 import android.content.Context
 import android.graphics.Canvas

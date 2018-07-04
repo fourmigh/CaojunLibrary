@@ -3,7 +3,7 @@ package org.caojun.library
 import android.app.Activity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_demo.*
-import org.caojun.ruler.RulerView
+import org.caojun.widget.RulerView
 
 class DemoActivity: Activity() {
 

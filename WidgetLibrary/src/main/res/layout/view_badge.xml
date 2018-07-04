@@ -11,7 +11,7 @@
     tools:paddingEnd="8dp"
     tools:paddingStart="8dp"
     tools:paddingTop="4dp"
-    tools:parentTag="org.caojun.roundtextview.RoundLayout">
+    tools:parentTag="org.caojun.widget.RoundLayout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             android:textColor="@android:color/white"
             tools:text="aaaaaaaaaaaaaaaaaa" />
 
-        <org.caojun.roundtextview.RoundTextView
+        <org.caojun.widget.RoundTextView
             android:id="@+id/rtvBadgeSub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -14,4 +14,94 @@
         <attr name="numLines" format="integer"/>
         <attr name="numColumns" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="CircleProgressBar">
+        <attr name="line_count" format="integer"/>
+        <attr name="line_width" format="dimension|reference"/>
+        <attr name="background_color" format="color|reference"/>
+        <attr name="progress_start_color" format="color|reference"/>
+        <attr name="progress_end_color" format="color|reference"/>
+        <attr name="progress_text_color" format="color|reference"/>
+        <attr name="progress_text_size" format="dimension|reference"/>
+        <attr name="progress_stroke_width" format="dimension|reference"/>
+        <attr name="progress_background_color" format="color|reference"/>
+
+        <attr name="style">
+            <enum name="line" value="0"/>
+            <enum name="solid" value="1"/>
+            <enum name="solid_line" value="2"/>
+        </attr>
+
+        <attr name="progress_shader">
+            <enum name="linear" value="0"/>
+            <enum name="radial" value="1"/>
+            <enum name="sweep" value="2"/>
+        </attr>
+
+        <attr name="progress_stroke_cap">
+            <enum name="butt" value="0"/>
+            <enum name="round" value="1"/>
+            <enum name="square" value="2"/>
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="RulerView">
+        <attr name="textColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="lineSpaceWidth" format="dimension"/>
+        <attr name="lineWidth" format="dimension" />
+        <attr name="lineMaxHeight" format="dimension"/>
+        <attr name="lineMidHeight" format="dimension"/>
+        <attr name="lineMinHeight" format="dimension"/>
+        <attr name="textMarginTop" format="dimension"/>
+        <attr name="alphaEnable" format="boolean"/>
+        <attr name="minValue" format="float"/>
+        <attr name="maxValue" format="float"/>
+        <attr name="selectorValue" format="float"/>
+        <attr name="perValue" format="float"/>
+        <attr name="isTextTop" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="TextViewCorner">
+        <attr name="bgColor" format="color"/>
+        <attr name="topLeftCorner" format="dimension"/>
+        <attr name="topRightCorner" format="dimension"/>
+        <attr name="bottomRightCorner" format="dimension"/>
+        <attr name="bottomLeftCorner" format="dimension"/>
+        <attr name="allCorner" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="BadgeView">
+        <attr name="mainText" format="string"/>
+        <attr name="mainTextColor" format="color"/>
+        <attr name="mainTextSize" format="dimension"/>
+        <attr name="mainBgColor" format="color"/>
+        <attr name="mainTopLeftCorner" format="dimension"/>
+        <attr name="mainTopRightCorner" format="dimension"/>
+        <attr name="mainBottomRightCorner" format="dimension"/>
+        <attr name="mainBottomLeftCorner" format="dimension"/>
+        <attr name="mainAllCorner" format="dimension"/>
+        <attr name="subText" format="string"/>
+        <attr name="subTextColor" format="color"/>
+        <attr name="subTextSize" format="dimension"/>
+        <attr name="subBgColor" format="color"/>
+        <attr name="subTopLeftCorner" format="dimension"/>
+        <attr name="subTopRightCorner" format="dimension"/>
+        <attr name="subBottomRightCorner" format="dimension"/>
+        <attr name="subBottomLeftCorner" format="dimension"/>
+        <attr name="subAllCorner" format="dimension"/>
+        <attr name="subMarginLeft" format="dimension"/>
+        <attr name="subMarginTop" format="dimension"/>
+        <attr name="subMarginRight" format="dimension"/>
+        <attr name="subMarginBottom" format="dimension"/>
+        <attr name="subMargin" format="dimension"/>
+        <attr name="subPaddingLeft" format="dimension"/>
+        <attr name="subPaddingTop" format="dimension"/>
+        <attr name="subPaddingRight" format="dimension"/>
+        <attr name="subPaddingBottom" format="dimension"/>
+        <attr name="subPadding" format="dimension"/>
+
+    </declare-styleable>
 </resources>

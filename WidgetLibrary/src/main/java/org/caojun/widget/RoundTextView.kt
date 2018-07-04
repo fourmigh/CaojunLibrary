@@ -1,4 +1,4 @@
-package org.caojun.roundtextview
+package org.caojun.widget
 
 import android.content.Context
 import android.graphics.Color

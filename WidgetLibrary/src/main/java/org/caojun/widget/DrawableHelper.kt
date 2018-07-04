@@ -1,4 +1,4 @@
-package org.caojun.roundtextview
+package org.caojun.widget
 
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.ShapeDrawable
