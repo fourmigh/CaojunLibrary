@@ -122,14 +122,22 @@
         app:subAllCorner="30dp"
         app:subText="+ 2" />
 
-    <org.caojun.widget.BadgeView
+    <org.caojun.widget.StateButton
+        android:id="@+id/text_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:mainAllCorner="30dp"
-        app:mainBgColor="#6407c1"
-        app:mainText="A very very long long tag g g g g"
-        app:subAllCorner="30dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="change text color"
+        app:normalBackgroundColor="@color/colorPrimary"
+        app:normalTextColor="@android:color/white"
+        app:pressedBackgroundColor="@android:color/white"
+        app:pressedTextColor="@android:color/holo_red_light"
+        app:unableBackgroundColor="@android:color/darker_gray"
+        app:unableTextColor="@android:color/holo_orange_dark"
+        app:radius="10dp"
+        app:round="true"/>
 
     <org.caojun.widget.CircleProgressBar
         android:id="@+id/custom_progress5"
