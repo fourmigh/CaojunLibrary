@@ -1,16 +1,19 @@
 package org.caojun.library
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import com.socks.library.KLog
 import kotlinx.android.synthetic.main.activity_demo.*
+import org.caojun.activity.BaseActivity
 import org.caojun.heartrate.HeartRateActivity
+import org.caojun.utils.ActivityUtils
 import org.caojun.utils.FormatUtils
 import org.caojun.widget.RulerView
 import org.jetbrains.anko.startActivityForResult
 
-class DemoActivity: Activity() {
+class DemoActivity: BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +35,16 @@ class DemoActivity: Activity() {
         KLog.d("amount", FormatUtils.amount(123456789.3))
 
         text_test.setOnClickListener {
-            startActivityForResult<HeartRateActivity>(1)
+            checkSelfPermission(Manifest.permission.CAMERA, object : ActivityUtils.RequestPermissionListener {
+
+                override fun onFail() {
+                    finish()
+                }
+
+                override fun onSuccess() {
+                    startActivityForResult<HeartRateActivity>(1)
+                }
+            })
         }
     }
 
