@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">心率库</string>
+    <string name="heart_rate">心率</string>
+    <string name="min">最小值</string>
+    <string name="current">当前值</string>
+    <string name="max">最大值</string>
+</resources>

@@ -10,11 +10,13 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp" />
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart"
+    <LinearLayout
+        android:id="@+id/llChart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvInfo"

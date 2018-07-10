@@ -3,13 +3,23 @@ package org.caojun.heartrate
 import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
+import android.graphics.Color
+import android.graphics.Paint
 import android.hardware.Camera
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.os.PowerManager
 import android.view.SurfaceHolder
+import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_heartrate.*
+import org.achartengine.ChartFactory
+import org.achartengine.GraphicalView
+import org.achartengine.chart.PointStyle
+import org.achartengine.model.XYMultipleSeriesDataset
+import org.achartengine.model.XYSeries
+import org.achartengine.renderer.XYMultipleSeriesRenderer
+import org.achartengine.renderer.XYSeriesRenderer
 import org.jetbrains.anko.toast
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
@@ -25,16 +35,16 @@ class HeartRateActivity: Activity() {
     private var flag = 1.0
     private var handler: Handler? = null
     private val title = "pulse"
-//    private var series: XYSeries? = null
-//    private var mDataset: XYMultipleSeriesDataset? = null
-//    private var chart: GraphicalView? = null
-//    private var renderer: XYMultipleSeriesRenderer? = null
+    private var series: XYSeries? = null
+    private var mDataset: XYMultipleSeriesDataset? = null
+    private var chart: GraphicalView? = null
+    private var renderer: XYMultipleSeriesRenderer? = null
 //    private var context: Context? = null
-    private var addX = -1
-    internal var addY: Double = 0.toDouble()
-    internal var xv = IntArray(300)
-    internal var yv = IntArray(300)
-    internal var hua = intArrayOf(9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 7, 8, 9, 10, 11, 10, 10)
+    private var addX = -1.0
+    private var addY = 0.0
+    private var xv = DoubleArray(300)
+    private var yv = DoubleArray(300)
+    private var hua = intArrayOf(9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 7, 8, 9, 10, 11, 10, 10)
 
     private val processing = AtomicBoolean(false)
     //Android手机预览控件
@@ -97,27 +107,27 @@ class HeartRateActivity: Activity() {
 //        val layout = findViewById(R.id.id_linearLayout_graph) as LinearLayout
 
         //这个类用来放置曲线上的所有点，是一个点的集合，根据这些点画出曲线
-//        series = XYSeries(title)
+        series = XYSeries(title)
 
         //创建一个数据集的实例，这个数据集将被用来创建图表
-//        mDataset = XYMultipleSeriesDataset()
+        mDataset = XYMultipleSeriesDataset()
 
         //将点集添加到这个数据集中
-//        mDataset!!.addSeries(series)
+        mDataset!!.addSeries(series)
 
         //以下都是曲线的样式和属性等等的设置，renderer相当于一个用来给图表做渲染的句柄
-//        val color = Color.GREEN
-//        val style = PointStyle.CIRCLE
-//        renderer = buildRenderer(color, style, true)
+        val color = Color.GREEN
+        val style = PointStyle.CIRCLE
+        renderer = buildRenderer(color, style, true)
 
         //设置好图表的样式
-//        setChartSettings(renderer, "X", "Y", 0.0, 300.0, 4.0, 16.0, Color.WHITE, Color.WHITE)
+        setChartSettings(renderer!!, "X", "Y", 0.0, 300.0, 4.0, 16.0, Color.WHITE, Color.WHITE)
 
         //生成图表
-//        chart = ChartFactory.getLineChartView(context, mDataset, renderer)
+        chart = ChartFactory.getLineChartView(this, mDataset, renderer)
 
         //将图表添加到布局中去
-//        layout.addView(chart, ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT))
+        llChart.addView(chart, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
 
         //这里的Handler实例将配合下面的Timer实例，完成定时更新图表的功能
         handler = object : Handler() {
@@ -161,16 +171,16 @@ class HeartRateActivity: Activity() {
     /**
      * 创建图表
      */
-//    protected fun buildRenderer(color: Int, style: PointStyle, fill: Boolean): XYMultipleSeriesRenderer {
-//        val renderer = XYMultipleSeriesRenderer()
-//
-//        //设置图表中曲线本身的样式，包括颜色、点的大小以及线的粗细等
-//        val r = XYSeriesRenderer()
-//        r.setColor(Color.RED)
-//        r.setLineWidth(1)
-//        renderer.addSeriesRenderer(r)
-//        return renderer
-//    }
+    private fun buildRenderer(color: Int, style: PointStyle, fill: Boolean): XYMultipleSeriesRenderer {
+        val renderer = XYMultipleSeriesRenderer()
+
+        //设置图表中曲线本身的样式，包括颜色、点的大小以及线的粗细等
+        val r = XYSeriesRenderer()
+        r.color = Color.RED
+        r.lineWidth = 1f
+        renderer.addSeriesRenderer(r)
+        return renderer
+    }
 
     /**
      * 设置图标的样式
@@ -184,28 +194,28 @@ class HeartRateActivity: Activity() {
      * @param axesColor：颜色
      * @param labelsColor：标签
      */
-//    protected fun setChartSettings(renderer: XYMultipleSeriesRenderer?, xTitle: String, yTitle: String,
-//                                   xMin: Double, xMax: Double, yMin: Double, yMax: Double, axesColor: Int, labelsColor: Int) {
-//        //有关对图表的渲染可参看api文档
-//        renderer!!.setChartTitle(title)
-//        renderer!!.setXTitle(xTitle)
-//        renderer!!.setYTitle(yTitle)
-//        renderer!!.setXAxisMin(xMin)
-//        renderer!!.setXAxisMax(xMax)
-//        renderer!!.setYAxisMin(yMin)
-//        renderer!!.setYAxisMax(yMax)
-//        renderer!!.setAxesColor(axesColor)
-//        renderer!!.setLabelsColor(labelsColor)
-//        renderer!!.setShowGrid(true)
-//        renderer!!.setGridColor(Color.GREEN)
-//        renderer!!.setXLabels(20)
-//        renderer!!.setYLabels(10)
-//        renderer!!.setXTitle("Time")
-//        renderer!!.setYTitle("mmHg")
-//        renderer!!.setYLabelsAlign(Paint.Align.RIGHT)
-//        renderer!!.setPointSize(3.toFloat())
-//        renderer!!.setShowLegend(false)
-//    }
+    private fun setChartSettings(renderer: XYMultipleSeriesRenderer, xTitle: String, yTitle: String,
+                                   xMin: Double, xMax: Double, yMin: Double, yMax: Double, axesColor: Int, labelsColor: Int) {
+        //有关对图表的渲染可参看api文档
+        renderer.chartTitle = title
+        renderer.xTitle = xTitle
+        renderer.yTitle = yTitle
+        renderer.xAxisMin = xMin
+        renderer.xAxisMax = xMax
+        renderer.yAxisMin = yMin
+        renderer.yAxisMax = yMax
+        renderer.axesColor = axesColor
+        renderer.labelsColor = labelsColor
+        renderer.setShowGrid(true)
+        renderer.gridColor = Color.GREEN
+        renderer.xLabels = 20
+        renderer.yLabels = 10
+        renderer.xTitle = "Time"
+        renderer.yTitle = "mmHg"
+        renderer.setYLabelsAlign(Paint.Align.RIGHT)
+        renderer.pointSize = 3f
+        renderer.isShowLegend = false
+    }
 
     /**
      * 更新图标信息
@@ -235,34 +245,33 @@ class HeartRateActivity: Activity() {
         }
 
         //移除数据集中旧的点集
-//        mDataset!!.removeSeries(series)
+        mDataset!!.removeSeries(series)
 
         //判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
-//        var length = series!!.getItemCount()
-//        var bz = 0
-//        //addX = length;
-//        if (length > 300) {
-//            length = 300
-//            bz = 1
-//        }
-//        addX = length
-//        //将旧的点集中x和y的数值取出来放入backup中，并且将x的值加1，造成曲线向右平移的效果
-//        for (i in 0 until length) {
-//            xv[i] = series!!.getX(i) as Int - bz
-//            yv[i] = series!!.getY(i) as Int
-//        }
-//
-//        //点集先清空，为了做成新的点集而准备
-//        series!!.clear()
-//        mDataset!!.addSeries(series)
-//        //将新产生的点首先加入到点集中，然后在循环体中将坐标变换后的一系列点都重新加入到点集中
-//        //这里可以试验一下把顺序颠倒过来是什么效果，即先运行循环体，再添加新产生的点
-//        series!!.add(addX, addY)
-//        for (k in 0 until length) {
-//            series!!.add(xv[k], yv[k])
-//        }
+        var length = series!!.itemCount
+        var bz = 0
+
+        if (length > 300) {
+            length = 300
+            bz = 1
+        }
+        addX = length.toDouble()
+        //将旧的点集中x和y的数值取出来放入backup中，并且将x的值加1，造成曲线向右平移的效果
+        for (i in 0 until length) {
+            xv[i] = series!!.getX(i) - bz
+            yv[i] = series!!.getY(i)
+        }
+
+        //点集先清空，为了做成新的点集而准备
+        series!!.clear()
+        //将新产生的点首先加入到点集中，然后在循环体中将坐标变换后的一系列点都重新加入到点集中
+        //这里可以试验一下把顺序颠倒过来是什么效果，即先运行循环体，再添加新产生的点
+        series!!.add(addX, addY)
+        for (k in 0 until length) {
+            series!!.add(xv[k], yv[k])
+        }
         //在数据集中添加新的点集
-        //mDataset.addSeries(series);
+        mDataset!!.addSeries(series)
 
         //视图更新，没有这一步，曲线不会呈现动态
         //如果在非UI主线程中，需要调用postInvalidate()，具体参考api
