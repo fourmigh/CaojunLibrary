@@ -1,13 +1,14 @@
 package org.caojun.library
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import com.socks.library.KLog
 import kotlinx.android.synthetic.main.activity_demo.*
 import org.caojun.heartrate.HeartRateActivity
 import org.caojun.utils.FormatUtils
 import org.caojun.widget.RulerView
-import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.startActivityForResult
 
 class DemoActivity: Activity() {
 
@@ -31,7 +32,15 @@ class DemoActivity: Activity() {
         KLog.d("amount", FormatUtils.amount(123456789.3))
 
         text_test.setOnClickListener {
-            startActivity<HeartRateActivity>()
+            startActivityForResult<HeartRateActivity>(1)
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK && data != null) {
+            KLog.d("HeartRateActivity", "value: ${data.getIntExtra("data", 0)}")
+            return
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

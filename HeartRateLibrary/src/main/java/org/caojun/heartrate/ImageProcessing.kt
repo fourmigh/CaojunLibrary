@@ -14,13 +14,10 @@ object ImageProcessing {
         var yp = 0
         while (j < height) {
             var uvp = frameSize + (j shr 1) * width
-//            if (uvp >= yuv420sp.size - 1) {
-//                uvp %= yuv420sp.size//会越界
-//            }
             var u = 0
             var v = 0
             var i = 0
-            while (i < width/* && yp < yuv420sp.size*/) {
+            while (i < width) {
                 var y = (0xff and yuv420sp[yp].toInt()) - 16
                 if (y < 0) {
                     y = 0
