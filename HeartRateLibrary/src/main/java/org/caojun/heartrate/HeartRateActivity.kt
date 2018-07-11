@@ -22,7 +22,6 @@ import org.achartengine.renderer.XYMultipleSeriesRenderer
 import org.achartengine.renderer.XYSeriesRenderer
 import org.caojun.utils.AverageUtils
 import org.caojun.utils.RandomUtils
-import org.jetbrains.anko.toast
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -34,7 +33,7 @@ class HeartRateActivity: Activity() {
         override fun run() {
             val message = Message()
             message.what = 1
-            handler!!.sendMessage(message)
+            handler.sendMessage(message)
         }
     }
     private var gx: Int = 0
@@ -199,7 +198,8 @@ class HeartRateActivity: Activity() {
             flag = 1.0
             if (gx < 200) {
                 if (hua[20] > 1) {
-                    toast("请用您的指尖盖住摄像头镜头！")
+//                    toast("请用您的指尖盖住摄像头镜头！")
+                    tvInfo.text = getString(R.string.alert)
                     hua[20] = 0
                 }
                 hua[20]++
@@ -219,7 +219,7 @@ class HeartRateActivity: Activity() {
         mDataset.removeSeries(series)
 
         //判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
-        var length = series!!.itemCount
+        var length = series.itemCount
         var bz = 0
 
         if (length > 300) {
@@ -353,8 +353,9 @@ class HeartRateActivity: Activity() {
                 }
             }
             val beatsAvg = beatsArrayAvg / beatsArrayCnt
-            tvInfo.text = "您的心率是$beatsAvg"
-            value = AverageUtils.add(beatsAvg).toInt()
+//            tvInfo.text = getString(R.string.heart_rate, beatsAvg.toString(), value.toString())
+            tvInfo.text = getString(R.string.heart_rate, beatsAvg.toString(), value.toString())
+                    value = AverageUtils.add(beatsAvg).toInt()
             //获取系统时间（ms）
             startTime = System.currentTimeMillis()
             beats = 0.0

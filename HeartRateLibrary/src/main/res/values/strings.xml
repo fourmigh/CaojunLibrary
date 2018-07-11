@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">HeartRateLibrary</string>
-    <string name="heart_rate">Heart Rate</string>
-    <string name="min">Min</string>
-    <string name="current">Current</string>
-    <string name="max">Max</string>
+    <string name="heart_rate">Heart Rate: %1$s, Average： %2$s</string>
+    <string name="alert">Please use your fingertips to cover the camera lens!</string>
 </resources>

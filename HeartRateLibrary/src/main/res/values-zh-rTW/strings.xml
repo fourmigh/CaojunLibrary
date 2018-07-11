@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">心率庫</string>
-    <string name="heart_rate">心率</string>
-    <string name="min">最小值</string>
-    <string name="current">當前值</string>
-    <string name="max">最大值</string>
+    <string name="heart_rate">心率：%1$s，平均值：%2$s</string>
+    <string name="alert">請用您的指尖蓋住監視器鏡頭！</string>
 </resources>
