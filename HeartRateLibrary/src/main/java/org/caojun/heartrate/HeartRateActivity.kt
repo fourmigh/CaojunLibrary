@@ -47,8 +47,8 @@ class HeartRateActivity: Activity() {
             super.handleMessage(msg)
         }
     }
-    private val title = "pulse"
-    private var series = XYSeries(title)
+    private var TITLE: String? = null
+    private var series: XYSeries? = null
     private val mDataset = XYMultipleSeriesDataset()
     private var chart: GraphicalView? = null
     private val renderer = buildRenderer()
@@ -99,6 +99,9 @@ class HeartRateActivity: Activity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_heartrate)
+
+        TITLE = getString(R.string.heartrate)
+        series = XYSeries(TITLE)
 
         initConfig()
     }
@@ -167,7 +170,7 @@ class HeartRateActivity: Activity() {
     private fun setChartSettings(renderer: XYMultipleSeriesRenderer, xTitle: String, yTitle: String,
                                    xMin: Double, xMax: Double, yMin: Double, yMax: Double, axesColor: Int, labelsColor: Int) {
         //有关对图表的渲染可参看api文档
-        renderer.chartTitle = title
+        renderer.chartTitle = TITLE
         renderer.xTitle = xTitle
         renderer.yTitle = yTitle
         renderer.xAxisMin = xMin
@@ -219,7 +222,7 @@ class HeartRateActivity: Activity() {
         mDataset.removeSeries(series)
 
         //判断当前点集中到底有多少点，因为屏幕总共只能容纳100个，所以当点数超过100时，长度永远是100
-        var length = series.itemCount
+        var length = series!!.itemCount
         var bz = 0
 
         if (length > 300) {
@@ -229,17 +232,17 @@ class HeartRateActivity: Activity() {
         addX = length.toDouble()
         //将旧的点集中x和y的数值取出来放入backup中，并且将x的值加1，造成曲线向右平移的效果
         for (i in 0 until length) {
-            xv[i] = series.getX(i) - bz
-            yv[i] = series.getY(i)
+            xv[i] = series!!.getX(i) - bz
+            yv[i] = series!!.getY(i)
         }
 
         //点集先清空，为了做成新的点集而准备
-        series.clear()
+        series!!.clear()
         //将新产生的点首先加入到点集中，然后在循环体中将坐标变换后的一系列点都重新加入到点集中
         //这里可以试验一下把顺序颠倒过来是什么效果，即先运行循环体，再添加新产生的点
-        series.add(addX, addY)
+        series!!.add(addX, addY)
         for (k in 0 until length) {
-            series.add(xv[k], yv[k])
+            series!!.add(xv[k], yv[k])
         }
         //在数据集中添加新的点集
         mDataset.addSeries(series)
@@ -353,7 +356,6 @@ class HeartRateActivity: Activity() {
                 }
             }
             val beatsAvg = beatsArrayAvg / beatsArrayCnt
-//            tvInfo.text = getString(R.string.heart_rate, beatsAvg.toString(), value.toString())
             tvInfo.text = getString(R.string.heart_rate, beatsAvg.toString(), value.toString())
                     value = AverageUtils.add(beatsAvg).toInt()
             //获取系统时间（ms）

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="heartrate">心率</string>
     <string name="heart_rate">心率：%1$s，平均值：%2$s</string>
     <string name="alert">请用您的指尖盖住摄像头镜头！</string>
 </resources>
