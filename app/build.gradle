@@ -32,4 +32,5 @@ dependencies {
     implementation project(':WidgetLibrary')
     implementation project(':UtilsLibrary')
     implementation project(':HeartRateLibrary')
+    implementation project(':ImageViewLibrary')
 }

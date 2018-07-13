@@ -3,9 +3,9 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <application android:allowBackup="true">
+    <application>
 
         <activity
-            android:name=".activity.ImageActivity"/>
+            android:name=".ImageActivity"/>
     </application>
 </manifest>

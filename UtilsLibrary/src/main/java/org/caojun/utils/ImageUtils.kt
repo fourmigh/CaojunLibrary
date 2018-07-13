@@ -4,12 +4,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import android.R.attr.path
 import android.content.Context
 import android.graphics.Canvas
 import java.io.*
-import android.opengl.ETC1.getWidth
-import android.opengl.ETC1.getHeight
 import android.view.View
 
 

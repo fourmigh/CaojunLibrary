@@ -1,154 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TextView" />
-
-        <org.caojun.widget.RulerView
-            android:id="@+id/rulerView"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            app:alphaEnable="true"
-            app:lineColor="@android:color/darker_gray"
-            app:lineMaxHeight="40dp"
-            app:lineMidHeight="30dp"
-            app:lineMinHeight="20dp"
-            app:lineSpaceWidth="10dp"
-            app:lineWidth="2dip"
-            app:textColor="@android:color/black"
-            app:minValue="0"
-            app:maxValue="100000"
-            app:perValue="1000"
-            app:selectorValue="20000"
-            app:isTextTop="true"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TextView" />
-
-        <org.caojun.widget.RulerView
-            android:id="@+id/rulerView2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            app:alphaEnable="true"
-            app:lineColor="@android:color/darker_gray"
-            app:lineMaxHeight="40dp"
-            app:lineMidHeight="30dp"
-            app:lineMinHeight="20dp"
-            app:lineSpaceWidth="10dp"
-            app:lineWidth="2dip"
-            app:textColor="@android:color/black"
-            app:minValue="80.0"
-            app:maxValue="250.0"
-            app:perValue="1"
-            app:selectorValue="165.0"
-            app:isTextTop="false"/>
-    </LinearLayout>
-
-    <org.caojun.widget.RoundTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="8dp"
-        android:text="Round me up !"
-        android:textColor="#fff"
-        app:allCorner="16dp"
-        app:bgColor="#456432" />
-
-    <org.caojun.widget.RoundLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:paddingBottom="8dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="8dp"
-        app:allCorner="16dp"
-        app:bgColor="#EA3238">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Round Any View Group"
-                android:textColor="#fff" />
+                android:gravity="center"
+                android:text="TextView" />
 
-        </RelativeLayout>
+            <org.caojun.widget.RulerView
+                android:id="@+id/rulerView"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:alphaEnable="true"
+                app:isTextTop="true"
+                app:lineColor="@android:color/darker_gray"
+                app:lineMaxHeight="40dp"
+                app:lineMidHeight="30dp"
+                app:lineMinHeight="20dp"
+                app:lineSpaceWidth="10dp"
+                app:lineWidth="2dip"
+                app:maxValue="100000"
+                app:minValue="0"
+                app:perValue="1000"
+                app:selectorValue="20000"
+                app:textColor="@android:color/black" />
+        </LinearLayout>
 
-    </org.caojun.widget.RoundLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
-    <org.caojun.widget.BadgeView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:mainAllCorner="30dp"
-        app:mainText="Wait for transfer"
-        app:subAllCorner="30dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="TextView" />
 
-    <org.caojun.widget.BadgeView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:mainAllCorner="30dp"
-        app:mainBgColor="#598dd0"
-        app:mainText="Ask for address"
-        app:subAllCorner="30dp"
-        app:subText="+ 2" />
+            <org.caojun.widget.RulerView
+                android:id="@+id/rulerView2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:alphaEnable="true"
+                app:isTextTop="false"
+                app:lineColor="@android:color/darker_gray"
+                app:lineMaxHeight="40dp"
+                app:lineMidHeight="30dp"
+                app:lineMinHeight="20dp"
+                app:lineSpaceWidth="10dp"
+                app:lineWidth="2dip"
+                app:maxValue="250.0"
+                app:minValue="80.0"
+                app:perValue="1"
+                app:selectorValue="165.0"
+                app:textColor="@android:color/black" />
+        </LinearLayout>
 
-    <org.caojun.widget.StateButton
-        android:id="@+id/text_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:text="change text color"
-        app:normalBackgroundColor="@color/colorPrimary"
-        app:normalTextColor="@android:color/white"
-        app:pressedBackgroundColor="@android:color/white"
-        app:pressedTextColor="@android:color/holo_red_light"
-        app:unableBackgroundColor="@android:color/darker_gray"
-        app:unableTextColor="@android:color/holo_orange_dark"
-        app:radius="10dp"
-        app:round="true"/>
+        <org.caojun.widget.RoundTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:text="Round me up !"
+            android:textColor="#fff"
+            app:allCorner="16dp"
+            app:bgColor="#456432" />
 
-    <org.caojun.widget.CircleProgressBar
-        android:id="@+id/custom_progress5"
-        app:style="solid_line"
-        app:progress_stroke_width="3dp"
-        app:progress_background_color="@color/holo_darker_gray"
-        app:progress_start_color="@color/holo_green_light"
-        app:progress_end_color="@color/holo_green_light"
-        app:progress_text_color="@color/holo_green_light"
-        app:background_color="@color/holo_purple"
-        android:layout_width="50dp"
-        android:layout_height="50dp" />
+        <org.caojun.widget.RoundLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            app:allCorner="16dp"
+            app:bgColor="#EA3238">
 
-</LinearLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Round Any View Group"
+                    android:textColor="#fff" />
+
+            </RelativeLayout>
+
+        </org.caojun.widget.RoundLayout>
+
+        <org.caojun.widget.BadgeView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:mainAllCorner="30dp"
+            app:mainText="Wait for transfer"
+            app:subAllCorner="30dp" />
+
+        <org.caojun.widget.BadgeView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:mainAllCorner="30dp"
+            app:mainBgColor="#598dd0"
+            app:mainText="Ask for address"
+            app:subAllCorner="30dp"
+            app:subText="+ 2" />
+
+        <org.caojun.widget.StateButton
+            android:id="@+id/text_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="change text color"
+            app:normalBackgroundColor="@color/colorPrimary"
+            app:normalTextColor="@android:color/white"
+            app:pressedBackgroundColor="@android:color/white"
+            app:pressedTextColor="@android:color/holo_red_light"
+            app:radius="10dp"
+            app:round="true"
+            app:unableBackgroundColor="@android:color/darker_gray"
+            app:unableTextColor="@android:color/holo_orange_dark" />
+
+        <org.caojun.widget.CircleProgressBar
+            android:id="@+id/custom_progress5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:background_color="@color/holo_purple"
+            app:progress_background_color="@color/holo_darker_gray"
+            app:progress_end_color="@color/holo_green_light"
+            app:progress_start_color="@color/holo_green_light"
+            app:progress_stroke_width="3dp"
+            app:progress_text_color="@color/holo_green_light"
+            app:style="solid_line" />
+
+    </LinearLayout>
+</ScrollView>
