@@ -3,7 +3,7 @@
 buildscript {
     ext.kotlin_version = '1.2.50'
     ext {
-        androidsupport_version = "27.1.0"
+        androidsupport_version = "27.1.1"
         googleroom_version = "latest.release"
         buildToolsVersion = "27.0.3"
         sdkVersion = 27

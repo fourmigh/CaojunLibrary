@@ -1,4 +1,4 @@
-package com.allinpay.jinfutong.sms
+package org.caojun.sms
 
 /**
  * Created by CaoJun on 2018-2-24.

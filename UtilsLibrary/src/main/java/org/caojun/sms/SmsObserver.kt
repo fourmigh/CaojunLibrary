@@ -1,4 +1,4 @@
-package com.allinpay.jinfutong.sms
+package org.caojun.sms
 
 import android.database.ContentObserver
 import android.content.ContentResolver
