@@ -59,17 +59,15 @@ class RoundTextView: AppCompatTextView {
 
     private fun setViewBackground() {
 
-        val drawable: Drawable
-
-        if (tvAllCorner != java.lang.Float.MIN_VALUE) {
-            drawable = DrawableHelper.getCornerDrawable(
+        val drawable = if (tvAllCorner != java.lang.Float.MIN_VALUE) {
+            DrawableHelper.getCornerDrawable(
                     tvAllCorner,
                     tvAllCorner,
                     tvAllCorner,
                     tvAllCorner,
                     tvBgColor)
         } else {
-            drawable = DrawableHelper.getCornerDrawable(
+            DrawableHelper.getCornerDrawable(
                     tvTopLeftCorner,
                     tvTopRightCorner,
                     tvBottomLeftCorner,
