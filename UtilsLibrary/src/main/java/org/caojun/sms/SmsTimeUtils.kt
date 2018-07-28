@@ -15,9 +15,10 @@ object SmsTimeUtils {
     /*当前做*/
     private var CURR_COUNT = 0
 
-    private var countdownTimer: Timer? = null
+//    private var countdownTimer: Timer? = null
 
     private val typeTime = SparseArray<Long>()
+    private val countdownTimer = SparseArray<Timer>()
 
     private var tv: TextView? = null
 
@@ -53,16 +54,19 @@ object SmsTimeUtils {
      * @param resIdSend 例如文字“获取验证码”
      * @param resIdWait 例如文字“%s秒后重试”
      */
-    fun startCountdown(context: Context, textView: TextView, resIdSend: Int, resIdWait: Int) {
+    fun startCountdown(context: Context, type: Int, textView: TextView, resIdSend: Int, resIdWait: Int) {
         tv = textView
-        if (countdownTimer == null) {
-            countdownTimer = Timer()
-            countdownTimer!!.schedule(object : TimerTask() {
+        var timer = countdownTimer[type]
+        if (timer == null) {
+            timer = Timer()
+            countdownTimer.put(type, timer)
+            timer.schedule(object : TimerTask() {
                 override fun run() {
                     CURR_COUNT--
                     if (CURR_COUNT == 0) {
-                        countdownTimer?.cancel()
-                        countdownTimer = null
+                        timer.cancel()
+                        timer = null
+                        countdownTimer.remove(type)
 
                         context.runOnUiThread {
                             tv?.setText(resIdSend)
