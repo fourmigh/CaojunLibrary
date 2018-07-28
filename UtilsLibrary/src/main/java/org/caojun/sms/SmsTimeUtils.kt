@@ -1,13 +1,13 @@
 package org.caojun.sms
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.SparseArray
 import android.widget.TextView
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
+import org.jetbrains.anko.runOnUiThread
 import java.util.*
 
-
+@SuppressLint("StaticFieldLeak")
 object SmsTimeUtils {
 
     /*倒计时时长  单位：秒*/
@@ -18,6 +18,8 @@ object SmsTimeUtils {
     private var countdownTimer: Timer? = null
 
     private val typeTime = SparseArray<Long>()
+
+    private var tv: TextView? = null
 
     /**
      * 检查是否超过60秒
@@ -52,7 +54,7 @@ object SmsTimeUtils {
      * @param resIdWait 例如文字“%s秒后重试”
      */
     fun startCountdown(context: Context, textView: TextView, resIdSend: Int, resIdWait: Int) {
-
+        tv = textView
         if (countdownTimer == null) {
             countdownTimer = Timer()
             countdownTimer!!.schedule(object : TimerTask() {
@@ -61,18 +63,17 @@ object SmsTimeUtils {
                     if (CURR_COUNT == 0) {
                         countdownTimer?.cancel()
                         countdownTimer = null
-                        doAsync {
-                            uiThread {
-                                textView.setText(resIdSend)
-                                textView.isEnabled = true
-                            }
+
+                        context.runOnUiThread {
+                            tv?.setText(resIdSend)
+                            tv?.isEnabled = true
+                            tv = null
                         }
+
                     } else {
-                        doAsync {
-                            uiThread {
-                                textView.text = context.getString(resIdWait, CURR_COUNT)
-                                textView.isEnabled = false
-                            }
+                        context.runOnUiThread {
+                            tv?.text = context.getString(resIdWait, CURR_COUNT)
+                            tv?.isEnabled = false
                         }
                     }
                 }
