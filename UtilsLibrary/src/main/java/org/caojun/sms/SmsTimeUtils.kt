@@ -63,7 +63,7 @@ object SmsTimeUtils {
             timer.schedule(object : TimerTask() {
                 override fun run() {
                     CURR_COUNT--
-                    if (CURR_COUNT == 0) {
+                    if (CURR_COUNT <= 0) {
                         timer.cancel()
                         timer = null
                         countdownTimer.remove(type)
