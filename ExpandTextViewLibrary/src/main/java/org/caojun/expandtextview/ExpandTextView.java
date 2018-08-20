@@ -135,11 +135,23 @@ public class ExpandTextView extends LinearLayout implements View.OnClickListener
             indicateImage = getResources().getDrawable(R.drawable.ic_arrow_down_light_round);
         }
         mIndicateImage.setImageDrawable(indicateImage);
-        mShowMore.setOnClickListener(this);
-        mContentView.setOnClickListener(this);
+//        mShowMore.setOnClickListener(this);
+//        mContentView.setOnClickListener(this);
         ViewGroup.LayoutParams layoutParams = mContentView.getLayoutParams();
         layoutParams.height = getMinMeasureHeight();
         mContentView.setLayoutParams(layoutParams);
+
+        mContentView.post(new Runnable() {
+            @Override
+            public void run() {
+                if (mContentView.getLineCount() <= minVisibleLines) {
+                    mShowMore.setVisibility(View.GONE);
+                } else {
+                    mShowMore.setOnClickListener(ExpandTextView.this);
+                    mContentView.setOnClickListener(ExpandTextView.this);
+                }
+            }
+        });
     }
 
     public String getTitle() {
