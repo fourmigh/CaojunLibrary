@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ExpandTextViewLibrary</string>
+    <string name="expand_open">展开</string>
+    <string name="expand_close">收回</string>
+</resources>
