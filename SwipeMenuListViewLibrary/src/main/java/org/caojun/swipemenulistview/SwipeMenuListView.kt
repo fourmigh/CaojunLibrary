@@ -82,58 +82,58 @@ class SwipeMenuListView : ListView {
         })
     }
 
-    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
-        //在拦截处处理，在滑动设置了点击事件的地方也能swipe，点击时又不能影响原来的点击事件
-        val action = ev.action
-        when (action) {
-            MotionEvent.ACTION_DOWN -> {
-                mDownX = ev.x
-                mDownY = ev.y
-                var handled = super.onInterceptTouchEvent(ev)
-                mTouchState = TOUCH_STATE_NONE
-                mTouchPosition = pointToPosition(ev.x.toInt(), ev.y.toInt())
-                val view = getChildAt(mTouchPosition - firstVisiblePosition)
-
-                //只在空的时候赋值 以免每次触摸都赋值，会有多个open状态
-                if (view is SwipeMenuLayout) {
-                    //如果有打开了 就拦截.
-                    if (mTouchView != null && mTouchView!!.isOpen && !inRangeOfView(mTouchView!!.menuView!!, ev)) {
-                        return true
-                    }
-                    mTouchView = view
-                    mTouchView!!.setSwipeDirection(mDirection)
-                }
-                //如果摸在另外个view
-                if (mTouchView != null && mTouchView!!.isOpen && view !== mTouchView) {
-                    handled = true
-                }
-
-                if (mTouchView != null) {
-                    mTouchView!!.onSwipe(ev)
-                }
-                return handled
-            }
-            MotionEvent.ACTION_MOVE -> {
-                val dy = Math.abs(ev.y - mDownY)
-                val dx = Math.abs(ev.x - mDownX)
-                if (Math.abs(dy) > MAX_Y || Math.abs(dx) > MAX_X) {
-                    //每次拦截的down都把触摸状态设置成了TOUCH_STATE_NONE 只有返回true才会走onTouchEvent 所以写在这里就够了
-                    if (mTouchState == TOUCH_STATE_NONE) {
-                        if (Math.abs(dy) > MAX_Y) {
-                            mTouchState = TOUCH_STATE_Y
-                        } else if (dx > MAX_X) {
-                            mTouchState = TOUCH_STATE_X
-                            if (mOnSwipeListener != null) {
-                                mOnSwipeListener!!.onSwipeStart(mTouchPosition)
-                            }
-                        }
-                    }
-                    return true
-                }
-            }
-        }
-        return super.onInterceptTouchEvent(ev)
-    }
+//    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+//        //在拦截处处理，在滑动设置了点击事件的地方也能swipe，点击时又不能影响原来的点击事件
+//        val action = ev.action
+//        when (action) {
+//            MotionEvent.ACTION_DOWN -> {
+//                mDownX = ev.x
+//                mDownY = ev.y
+//                var handled = super.onInterceptTouchEvent(ev)
+//                mTouchState = TOUCH_STATE_NONE
+//                mTouchPosition = pointToPosition(ev.x.toInt(), ev.y.toInt())
+//                val view = getChildAt(mTouchPosition - firstVisiblePosition)
+//
+//                //只在空的时候赋值 以免每次触摸都赋值，会有多个open状态
+//                if (view is SwipeMenuLayout) {
+//                    //如果有打开了 就拦截.
+//                    if (mTouchView != null && mTouchView!!.isOpen && !inRangeOfView(mTouchView!!.menuView!!, ev)) {
+//                        return true
+//                    }
+//                    mTouchView = view
+//                    mTouchView!!.setSwipeDirection(mDirection)
+//                }
+//                //如果摸在另外个view
+//                if (mTouchView != null && mTouchView!!.isOpen && view !== mTouchView) {
+//                    handled = true
+//                }
+//
+//                if (mTouchView != null) {
+//                    mTouchView!!.onSwipe(ev)
+//                }
+//                return handled
+//            }
+//            MotionEvent.ACTION_MOVE -> {
+//                val dy = Math.abs(ev.y - mDownY)
+//                val dx = Math.abs(ev.x - mDownX)
+//                if (Math.abs(dy) > MAX_Y || Math.abs(dx) > MAX_X) {
+//                    //每次拦截的down都把触摸状态设置成了TOUCH_STATE_NONE 只有返回true才会走onTouchEvent 所以写在这里就够了
+//                    if (mTouchState == TOUCH_STATE_NONE) {
+//                        if (Math.abs(dy) > MAX_Y) {
+//                            mTouchState = TOUCH_STATE_Y
+//                        } else if (dx > MAX_X) {
+//                            mTouchState = TOUCH_STATE_X
+//                            if (mOnSwipeListener != null) {
+//                                mOnSwipeListener!!.onSwipeStart(mTouchPosition)
+//                            }
+//                        }
+//                    }
+//                    return true
+//                }
+//            }
+//        }
+//        return super.onInterceptTouchEvent(ev)
+//    }
 
     override fun onTouchEvent(ev: MotionEvent): Boolean {
         if (!isManaging) {
@@ -171,7 +171,7 @@ class SwipeMenuListView : ListView {
                     if (mOnMenuStateChangeListener != null) {
                         mOnMenuStateChangeListener!!.onMenuClose(oldPos)
                     }
-                    return true
+//                    return true
                 }
                 if (view is SwipeMenuLayout) {
                     mTouchView = view
