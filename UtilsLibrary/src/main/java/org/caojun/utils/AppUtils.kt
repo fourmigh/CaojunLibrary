@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager.NameNotFoundException
 import android.content.pm.PackageManager
-
+import android.os.Build
 
 
 object AppUtils {
@@ -17,14 +17,16 @@ object AppUtils {
         }
     }
 
-    fun getVersionName(context: Context): String {
-        val packageInfo = getPackageInfo(context)
-        return packageInfo?.versionName?:""
+    fun getVersionName(): String {
+//        val packageInfo = getPackageInfo(context)
+//        return packageInfo?.versionName?:""
+        return BuildConfig.VERSION_NAME
     }
 
-    fun getVersionCode(context: Context): Int {
-        val packageInfo = getPackageInfo(context)
-        return packageInfo?.versionCode?:0
+    fun getVersionCode(): Int {
+//        val packageInfo = getPackageInfo(context)
+//        return packageInfo?.versionCode?:0
+        return BuildConfig.VERSION_CODE
     }
 
     fun getAppName(context: Context): String {

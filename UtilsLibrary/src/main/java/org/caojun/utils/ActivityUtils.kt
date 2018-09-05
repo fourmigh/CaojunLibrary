@@ -85,7 +85,7 @@ object ActivityUtils {
     }
 
     fun getSharedPreferences(context: Context, name: String, key: String, defValue: String): String {
-        return context.getSharedPreferences(name, Context.MODE_PRIVATE).getString(key, defValue)
+        return context.getSharedPreferences(name, Context.MODE_PRIVATE).getString(key, defValue)?:""
     }
 
     fun getSharedPreferences(context: Context, name: String, key: String, defValue: Int): Int {

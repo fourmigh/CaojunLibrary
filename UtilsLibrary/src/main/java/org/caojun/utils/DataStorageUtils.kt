@@ -200,7 +200,7 @@ object DataStorageUtils {
 
     fun loadString(context: Context, key: String, defValue: String): String {
         val preferences = getSharedPreferences(context)
-        return preferences.getString(key, defValue)
+        return preferences.getString(key, defValue)?:""
     }
 
     fun saveStringArray(context: Context, key: String, values: Array<String>): Boolean {
@@ -268,7 +268,7 @@ object DataStorageUtils {
         for (i in 0 until length) {
 //            val value = preferences.getInt(key + "." + i, defValue.toInt())
             val value = preferences.getInt("$key.$i", defValue.toInt())
-            values[i] = java.lang.Byte.valueOf(value.toByte())!!
+            values[i] = java.lang.Byte.valueOf(value.toByte())
         }
         return values
     }
