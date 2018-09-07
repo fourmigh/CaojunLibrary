@@ -373,7 +373,7 @@ ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListe
     private boolean mIsChildViewEnabled;
 
     /**
-     * The last scroll state reported to clients through {@link org.caojun.waterfall.internal.PLA_AbsListView.OnScrollListener}.
+     * The last scroll state reported to clients through {@link PLA_AbsListView.OnScrollListener}.
      */
     private int mLastScrollState = OnScrollListener.SCROLL_STATE_IDLE;
 
