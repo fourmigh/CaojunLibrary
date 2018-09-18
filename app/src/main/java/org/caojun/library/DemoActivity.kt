@@ -55,6 +55,7 @@ class DemoActivity: BaseActivity() {
         KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(105000.00))
         KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(60036000.00))
         KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(35000.96))
+        KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(35000.06))
         KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(150001.00))
     }
 

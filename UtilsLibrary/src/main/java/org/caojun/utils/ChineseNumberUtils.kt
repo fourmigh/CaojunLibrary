@@ -158,7 +158,7 @@ object ChineseNumberUtils {
                 break
             }
         }
-        if (result.length > 1 && hasZero) {
+        if (result.length > 1 && hasZero && result[0].toString() != ChineseNumbers[0]) {
             result.insert(0, ChineseNumbers[0])
         }
         return result.toString()
