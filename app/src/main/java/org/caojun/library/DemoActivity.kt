@@ -7,6 +7,7 @@ import com.socks.library.KLog
 import kotlinx.android.synthetic.main.activity_demo.*
 import org.caojun.activity.BaseActivity
 import org.caojun.imageview.ImageShow
+import org.caojun.utils.ChineseNumberUtils
 import org.caojun.utils.FormatUtils
 import org.caojun.widget.RulerView
 
@@ -46,6 +47,15 @@ class DemoActivity: BaseActivity() {
             val url = "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/forgot_password_gi2d.svg"
             ImageShow.show(this@DemoActivity, url)
         }
+
+        KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(0.00))
+        KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(0.00, true))
+        KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(6500.00, true))
+        KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(3150.50))
+        KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(105000.00))
+        KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(60036000.00))
+        KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(35000.96))
+        KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(150001.00))
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
