@@ -74,19 +74,19 @@ object ChineseNumberUtils {
                 indexPoint = sn.length
             }
             val ca = sn.substring(0, indexPoint).toCharArray()
-            val array = arrayOfNulls<Char>(Bits.size)
+            val array = IntArray(Bits.size)
             val index = Bits.size - ca.size
             for (i in 0 until Bits.size) {
                 if (i < index) {
-                    array[i] = 0.toChar()
+                    array[i] = 0
                 } else {
-                    array[i] = (ca[i - index] - '0').toChar()
+                    array[i] = ca[i - index] - '0'
                 }
             }
-            val numYi = String(charArrayOf(array[0]!!, array[1]!!, array[2]!!, array[3]!!))
-            val numWan = String(charArrayOf(array[4]!!, array[5]!!, array[6]!!, array[7]!!))
-            val numYuan = String(charArrayOf(array[8]!!, array[9]!!, array[10]!!, array[11]!!))
-            val numJF = String(charArrayOf(array[12]!!, array[13]!!))
+            val numYi = arrayOf(array[0], array[1], array[2], array[3])
+            val numWan = arrayOf(array[4], array[5], array[6], array[7])
+            val numYuan = arrayOf(array[8], array[9], array[10], array[11])
+            val numJF = arrayOf(array[12], array[13])
 
             val yi = getGroup(numYi, ChineseNumbers[IndexYi], false)
             val wan = getGroup(numWan, ChineseNumbers[IndexWan], yi.isNotEmpty())
@@ -106,11 +106,11 @@ object ChineseNumberUtils {
      * @param unit 单位：亿，万，元
      * @param canFirstZero 首位可以为零
      */
-    private fun getGroup(string: String, unit: String, canFirstZero: Boolean): String {
+    private fun getGroup(array: Array<Int>, unit: String, canFirstZero: Boolean): String {
         val bits = arrayOf(ChineseNumbers[IndexQian], ChineseNumbers[IndexBai], ChineseNumbers[IndexShi], unit)
         val result = StringBuilder()
         for (i in 0 until bits.size) {
-            val num = string[i].toInt()
+            val num = array[i]
             if (num > 0) {
                 result.append("${ChineseNumbers[num]}${bits[i]}")
             } else if ((canFirstZero && result.isEmpty()) || (result.isNotEmpty() && result[result.length - 1].toString() != ChineseNumbers[0]) && i < bits.size - 1) {
@@ -134,11 +134,11 @@ object ChineseNumberUtils {
      * 角分
      * @param integer 整数部分，整数部分和角分之间有0，且角分有值，需加上零
      */
-    private fun getJF(string: String, integer: String): String {
+    private fun getJF(array: Array<Int>, integer: String): String {
         val bits = arrayOf(ChineseNumbers[IndexJiao], ChineseNumbers[IndexFen])
         val result = StringBuilder()
         for (i in 0 until bits.size) {
-            val num = string[i].toInt()
+            val num = array[i]
             if (num > 0) {
                 result.append("${ChineseNumbers[num]}${bits[i]}")
             } else if (i < bits.size - 1) {
