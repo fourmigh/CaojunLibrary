@@ -14,7 +14,7 @@ import java.util.*
  */
 class AutofitLayout: FrameLayout {
     private var mEnabled: Boolean = false
-    private var mMinTextSize: Float = 0f
+    private var mMinTextSize: Float = 16f
     private var mPrecision: Float = 0f
     private val mHelpers = WeakHashMap<View, AutofitHelper>()
 

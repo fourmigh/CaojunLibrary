@@ -121,9 +121,9 @@ class StateButton: AppCompatButton {
 
         //set background
         mStateBackground?.addState(states!![0], mPressedBackground)
-        mStateBackground?.addState(states!![1], mPressedBackground)
-        mStateBackground?.addState(states!![3], mUnableBackground)
-        mStateBackground?.addState(states!![2], mNormalBackground)
+        mStateBackground?.addState(states[1], mPressedBackground)
+        mStateBackground?.addState(states[3], mUnableBackground)
+        mStateBackground?.addState(states[2], mNormalBackground)
         @Suppress("DEPRECATION")
         setBackgroundDrawable(mStateBackground)
         a.recycle()
