@@ -74,6 +74,9 @@ class ParticleView: View {
     private val mStartMinP = PointF()
     private val mEndMinP = PointF()
 
+    private var animatorSet: AnimatorSet? = null
+    private var valueAnimator: ValueAnimator? = null
+
     constructor(context: Context, attrs: AttributeSet): this(context, attrs, 0)
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int = 0): super(context, attrs, defStyleAttr) {
@@ -240,31 +243,30 @@ class ParticleView: View {
             }
         }
 
-        val set = AnimatorSet()
-        set.playTogether(animList)
-        set.start()
+        animatorSet = AnimatorSet()
+        animatorSet?.playTogether(animList)
+        animatorSet?.start()
 
-        set.addListener(object : AnimListener() {
+        animatorSet?.addListener(object : AnimListener() {
             override fun onAnimationEnd(animation: Animator) {
                 startSpreadAnim()
             }
         })
-
     }
 
     private fun startSpreadAnim() {
-        val animator = ValueAnimator.ofFloat(0f, getTextWidth(mParticleText, mParticleTextPaint) / 2 + dip2px(4f))
-        animator.duration = mSpreadAnimTime.toLong()
-        animator.addUpdateListener { animation ->
+        valueAnimator = ValueAnimator.ofFloat(0f, getTextWidth(mParticleText, mParticleTextPaint) / 2 + dip2px(4f))
+        valueAnimator?.duration = mSpreadAnimTime.toLong()
+        valueAnimator?.addUpdateListener { animation ->
             mSpreadWidth = animation.animatedValue as Float
             invalidate()
         }
-        animator.addListener(object : AnimListener() {
+        valueAnimator?.addListener(object : AnimListener() {
             override fun onAnimationEnd(animation: Animator) {
                 startHostTextAnim()
             }
         })
-        animator.start()
+        valueAnimator?.start()
     }
 
     private fun startHostTextAnim() {
@@ -287,21 +289,28 @@ class ParticleView: View {
         }
         animList.add(hostTextXAnim)
 
-        val set = AnimatorSet()
-        set.playTogether(animList)
-        set.duration = mHostTextAnimTime.toLong()
-        set.addListener(object : AnimListener() {
+        animatorSet = AnimatorSet()
+        animatorSet?.playTogether(animList)
+        animatorSet?.duration = mHostTextAnimTime.toLong()
+        animatorSet?.addListener(object : AnimListener() {
             override fun onAnimationEnd(animation: Animator) {
                 Thread.sleep(mWaitingTime.toLong())
                 mParticleAnimListener?.onAnimationEnd()
             }
         })
-        set.start()
+        animatorSet?.start()
 
     }
 
     fun startAnim() {
         post { startParticleAnim() }
+    }
+
+    fun pauseAnim() {
+        post {
+            valueAnimator?.pause()
+            animatorSet?.pause()
+        }
     }
 
     private abstract inner class AnimListener : Animator.AnimatorListener {
