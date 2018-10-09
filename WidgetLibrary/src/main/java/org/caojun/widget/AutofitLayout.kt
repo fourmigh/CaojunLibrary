@@ -13,9 +13,9 @@ import java.util.*
  * Created by CaoJun on 2017/11/16.
  */
 class AutofitLayout: FrameLayout {
-    private var mEnabled: Boolean = false
-    private var mMinTextSize: Float = 16f
-    private var mPrecision: Float = 0f
+    private var mEnabled: Boolean = true
+    private var mMinTextSize: Float = 24f
+    private var mPrecision: Float = 1f
     private val mHelpers = WeakHashMap<View, AutofitHelper>()
 
     constructor(context: Context): this(context, null)
