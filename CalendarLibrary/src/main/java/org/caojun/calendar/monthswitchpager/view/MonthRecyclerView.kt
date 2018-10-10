@@ -14,15 +14,11 @@ class MonthRecyclerView: RecyclerView {
     private var mManager: LinearLayoutManager? = null
     private var mMonthSwitchTextView: MonthSwitchTextView? = null
 
-//    constructor(context: Context): this(context, null)
-//
-//    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
-//
-//    constructor(context: Context, attrs: AttributeSet?, defStyle: Int): super(context, attrs, defStyle) {
-//        initData()
-//    }
+    constructor(context: Context): this(context, null)
 
-    constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0): super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
+
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int): super(context, attrs, defStyle) {
         initData()
     }
 

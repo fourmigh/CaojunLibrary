@@ -21,16 +21,12 @@ class MonthSwitchView: LinearLayout, OnDayClickListener {
 
     private var mMonthAdapter: MonthViewAdapter? = null
 
-//    constructor(context: Context): this(context, null)
-//
-//    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
-//
-//    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int): super(context, attrs, defStyleAttr) {
-//        initialize(context/*, attrs, defStyleAttr*/)
-//    }
+    constructor(context: Context): this(context, null)
 
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): super(context, attrs, defStyleAttr) {
-        initialize(context)
+    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
+
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int): super(context, attrs, defStyleAttr) {
+        initialize(context/*, attrs, defStyleAttr*/)
     }
 
     private fun initialize(context: Context/*, attrs: AttributeSet?, defStyleAttr: Int*/) {
