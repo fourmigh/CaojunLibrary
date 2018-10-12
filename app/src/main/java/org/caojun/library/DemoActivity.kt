@@ -7,9 +7,13 @@ import com.socks.library.KLog
 import kotlinx.android.synthetic.main.activity_demo.*
 import org.caojun.activity.BaseActivity
 import org.caojun.imageview.ImageShow
+import org.caojun.utils.AppSignUtils
 import org.caojun.utils.ChineseNumberUtils
 import org.caojun.utils.FormatUtils
 import org.caojun.widget.RulerView
+import org.caojun.utils.AppSignUtils.getSingInfo
+
+
 
 class DemoActivity: BaseActivity() {
 
@@ -57,6 +61,9 @@ class DemoActivity: BaseActivity() {
         KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(35000.96))
         KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(35000.06))
         KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(150001.00))
+
+        val signal = AppSignUtils.getSingInfo(applicationContext, "com.allinpay.yunshangtong", AppSignUtils.MD5)
+        KLog.d("signal", "signal: $signal")
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
