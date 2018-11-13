@@ -12,7 +12,7 @@ import org.caojun.utils.ChineseNumberUtils
 import org.caojun.utils.FormatUtils
 import org.caojun.widget.RulerView
 import org.caojun.utils.AppSignUtils.getSingInfo
-
+import org.jetbrains.anko.startActivity
 
 
 class DemoActivity: BaseActivity() {
@@ -48,8 +48,10 @@ class DemoActivity: BaseActivity() {
 //                }
 //            })
 
-            val url = "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/forgot_password_gi2d.svg"
-            ImageShow.show(this@DemoActivity, url)
+//            val url = "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/forgot_password_gi2d.svg"
+//            ImageShow.show(this@DemoActivity, url)
+
+            startActivity<GiraffePlayerActivity>()
         }
 
         KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(0.00))

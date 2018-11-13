@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GiraffeplayerLibrary</string>
+    <string name="giraffe_player_url_empty">請指定播放視頻的地址</string>
+    <string name="small_problem">出了點小問題，稍後重試 </string>
+    <string name="can_not_play">不能播放此視頻</string>
+    <string name="not_support">播放機不支持此設備</string>
+    <string name="giraffe_player_track_type_unknown">未知</string>
+    <string name="giraffe_player_track_type_audio">聲道</string>
+    <string name="giraffe_player_track_type_video">視頻</string>
+    <string name="giraffe_player_live">直播</string>
+    <string name="giraffe_player_track_type_subtitle">字幕</string>
+    <string name="giraffe_player_track_type_timed_text">時間</string>
+    <string name="giraffe_player_lazy_loading">正在下載播放機：%1$d%%</string>
+    <string name="giraffe_player_lazy_loading_error">下載播放機失敗：%1$s</string>
+</resources>
