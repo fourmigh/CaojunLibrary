@@ -95,7 +95,7 @@ class ProxyPlayerListener(private val videoInfo: VideoInfo) : PlayerListener {
         outerListener()?.onPreparing(giraffePlayer)
     }
 
-    override fun onTimedText(giraffePlayer: GiraffePlayer, text: IjkTimedText) {
+    override fun onTimedText(giraffePlayer: GiraffePlayer, text: IjkTimedText?) {
         listener().onTimedText(giraffePlayer, text)
         outerListener()?.onTimedText(giraffePlayer, text)
     }

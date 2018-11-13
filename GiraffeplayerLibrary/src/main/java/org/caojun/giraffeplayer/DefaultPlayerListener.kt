@@ -60,7 +60,7 @@ open class DefaultPlayerListener : PlayerListener {
 
     }
 
-    override fun onTimedText(giraffePlayer: GiraffePlayer, text: IjkTimedText) {
+    override fun onTimedText(giraffePlayer: GiraffePlayer, text: IjkTimedText?) {
 
     }
 

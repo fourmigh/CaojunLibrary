@@ -22,7 +22,7 @@ abstract class BaseMediaController(protected val context: Context) : DefaultPlay
     protected val defaultTimeout = 3 * 1000
     protected var handler: Handler? = null
     protected var videoView: VideoView? = null
-    protected var controllerView: View? = null
+//    protected var controllerView: View? = null
 
     init {
         handler = Handler(Looper.getMainLooper(), this)
@@ -31,9 +31,9 @@ abstract class BaseMediaController(protected val context: Context) : DefaultPlay
 
     override fun bind(videoView: VideoView) {
         this.videoView = videoView
-        controllerView = makeControllerView()
+        val controllerView = makeControllerView()
         `$` = ViewQuery(controllerView)
-        initView(controllerView!!)
+        initView(controllerView)
         val layoutParams = FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT)

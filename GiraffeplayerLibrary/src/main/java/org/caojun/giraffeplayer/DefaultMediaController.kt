@@ -25,22 +25,22 @@ import tv.danmaku.ijk.media.player.IjkTimedText
 
 class DefaultMediaController(context: Context) : BaseMediaController(context) {
 
-    protected var newPosition: Long = -1
-    protected var isShowing: Boolean = false
-    protected var isDragging: Boolean = false
+    private var newPosition: Long = -1
+    private var isShowing: Boolean = false
+    private var isDragging: Boolean = false
 
-    protected var instantSeeking: Boolean = false
-    protected var seekBar: SeekBar? = null
+    private var instantSeeking: Boolean = false
+    private var seekBar: SeekBar? = null
 
-    protected var volume = -1
-    protected val maxVolume: Int
+    private var volume = -1
+    private val maxVolume: Int
 
 
-    protected var brightness: Float = 0.toFloat()
+    private var brightness: Float = 0.toFloat()
     private var status = STATUS_IDLE
     private var displayModel = GiraffePlayer.DISPLAY_NORMAL
 
-    protected val seekListener: SeekBar.OnSeekBarChangeListener = object : SeekBar.OnSeekBarChangeListener {
+    private val seekListener: SeekBar.OnSeekBarChangeListener = object : SeekBar.OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
             if (!fromUser)
                 return
@@ -83,7 +83,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
         }
     }
 
-    protected val onClickListener: View.OnClickListener = View.OnClickListener { v ->
+    private val onClickListener: View.OnClickListener = View.OnClickListener { v ->
         val player = videoView!!.player
         if (v.id == R.id.app_video_fullscreen) {
             player.toggleFullScreen()
@@ -125,7 +125,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
         return if (hours > 0) String.format("%02d:%02d:%02d", hours, minutes, seconds) else String.format("%02d:%02d", minutes, seconds)
     }
 
-    protected fun updatePausePlay() {
+    private fun updatePausePlay() {
         if (videoView!!.isCurrentActivePlayer) {
             val playing = videoView!!.player.isPlaying
             if (playing) {
@@ -141,7 +141,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
     }
 
 
-    protected fun setProgress(): Long {
+    private fun setProgress(): Long {
         if (isDragging) {
             return 0
         }
@@ -185,7 +185,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
 
     protected fun show(timeout: Int) {
         if (!isShowing) {
-            if (videoView!!.videoInfo!!.isShowTopBar() || displayModel == GiraffePlayer.DISPLAY_FULL_WINDOW) {
+            if (videoView!!.videoInfo.isShowTopBar() || displayModel == GiraffePlayer.DISPLAY_FULL_WINDOW) {
                 `$`?.id(R.id.app_video_top_box)?.visible()
                 `$`?.id(R.id.app_video_title)?.text(videoView!!.videoInfo.getTitle())
             } else {
@@ -204,7 +204,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
     }
 
 
-    protected fun showBottomControl(show: Boolean) {
+    private fun showBottomControl(show: Boolean) {
         var show = show
         if (displayModel == GiraffePlayer.DISPLAY_FLOAT) {
             show = false
@@ -218,7 +218,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
 
     }
 
-    protected fun hide(force: Boolean) {
+    private fun hide(force: Boolean) {
         if (force || isShowing) {
             handler?.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
             showBottomControl(false)
@@ -269,7 +269,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
         })
     }
 
-    protected fun createGestureListener(): GestureDetector.OnGestureListener {
+    private fun createGestureListener(): GestureDetector.OnGestureListener {
         return PlayerGestureListener()
     }
 
@@ -358,7 +358,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
     }
 
 
-    protected fun endGesture() {
+    private fun endGesture() {
         volume = -1
         brightness = -1f
         if (newPosition >= 0) {
@@ -639,7 +639,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
     }
 
 
-    override fun onTimedText(giraffePlayer: GiraffePlayer, text: IjkTimedText) {
+    override fun onTimedText(giraffePlayer: GiraffePlayer, text: IjkTimedText?) {
         if (text == null) {
             `$`?.id(R.id.app_video_subtitle)?.gone()
         } else {

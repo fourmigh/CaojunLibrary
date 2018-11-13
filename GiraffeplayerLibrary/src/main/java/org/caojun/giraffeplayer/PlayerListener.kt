@@ -44,7 +44,7 @@ interface PlayerListener {
      * @param giraffePlayer
      * @param text
      */
-    fun onTimedText(giraffePlayer: GiraffePlayer, text: IjkTimedText)
+    fun onTimedText(giraffePlayer: GiraffePlayer, text: IjkTimedText?)
 
     fun onLazyLoadProgress(giraffePlayer: GiraffePlayer, progress: Int)
 

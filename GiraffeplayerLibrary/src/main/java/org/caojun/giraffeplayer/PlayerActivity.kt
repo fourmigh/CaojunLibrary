@@ -1,8 +1,6 @@
 package org.caojun.giraffeplayer
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 
 /**
  * Created by tcking on 2017
@@ -26,7 +24,7 @@ class PlayerActivity : BasePlayerActivity() {
         PlayerManager.instance.releaseByFingerprint(videoInfo.fingerprint)
         val videoView = findViewById<VideoView>(R.id.video_view)
         videoView.videoInfo(videoInfo)
-        PlayerManager.instance.getPlayer(videoView)?.start()
+        PlayerManager.instance.getPlayer(videoView).start()
     }
 
 }
