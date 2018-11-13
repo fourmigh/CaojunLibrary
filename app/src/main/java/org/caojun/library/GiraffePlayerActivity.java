@@ -24,8 +24,8 @@ public class GiraffePlayerActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        GiraffePlayer.debug = true;//show java logs
-        GiraffePlayer.nativeDebug = false;//not show native logs
+        GiraffePlayer.Companion.setDebug(true);//show java logs
+        GiraffePlayer.Companion.setNativeDebug(false);//not show native logs
 
         getSupportFragmentManager().beginTransaction().add(android.R.id.content, new GiraffePlayerFragment()).commit();
 
@@ -49,12 +49,12 @@ public class GiraffePlayerActivity extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        PlayerManager.getInstance().onConfigurationChanged(newConfig);
+        PlayerManager.Companion.getInstance().onConfigurationChanged(newConfig);
     }
 
     @Override
     public void onBackPressed() {
-        if (PlayerManager.getInstance().onBackPressed()) {
+        if (PlayerManager.Companion.getInstance().onBackPressed()) {
             return;
         }
         super.onBackPressed();

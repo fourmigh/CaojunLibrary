@@ -28,13 +28,13 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 public class GiraffePlayerFragment extends Fragment {
     private ViewQuery $;
-    private int aspectRatio = VideoInfo.AR_ASPECT_FIT_PARENT;
+    private int aspectRatio = VideoInfo.Companion.getAR_ASPECT_FIT_PARENT();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //set global configuration: turn on multiple_requests
-        PlayerManager.getInstance().getDefaultVideoInfo().addOption(Option.create(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "multiple_requests", 1L));
+        PlayerManager.Companion.getInstance().getDefaultVideoInfo().addOption(Option.Companion.create(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "multiple_requests", 1L));
     }
 
     @Nullable
@@ -71,17 +71,17 @@ public class GiraffePlayerFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (checkedId == R.id.rb_4_3) {
-                    aspectRatio = VideoInfo.AR_4_3_FIT_PARENT;
+                    aspectRatio = VideoInfo.Companion.getAR_4_3_FIT_PARENT();
                 } else if (checkedId == R.id.rb_16_9) {
-                    aspectRatio = VideoInfo.AR_16_9_FIT_PARENT;
+                    aspectRatio = VideoInfo.Companion.getAR_16_9_FIT_PARENT();
                 } else if (checkedId == R.id.rb_fill_parent) {
-                    aspectRatio = VideoInfo.AR_ASPECT_FILL_PARENT;
+                    aspectRatio = VideoInfo.Companion.getAR_ASPECT_FILL_PARENT();
                 } else if (checkedId == R.id.rb_fit_parent) {
-                    aspectRatio = VideoInfo.AR_ASPECT_FIT_PARENT;
+                    aspectRatio = VideoInfo.Companion.getAR_ASPECT_FIT_PARENT();
                 } else if (checkedId == R.id.rb_wrap_content) {
-                    aspectRatio = VideoInfo.AR_ASPECT_WRAP_CONTENT;
+                    aspectRatio = VideoInfo.Companion.getAR_ASPECT_WRAP_CONTENT();
                 } else if (checkedId == R.id.rb_match_parent) {
-                    aspectRatio = VideoInfo.AR_MATCH_PARENT;
+                    aspectRatio = VideoInfo.Companion.getAR_MATCH_PARENT();
                 }
                 videoView.getPlayer().aspectRatio(aspectRatio);
 
@@ -101,7 +101,7 @@ public class GiraffePlayerFragment extends Fragment {
                 } else if (v.getId() == R.id.btn_full) {
                     videoView.getPlayer().toggleFullScreen();
                 } else if (v.getId() == R.id.btn_play_float) {
-                    videoView.getPlayer().setDisplayModel(GiraffePlayer.DISPLAY_FLOAT);
+                    videoView.getPlayer().setDisplayModel(GiraffePlayer.Companion.getDISPLAY_FLOAT());
                 } else if (v.getId() == R.id.btn_list) {
 //                    startActivity(new Intent(getActivity(), ListExampleActivity.class));
                 } else if (v.getId() == R.id.btn_list2) {
@@ -112,8 +112,8 @@ public class GiraffePlayerFragment extends Fragment {
                             .setAspectRatio(aspectRatio)
 //                            .addOption(Option.create(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "timeout", 30000000L))
 //                            .addOption(Option.create(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "mediacodec", 1L))
-                            .addOption(Option.create(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "infbuf", 1L))
-                            .addOption(Option.create(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "multiple_requests", 1L))
+                            .addOption(Option.Companion.create(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "infbuf", 1L))
+                            .addOption(Option.Companion.create(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "multiple_requests", 1L))
 //                            .addOption(Option.create(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "headers", "Connection: keep-alive\r\n"))
 //                            .addOption(Option.create(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "reconnect", 1L))
 //                            .addOption(Option.create(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "reconnect_at_eof", 1L))
@@ -122,7 +122,7 @@ public class GiraffePlayerFragment extends Fragment {
 //                            .setPlayerImpl(VideoInfo.PLAYER_IMPL_SYSTEM) //using android media player
                             .setShowTopBar(true);
 
-                    GiraffePlayer.play(getContext(), videoInfo);
+                    GiraffePlayer.Companion.play(getContext(), videoInfo);
                     getActivity().overridePendingTransition(0, 0);
                 }
             }
