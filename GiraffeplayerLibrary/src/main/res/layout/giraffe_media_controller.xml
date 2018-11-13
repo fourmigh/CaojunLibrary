@@ -257,30 +257,31 @@
 
     <RelativeLayout
         android:id="@+id/app_video_top_box"
-        android:visibility="gone"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/app_video_finish"
-            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_left"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_left" />
 
         <TextView
-            android:layout_centerInParent="true"
             android:id="@+id/app_video_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:ellipsize="marquee"
             android:padding="8dp"
+            android:singleLine="true"
             android:textColor="@android:color/white"
             android:textSize="12dp"
-            android:visibility="visible"
-            android:singleLine="true"/>
+            android:visibility="visible" />
 
     </RelativeLayout>
 
