@@ -23,6 +23,8 @@ class VideoView : FrameLayout {
 
     var mediaController: MediaController? = null
         private set
+
+    @JvmField
     var playerListener: PlayerListener? = null
     var container: ViewGroup? = null
         private set

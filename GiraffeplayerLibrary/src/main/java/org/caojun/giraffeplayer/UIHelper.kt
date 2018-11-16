@@ -67,6 +67,7 @@ class UIHelper(private val activity: Activity?) {
             if (supportActionBar != null) {
                 try {
                     supportActionBar.setShowHideAnimationEnabled(false)
+//                    supportActionBar.javaClass.getDeclaredMethod("setShowHideAnimationEnabled", Boolean::class.javaPrimitiveType).invoke(supportActionBar, false)
                 } catch (e: Exception) {
 
                 }

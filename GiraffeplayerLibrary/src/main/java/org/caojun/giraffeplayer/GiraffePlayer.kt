@@ -5,7 +5,7 @@ import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
+//import android.content.IntentFilter
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.graphics.SurfaceTexture
@@ -47,7 +47,7 @@ import tv.danmaku.ijk.media.player.misc.ITrackInfo
 
 class GiraffePlayer private constructor(context: Context, val videoInfo: VideoInfo) : MediaController.MediaPlayerControl {
     private val internalPlaybackThread: HandlerThread
-    private val intentFilter = IntentFilter(ACTION)
+//    private val intentFilter = IntentFilter(ACTION)
 
     private var currentBufferPercentage = 0
     private val canPause = true
@@ -66,7 +66,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
     private var targetState = STATE_IDLE
     private var uri: Uri? = null
     private var headers: Map<String, String>? = null
-    private val context: Context
+    private val context: Context = context.applicationContext
 
     private var mediaPlayer: IMediaPlayer? = null
     @Volatile
@@ -165,7 +165,6 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
 
 
     init {
-        this.context = context.applicationContext
         //        log("new GiraffePlayer");
         val videoView = PlayerManager.instance.getVideoView(videoInfo)
         boxContainerRef = WeakReference<ViewGroup>(videoView?.container)
@@ -428,11 +427,11 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
 
     private fun initInternalListener() {
         //proxyListener fire on main thread
-        mediaPlayer!!.setOnBufferingUpdateListener { iMediaPlayer, percent ->
+        mediaPlayer?.setOnBufferingUpdateListener { iMediaPlayer, percent ->
             currentBufferPercentage = percent
             proxyListener().onBufferingUpdate(this@GiraffePlayer, percent)
         }
-        mediaPlayer!!.setOnInfoListener { iMediaPlayer, what, extra ->
+        mediaPlayer?.setOnInfoListener { iMediaPlayer, what, extra ->
             //https://developer.android.com/reference/android/media/MediaPlayer.OnInfoListener.html
             if (what == IMediaPlayer.MEDIA_INFO_VIDEO_ROTATION_CHANGED) {
                 val currentDisplay = currentDisplay
@@ -442,11 +441,11 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
             }
             proxyListener().onInfo(this@GiraffePlayer, what, extra)
         }
-        mediaPlayer!!.setOnCompletionListener {
+        mediaPlayer?.setOnCompletionListener {
             currentState(STATE_PLAYBACK_COMPLETED)
             proxyListener().onCompletion(this@GiraffePlayer)
         }
-        mediaPlayer!!.setOnErrorListener { iMediaPlayer, what, extra ->
+        mediaPlayer?.setOnErrorListener { iMediaPlayer, what, extra ->
             currentState(STATE_ERROR)
             val b = proxyListener().onError(this@GiraffePlayer, what, extra)
             val retryInterval = videoInfo.getRetryInterval()
@@ -456,8 +455,8 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
             }
             b
         }
-        mediaPlayer!!.setOnSeekCompleteListener { proxyListener().onSeekComplete(this@GiraffePlayer) }
-        mediaPlayer!!.setOnVideoSizeChangedListener { mp, width, height, sarNum, sarDen ->
+        mediaPlayer?.setOnSeekCompleteListener { proxyListener().onSeekComplete(this@GiraffePlayer) }
+        mediaPlayer?.setOnVideoSizeChangedListener { mp, width, height, sarNum, sarDen ->
             //                if (debug) {
             //                    log("onVideoSizeChanged:width:" + width + ",height:" + height);
             //                }
@@ -473,7 +472,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
                 }
             }
         }
-        mediaPlayer!!.setOnTimedTextListener { mp, text -> proxyListener().onTimedText(this@GiraffePlayer, text) }
+        mediaPlayer?.setOnTimedTextListener { mp, text -> proxyListener().onTimedText(this@GiraffePlayer, text) }
     }
 
     private fun bindDisplay(textureView: TextureView): GiraffePlayer {
@@ -569,13 +568,6 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
         }
         return this
     }
-
-    //    private void log(String msg) {
-    //        if (debug) {
-    //            Log.d(TAG, String.format("[fingerprint:%s] %s", videoInfo.getFingerprint(), msg));
-    //        }
-    //    }
-
 
     private fun doRelease(fingerprint: String) {
         if (isReleased) {

@@ -14,13 +14,18 @@ import android.widget.CompoundButton;
 import android.widget.RadioGroup;
 
 import com.github.tcking.viewquery.ViewQuery;
+import com.socks.library.KLog;
 
 import org.caojun.giraffeplayer.GiraffePlayer;
 import org.caojun.giraffeplayer.Option;
+import org.caojun.giraffeplayer.PlayerListener;
 import org.caojun.giraffeplayer.PlayerManager;
 import org.caojun.giraffeplayer.VideoInfo;
 import org.caojun.giraffeplayer.VideoView;
+import org.jetbrains.annotations.NotNull;
+
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
+import tv.danmaku.ijk.media.player.IjkTimedText;
 
 /**
  * Created by TangChao on 2017/6/15.
@@ -56,6 +61,89 @@ public class GiraffePlayerFragment extends Fragment {
 
         final VideoView videoView = $.id(R.id.video_view).view();
         videoView.setVideoPath(testUrl);
+        videoView.setPlayerListener(new PlayerListener() {
+            @Override
+            public void onPrepared(@NotNull GiraffePlayer giraffePlayer) {
+                KLog.d("PlayerListener", "onPrepared");
+            }
+
+            @Override
+            public void onBufferingUpdate(@NotNull GiraffePlayer giraffePlayer, int percent) {
+                KLog.d("PlayerListener", "onBufferingUpdate: " + percent);
+            }
+
+            @Override
+            public boolean onInfo(@NotNull GiraffePlayer giraffePlayer, int what, int extra) {
+                KLog.d("PlayerListener", "onInfo: " + what + " : " + extra);
+                return false;
+            }
+
+            @Override
+            public void onCompletion(@NotNull GiraffePlayer giraffePlayer) {
+                KLog.d("PlayerListener", "onCompletion");
+            }
+
+            @Override
+            public void onSeekComplete(@NotNull GiraffePlayer giraffePlayer) {
+                KLog.d("PlayerListener", "onSeekComplete");
+            }
+
+            @Override
+            public boolean onError(@NotNull GiraffePlayer giraffePlayer, int what, int extra) {
+                KLog.d("PlayerListener", "onError: " + what + " : " + extra);
+                return false;
+            }
+
+            @Override
+            public void onPause(@NotNull GiraffePlayer giraffePlayer) {
+                KLog.d("PlayerListener", "onPause");
+            }
+
+            @Override
+            public void onRelease(@NotNull GiraffePlayer giraffePlayer) {
+                KLog.d("PlayerListener", "onRelease");
+            }
+
+            @Override
+            public void onStart(@NotNull GiraffePlayer giraffePlayer) {
+                KLog.d("PlayerListener", "onStart");
+            }
+
+            @Override
+            public void onTargetStateChange(int oldState, int newState) {
+                KLog.d("PlayerListener", "onTargetStateChange: " + oldState + " : " + newState);
+            }
+
+            @Override
+            public void onCurrentStateChange(int oldState, int newState) {
+                KLog.d("PlayerListener", "onCurrentStateChange: " + oldState + " : " + newState);
+            }
+
+            @Override
+            public void onDisplayModelChange(int oldModel, int newModel) {
+                KLog.d("PlayerListener", "onDisplayModelChange: " + oldModel + " : " + newModel);
+            }
+
+            @Override
+            public void onPreparing(@NotNull GiraffePlayer giraffePlayer) {
+                KLog.d("PlayerListener", "onPreparing");
+            }
+
+            @Override
+            public void onTimedText(@NotNull GiraffePlayer giraffePlayer, @org.jetbrains.annotations.Nullable IjkTimedText text) {
+                KLog.d("PlayerListener", "onTimedText");
+            }
+
+            @Override
+            public void onLazyLoadProgress(@NotNull GiraffePlayer giraffePlayer, int progress) {
+                KLog.d("PlayerListener", "onLazyLoadProgress: " + progress);
+            }
+
+            @Override
+            public void onLazyLoadError(@NotNull GiraffePlayer giraffePlayer, @NotNull String message) {
+                KLog.d("PlayerListener", "onLazyLoadError: " + message);
+            }
+        });
 
         $.id(R.id.et_url).text(testUrl);
         CheckBox cb = $.id(R.id.cb_pwf).view();
