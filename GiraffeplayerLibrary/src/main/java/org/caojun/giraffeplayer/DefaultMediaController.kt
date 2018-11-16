@@ -33,7 +33,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
     private var seekBar: SeekBar? = null
 
     private var volume = -1
-    private val maxVolume: Int
+    private val maxVolume: Int = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
 
 
     private var brightness: Float = 0.toFloat()
@@ -61,7 +61,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
         override fun onStartTrackingTouch(seekBar: SeekBar) {
             isDragging = true
             show(3600000)
-            handler?.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
+            handler.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
             if (instantSeeking) {
                 audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true)
             }
@@ -76,10 +76,10 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
                 player.seekTo((player.duration * (seekBar.progress * 1.0 / 1000)).toInt())
             }
             show(defaultTimeout)
-            handler?.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
+            handler.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
             audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false)
             isDragging = false
-            handler?.sendEmptyMessageDelayed(BaseMediaController.MESSAGE_SHOW_PROGRESS, 1000)
+            handler.sendEmptyMessageDelayed(BaseMediaController.MESSAGE_SHOW_PROGRESS, 1000)
         }
     }
 
@@ -195,10 +195,10 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
             isShowing = true
         }
         updatePausePlay()
-        handler?.sendEmptyMessage(BaseMediaController.MESSAGE_SHOW_PROGRESS)
-        handler?.removeMessages(BaseMediaController.MESSAGE_FADE_OUT)
+        handler.sendEmptyMessage(BaseMediaController.MESSAGE_SHOW_PROGRESS)
+        handler.removeMessages(BaseMediaController.MESSAGE_FADE_OUT)
         if (timeout != 0) {
-            handler?.sendMessageDelayed(handler?.obtainMessage(BaseMediaController.MESSAGE_FADE_OUT), timeout.toLong())
+            handler.sendMessageDelayed(handler.obtainMessage(BaseMediaController.MESSAGE_FADE_OUT), timeout.toLong())
         }
 
     }
@@ -220,17 +220,13 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
 
     private fun hide(force: Boolean) {
         if (force || isShowing) {
-            handler?.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
+            handler.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
             showBottomControl(false)
             `$`?.id(R.id.app_video_top_box)?.gone()
             //            $.id(R.id.app_video_fullscreen).invisible();
             isShowing = false
         }
 
-    }
-
-    init {
-        maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
     }
 
     override fun makeControllerView(): View {
@@ -305,8 +301,8 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
             BaseMediaController.Companion.MESSAGE_SHOW_PROGRESS -> {
                 setProgress()
                 if (!isDragging && isShowing) {
-                    msg = handler!!.obtainMessage(BaseMediaController.MESSAGE_SHOW_PROGRESS)
-                    handler?.sendMessageDelayed(msg, 300)
+                    msg = handler.obtainMessage(BaseMediaController.MESSAGE_SHOW_PROGRESS)
+                    handler.sendMessageDelayed(msg, 300)
                     updatePausePlay()
                 }
             }
@@ -321,7 +317,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
     }
 
     override fun onRelease(giraffePlayer: GiraffePlayer) {
-        handler?.removeCallbacksAndMessages(null)
+        handler.removeCallbacksAndMessages(null)
 
         `$`?.id(R.id.app_video_play)?.image(R.drawable.ic_play)
         `$`?.id(R.id.app_video_currentTime)?.text("")
@@ -362,11 +358,11 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
         volume = -1
         brightness = -1f
         if (newPosition >= 0) {
-            handler?.removeMessages(BaseMediaController.MESSAGE_SEEK_NEW_POSITION)
-            handler?.sendEmptyMessage(BaseMediaController.MESSAGE_SEEK_NEW_POSITION)
+            handler.removeMessages(BaseMediaController.MESSAGE_SEEK_NEW_POSITION)
+            handler.sendEmptyMessage(BaseMediaController.MESSAGE_SEEK_NEW_POSITION)
         }
-        handler?.removeMessages(BaseMediaController.MESSAGE_HIDE_CENTER_BOX)
-        handler?.sendEmptyMessageDelayed(BaseMediaController.MESSAGE_HIDE_CENTER_BOX, 500)
+        handler.removeMessages(BaseMediaController.MESSAGE_HIDE_CENTER_BOX)
+        handler.sendEmptyMessageDelayed(BaseMediaController.MESSAGE_HIDE_CENTER_BOX, 500)
     }
 
     inner class PlayerGestureListener : GestureDetector.SimpleOnGestureListener() {
@@ -576,7 +572,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
                 `$`?.id(R.id.app_video_status)?.gone()
             }
             STATUS_COMPLETED -> {
-                handler?.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
+                handler.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
                 showBottomControl(false)
                 `$`?.id(R.id.app_video_replay)?.visible()
                 `$`?.id(R.id.app_video_loading)?.gone()
@@ -584,7 +580,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
             }
             STATUS_ERROR -> {
                 `$`?.id(R.id.app_video_status)?.visible()?.id(R.id.app_video_status_text)?.text(R.string.small_problem)
-                handler?.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
+                handler.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
                 `$`?.id(R.id.app_video_loading)?.gone()
             }
         }
