@@ -21,10 +21,10 @@ class PlayerActivity : BasePlayerActivity() {
             finish()
             return
         }
-        PlayerManager.instance.releaseByFingerprint(videoInfo.fingerprint)
+        PlayerManager.getInstance().releaseByFingerprint(videoInfo.fingerprint)
         val videoView = findViewById<VideoView>(R.id.video_view)
         videoView.videoInfo(videoInfo)
-        PlayerManager.instance.getPlayer(videoView).start()
+        PlayerManager.getInstance().getPlayer(videoView).start()
     }
 
 }

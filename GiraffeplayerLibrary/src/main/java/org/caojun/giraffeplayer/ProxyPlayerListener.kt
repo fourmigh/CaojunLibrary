@@ -15,14 +15,14 @@ class ProxyPlayerListener(private val videoInfo: VideoInfo) : PlayerListener {
         if (outerListener != null) {
             return outerListener
         }
-        val videoView = PlayerManager.instance.getVideoView(videoInfo)
+        val videoView = PlayerManager.getInstance().getVideoView(videoInfo)
         return if (videoView.playerListener != null) {
             videoView.playerListener
         } else DefaultPlayerListener.INSTANCE
     }
 
     private fun listener(): PlayerListener {
-        val videoView = PlayerManager.instance.getVideoView(videoInfo)
+        val videoView = PlayerManager.getInstance().getVideoView(videoInfo)
         return if (videoView.mediaController != null) {
             videoView.mediaController!!
         } else DefaultPlayerListener.INSTANCE

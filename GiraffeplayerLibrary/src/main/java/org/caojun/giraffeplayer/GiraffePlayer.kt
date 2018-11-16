@@ -120,7 +120,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
 
     private val activity: Activity
         get() {
-            val videoView = PlayerManager.instance.getVideoView(videoInfo)
+            val videoView = PlayerManager.getInstance().getVideoView(videoInfo)
             return videoView.context as Activity
         }
 
@@ -164,7 +164,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
 
     init {
         //        log("new GiraffePlayer");
-        val videoView = PlayerManager.instance.getVideoView(videoInfo)
+        val videoView = PlayerManager.getInstance().getVideoView(videoInfo)
         boxContainerRef = WeakReference<ViewGroup>(videoView.container)
         boxContainerRef.get()?.setBackgroundColor(videoInfo.getBgColor())
         this.proxyListener = ProxyPlayerListener(videoInfo)
@@ -252,7 +252,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
             }
             true
         })
-        PlayerManager.instance.currentPlayer = this
+        PlayerManager.getInstance().currentPlayer = this
     }
 
 
@@ -384,7 +384,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
         }
         initInternalListener()
         if (createDisplay) {
-            val videoView = PlayerManager.instance.getVideoView(videoInfo)
+            val videoView = PlayerManager.getInstance().getVideoView(videoInfo)
             if (videoView.container != null) {
                 createDisplay(videoView.container!!)
             }
@@ -570,7 +570,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
             return
         }
         //        log("doRelease");
-        PlayerManager.instance.removePlayer(fingerprint)
+        PlayerManager.getInstance().removePlayer(fingerprint)
         //1. quit handler thread
         internalPlaybackThread.quit()
         //2. remove display group
@@ -590,7 +590,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
     fun release() {
         //        log("try release");
         val fingerprint = videoInfo.fingerprint
-        PlayerManager.instance.removePlayer(fingerprint)
+        PlayerManager.getInstance().removePlayer(fingerprint)
         proxyListener().onRelease(this)
         handler?.obtainMessage(MSG_CTRL_RELEASE, fingerprint)?.sendToTarget()
     }
@@ -673,8 +673,8 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
 
             }
             DISPLAY_NORMAL -> {
-                val activity = activity ?: return this
-                val videoView = PlayerManager.instance.getVideoView(videoInfo) ?: return this
+//                val activity = activity
+                val videoView = PlayerManager.getInstance().getVideoView(videoInfo)
 //change orientation & action bar
                 val uiHelper = UIHelper.with(activity)
                 if (videoInfo.isPortraitWhenFullScreen()) {
@@ -839,7 +839,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
 
     private fun createFloatBox(): ViewGroup {
         removeFloatContainer()
-        val topActivity = PlayerManager.instance.topActivity
+        val topActivity = PlayerManager.getInstance().topActivity
         val topActivityBox = topActivity.findViewById<View>(android.R.id.content) as ViewGroup
         val floatBox = LayoutInflater.from(topActivity.application).inflate(R.layout.giraffe_float_box, null) as ViewGroup
         floatBox.setBackgroundColor(videoInfo.getBgColor())
@@ -1115,7 +1115,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
             intent.putExtra("__video_info__", videoInfo)
-            PlayerManager.instance.releaseCurrent()
+            PlayerManager.getInstance().releaseCurrent()
             context.startActivity(intent)
         }
     }

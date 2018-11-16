@@ -197,7 +197,7 @@ class VideoInfo : Parcelable {
         val fp = "" + fingerprint//to string first
         if (lastFingerprint != null && lastFingerprint != fp) {
             //different from last setFingerprint, release last
-            PlayerManager.instance.releaseByFingerprint(lastFingerprint!!)
+            PlayerManager.getInstance().releaseByFingerprint(lastFingerprint!!)
         }
         this.fingerprint = fp
         lastFingerprint = this.fingerprint
@@ -216,7 +216,7 @@ class VideoInfo : Parcelable {
     fun setUri(uri: Uri): VideoInfo {
         if (lastUri != null && lastUri != uri) {
             //different from last uri, release last
-            PlayerManager.instance.releaseByFingerprint(fingerprint)
+            PlayerManager.getInstance().releaseByFingerprint(fingerprint)
         }
         this.uri = uri
         this.lastUri = this.uri
@@ -274,7 +274,7 @@ class VideoInfo : Parcelable {
         }
 
         fun createFromDefault(): VideoInfo {
-            return VideoInfo(PlayerManager.instance.defaultVideoInfo)
+            return VideoInfo(PlayerManager.getInstance().defaultVideoInfo)
         }
     }
 }

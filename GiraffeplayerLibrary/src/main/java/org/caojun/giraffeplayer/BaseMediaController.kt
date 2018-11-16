@@ -19,7 +19,6 @@ abstract class BaseMediaController(protected val context: Context) : DefaultPlay
     protected val audioManager: AudioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
     protected var `$`: ViewQuery? = null
 
-    protected val DefaultTimeout = 3 * 1000
 //    protected var handler: Handler? = null
     protected val handler = Handler(Looper.getMainLooper(), this)
     protected var videoView: VideoView? = null
@@ -52,6 +51,8 @@ abstract class BaseMediaController(protected val context: Context) : DefaultPlay
         val MESSAGE_SEEK_NEW_POSITION = 3
         val MESSAGE_HIDE_CENTER_BOX = 4
         val MESSAGE_RESTART_PLAY = 5
+
+        val DefaultTimeout = 3 * 1000
     }
 
 }

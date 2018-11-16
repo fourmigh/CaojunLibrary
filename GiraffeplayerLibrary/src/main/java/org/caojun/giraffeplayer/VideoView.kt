@@ -39,7 +39,7 @@ class VideoView : FrameLayout {
             if (videoInfo.getUri() == null) {
                 throw RuntimeException("player uri is null")
             }
-            return PlayerManager.instance.getPlayer(this)
+            return PlayerManager.getInstance().getPlayer(this)
         }
 
     /**
@@ -47,7 +47,7 @@ class VideoView : FrameLayout {
      * @return boolean
      */
     val isCurrentActivePlayer: Boolean
-        get() = PlayerManager.instance.isCurrentPlayer(videoInfo.fingerprint)
+        get() = PlayerManager.getInstance().isCurrentPlayer(videoInfo.fingerprint)
 
     val coverView: ImageView
         get() = findViewById(R.id.app_video_cover)
@@ -59,7 +59,7 @@ class VideoView : FrameLayout {
 
     fun videoInfo(videoInfo: VideoInfo): VideoView {
         if (this.videoInfo.getUri() != null && this.videoInfo.getUri() != videoInfo.getUri()) {
-            PlayerManager.instance.releaseByFingerprint(this.videoInfo.fingerprint)
+            PlayerManager.getInstance().releaseByFingerprint(this.videoInfo.fingerprint)
         }
         this.videoInfo = videoInfo
         return this

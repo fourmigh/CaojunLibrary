@@ -26,7 +26,7 @@ class PlayerManager {
     val defaultVideoInfo = VideoInfo()
 
     private val videoViewsRef = WeakHashMap<String, VideoView>()
-    private val playersRef = ConcurrentHashMap<String, GiraffePlayer>()
+    private val playersRef = ConcurrentHashMap<String, GiraffePlayer?>()
     private val activity2playersRef = WeakHashMap<Context, String>()
 
     var currentPlayer: GiraffePlayer?
@@ -69,7 +69,7 @@ class PlayerManager {
             return
         }
         activityLifecycleCallbacks = object : Application.ActivityLifecycleCallbacks {
-            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle) {}
+            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
 
             override fun onActivityStarted(activity: Activity) {
 
@@ -164,6 +164,11 @@ class PlayerManager {
 
     companion object {
 
-        val instance = PlayerManager()
+//        @JvmField
+        private val instance = PlayerManager()
+
+        fun getInstance(): PlayerManager {
+            return instance
+        }
     }
 }
