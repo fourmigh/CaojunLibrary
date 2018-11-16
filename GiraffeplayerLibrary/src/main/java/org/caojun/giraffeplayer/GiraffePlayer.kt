@@ -118,12 +118,10 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
         }
 
 
-    private val activity: Activity?
+    private val activity: Activity
         get() {
             val videoView = PlayerManager.instance.getVideoView(videoInfo)
-            return if (videoView != null) {
-                videoView.context as Activity
-            } else null
+            return videoView.context as Activity
         }
 
     val trackInfo: Array<ITrackInfo?>
@@ -167,7 +165,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
     init {
         //        log("new GiraffePlayer");
         val videoView = PlayerManager.instance.getVideoView(videoInfo)
-        boxContainerRef = WeakReference<ViewGroup>(videoView?.container)
+        boxContainerRef = WeakReference<ViewGroup>(videoView.container)
         boxContainerRef.get()?.setBackgroundColor(videoInfo.getBgColor())
         this.proxyListener = ProxyPlayerListener(videoInfo)
         internalPlaybackThread = HandlerThread("GiraffePlayerInternal:Handler", Process.THREAD_PRIORITY_AUDIO)
@@ -205,11 +203,11 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
                             startPosition = 0
                         }
                         if (startPosition >= 0) {
-                            mediaPlayer!!.seekTo(startPosition.toLong())
+                            mediaPlayer?.seekTo(startPosition.toLong())
                             startPosition = -1
                         }
                     }
-                    mediaPlayer!!.start()
+                    mediaPlayer?.start()
                     currentState(STATE_PLAYING)
                 }
                 MSG_CTRL_PAUSE -> {
@@ -238,12 +236,10 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
                         (mediaPlayer as AndroidMediaPlayer).internalMediaPlayer.deselectTrack(deselectTrack)
                     }
                 }
-                MSG_SET_DISPLAY -> if (msg.obj == null) {
-                    mediaPlayer!!.setDisplay(null)
-                } else if (msg.obj is SurfaceTexture) {
-                    mediaPlayer!!.setSurface(Surface(msg.obj as SurfaceTexture))
-                } else if (msg.obj is SurfaceView) {
-                    mediaPlayer!!.setDisplay((msg.obj as SurfaceView).holder)
+                MSG_SET_DISPLAY -> when {
+                    msg.obj == null -> mediaPlayer?.setDisplay(null)
+                    msg.obj is SurfaceTexture -> mediaPlayer?.setSurface(Surface(msg.obj as SurfaceTexture))
+                    msg.obj is SurfaceView -> mediaPlayer?.setDisplay((msg.obj as SurfaceView).holder)
                 }
                 MSG_CTRL_RETRY -> {
                     init(false)
@@ -251,7 +247,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
                 }
                 MSG_CTRL_SET_VOLUME -> {
                     val pram = msg.obj as Map<String, Float>
-                    mediaPlayer!!.setVolume(pram["left"]!!, pram["right"]!!)
+                    mediaPlayer?.setVolume(pram["left"]!!, pram["right"]!!)
                 }
             }
             true
@@ -374,10 +370,10 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
         }
         setOptions()
         isReleased = false
-        mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
-        mediaPlayer!!.isLooping = videoInfo.isLooping
-        mediaPlayer!!.setOnPreparedListener {
-            val live = mediaPlayer!!.duration == 0L
+        mediaPlayer?.setAudioStreamType(AudioManager.STREAM_MUSIC)
+        mediaPlayer?.isLooping = videoInfo.isLooping
+        mediaPlayer?.setOnPreparedListener {
+            val live = mediaPlayer?.duration == 0L
             canSeekBackward = !live
             canSeekForward = !live
             currentState(STATE_PREPARED)
@@ -417,9 +413,9 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
             val ijkMediaPlayer = mediaPlayer as IjkMediaPlayer?
             for (option in videoInfo.options) {
                 if (option.value is String) {
-                    ijkMediaPlayer!!.setOption(option.category, option.name, option.value)
+                    ijkMediaPlayer?.setOption(option.category, option.name, option.value)
                 } else if (option.value is Long) {
-                    ijkMediaPlayer!!.setOption(option.category, option.name, option.value)
+                    ijkMediaPlayer?.setOption(option.category, option.name, option.value)
                 }
             }
         }
@@ -434,10 +430,10 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
         mediaPlayer?.setOnInfoListener { iMediaPlayer, what, extra ->
             //https://developer.android.com/reference/android/media/MediaPlayer.OnInfoListener.html
             if (what == IMediaPlayer.MEDIA_INFO_VIDEO_ROTATION_CHANGED) {
-                val currentDisplay = currentDisplay
-                if (currentDisplay != null) {
-                    currentDisplay.rotation = extra.toFloat()
-                }
+//                val currentDisplay = currentDisplay
+//                if (currentDisplay != null) {
+                    currentDisplay?.rotation = extra.toFloat()
+//                }
             }
             proxyListener().onInfo(this@GiraffePlayer, what, extra)
         }
@@ -468,7 +464,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
                 val currentDisplay = currentDisplay
                 if (currentDisplay != null) {
                     val scalableDisplay = currentDisplay as ScalableDisplay?
-                    scalableDisplay!!.setVideoSize(videoWidth, videoHeight)
+                    scalableDisplay?.setVideoSize(videoWidth, videoHeight)
                 }
             }
         }
@@ -584,11 +580,11 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
     }
 
     private fun releaseMediaPlayer() {
-        if (mediaPlayer != null) {
+//        if (mediaPlayer != null) {
             //            log("releaseMediaPlayer");
-            mediaPlayer!!.release()
+            mediaPlayer?.release()
             mediaPlayer = null
-        }
+//        }
     }
 
     fun release() {
@@ -609,10 +605,10 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
 
     private fun doReleaseDisplayBox() {
         //        log("doReleaseDisplayBox");
-        val currentDisplay = currentDisplay
-        if (currentDisplay != null) {
-            currentDisplay.surfaceTextureListener = null
-        }
+//        val currentDisplay = currentDisplay
+//        if (currentDisplay != null) {
+            currentDisplay?.surfaceTextureListener = null
+//        }
         isolateDisplayBox()
     }
 
@@ -648,77 +644,81 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
         }
         lastDisplayModel = displayModel
 
-        if (targetDisplayModel == DISPLAY_FULL_WINDOW) {
-            val activity = activity ?: return this
+        when (targetDisplayModel) {
+            DISPLAY_FULL_WINDOW -> {
+                val activity = activity ?: return this
 
-            //orientation & action bar
-            val uiHelper = UIHelper.with(activity)
-            if (videoInfo.isPortraitWhenFullScreen()) {
-                uiHelper.requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-                ignoreOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                //orientation & action bar
+                val uiHelper = UIHelper.with(activity)
+                if (videoInfo.isPortraitWhenFullScreen()) {
+                    uiHelper.requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    ignoreOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                }
+                uiHelper.showActionBar(false).fullScreen(true)
+                val activityBox = activity.findViewById<ViewGroup>(android.R.id.content)
+
+                animateIntoContainerAndThen(activityBox, object : VideoViewAnimationListener() {
+
+                    public override fun onStart(src: ViewGroup, target: ViewGroup) {
+                        removeFloatContainer()
+                    }
+
+                    public override fun onEnd(src: ViewGroup, target: ViewGroup) {
+                        proxyListener().onDisplayModelChange(displayModel, DISPLAY_FULL_WINDOW)
+                        displayModel = DISPLAY_FULL_WINDOW
+                    }
+
+                })
+
+
             }
-            uiHelper.showActionBar(false).fullScreen(true)
-            val activityBox = activity.findViewById<ViewGroup>(android.R.id.content)
-
-            animateIntoContainerAndThen(activityBox, object : VideoViewAnimationListener() {
-
-                public override fun onStart(src: ViewGroup, target: ViewGroup) {
-                    removeFloatContainer()
-                }
-
-                public override fun onEnd(src: ViewGroup, target: ViewGroup) {
-                    proxyListener().onDisplayModelChange(displayModel, DISPLAY_FULL_WINDOW)
-                    displayModel = DISPLAY_FULL_WINDOW
-                }
-
-            })
-
-
-        } else if (targetDisplayModel == DISPLAY_NORMAL) {
-            val activity = activity ?: return this
-            val videoView = PlayerManager.instance.getVideoView(videoInfo) ?: return this
+            DISPLAY_NORMAL -> {
+                val activity = activity ?: return this
+                val videoView = PlayerManager.instance.getVideoView(videoInfo) ?: return this
 //change orientation & action bar
-            val uiHelper = UIHelper.with(activity)
-            if (videoInfo.isPortraitWhenFullScreen()) {
-                uiHelper.requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-                ignoreOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                val uiHelper = UIHelper.with(activity)
+                if (videoInfo.isPortraitWhenFullScreen()) {
+                    uiHelper.requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                    ignoreOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+                uiHelper.showActionBar(true).fullScreen(false)
+
+
+                animateIntoContainerAndThen(videoView, object : VideoViewAnimationListener() {
+
+                    public override fun onStart(src: ViewGroup, target: ViewGroup) {
+                        removeFloatContainer()
+                    }
+
+                    public override fun onEnd(src: ViewGroup, target: ViewGroup) {
+                        proxyListener().onDisplayModelChange(displayModel, DISPLAY_NORMAL)
+                        displayModel = DISPLAY_NORMAL
+                    }
+
+                })
             }
-            uiHelper.showActionBar(true).fullScreen(false)
+            DISPLAY_FLOAT -> {
+                val activity = activity ?: return this
 
-
-            animateIntoContainerAndThen(videoView, object : VideoViewAnimationListener() {
-
-                public override fun onStart(src: ViewGroup, target: ViewGroup) {
-                    removeFloatContainer()
+                //change orientation & action bar
+                val uiHelper = UIHelper.with(activity)
+                if (videoInfo.isPortraitWhenFullScreen()) {
+                    uiHelper.requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                    ignoreOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                 }
+                uiHelper.showActionBar(true).fullScreen(false)
 
-                public override fun onEnd(src: ViewGroup, target: ViewGroup) {
-                    proxyListener().onDisplayModelChange(displayModel, DISPLAY_NORMAL)
-                    displayModel = DISPLAY_NORMAL
-                }
+                val floatBox = createFloatBox()
+                floatBox.visibility = View.INVISIBLE
+                animateIntoContainerAndThen(floatBox, object : VideoViewAnimationListener() {
+                    override fun onEnd(src: ViewGroup, target: ViewGroup) {
+                        floatBox.visibility = View.VISIBLE
+                        proxyListener().onDisplayModelChange(displayModel, DISPLAY_FLOAT)
+                        displayModel = DISPLAY_FLOAT
+                    }
+                })
 
-            })
-        } else if (targetDisplayModel == DISPLAY_FLOAT) {
-            val activity = activity ?: return this
-
-            //change orientation & action bar
-            val uiHelper = UIHelper.with(activity)
-            if (videoInfo.isPortraitWhenFullScreen()) {
-                uiHelper.requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-                ignoreOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
-            uiHelper.showActionBar(true).fullScreen(false)
-
-            val floatBox = createFloatBox()
-            floatBox.visibility = View.INVISIBLE
-            animateIntoContainerAndThen(floatBox, object : VideoViewAnimationListener() {
-                override fun onEnd(src: ViewGroup, target: ViewGroup) {
-                    floatBox.visibility = View.VISIBLE
-                    proxyListener().onDisplayModelChange(displayModel, DISPLAY_FLOAT)
-                    displayModel = DISPLAY_FLOAT
-                }
-            })
-
         }
         return this
     }
@@ -759,7 +759,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
             return
         }
 
-        val activity = activity ?: return
+//        val activity = activity
 
         //这里用post确保在调用此函数之前的ui操作都已经ok
         uiHandler.post {
@@ -776,7 +776,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
             if (displayBoxContainer?.parent != activityBox) {
                 val srcXY = intArrayOf(0, 0)
                 val srcLayoutParams = FrameLayout.LayoutParams(displayBoxContainer!!.width, displayBoxContainer.height)
-                displayBoxContainer?.getLocationInWindow(srcXY)
+                displayBoxContainer.getLocationInWindow(srcXY)
                 srcLayoutParams.leftMargin = srcXY[0] - activityBoxXY[0]
                 srcLayoutParams.topMargin = srcXY[1] - activityBoxXY[1]
                 isolateDisplayBoxContainer()
@@ -796,11 +796,11 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
 
                 private fun afterTransition() {
                     //fire listener
-                    if (displayBoxContainer?.parent != container) {
+                    if (displayBoxContainer.parent != container) {
                         isolateDisplayBoxContainer()
                         container.addView(displayBoxContainer, FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT))
                     }
-                    listener.onEnd(displayBoxContainer!!, container)
+                    listener.onEnd(displayBoxContainer, container)
                 }
 
                 override fun onTransitionStart(transition: Transition) {
@@ -827,7 +827,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
 
             //                    must put the action to queue so the beginDelayedTransition can take effect
             uiHandler.post {
-                listener.onStart(displayBoxContainer!!, container)
+                listener.onStart(displayBoxContainer, container)
                 TransitionManager.beginDelayedTransition(displayBoxContainer, transition)
                 displayBoxContainer.layoutParams = targetLayoutParams
             }
@@ -844,7 +844,7 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
         val floatBox = LayoutInflater.from(topActivity.application).inflate(R.layout.giraffe_float_box, null) as ViewGroup
         floatBox.setBackgroundColor(videoInfo.getBgColor())
 
-        val floatBoxParams = FrameLayout.LayoutParams(VideoInfo.floatView_width, VideoInfo.floatView_height)
+        val floatBoxParams = FrameLayout.LayoutParams(VideoInfo.FloatView_Width, VideoInfo.FloatView_Height)
         if (VideoInfo.floatView_x == Integer.MAX_VALUE.toFloat() || VideoInfo.floatView_y == Integer.MAX_VALUE.toFloat()) {
             floatBoxParams.gravity = Gravity.BOTTOM or Gravity.END
             floatBoxParams.bottomMargin = 20
@@ -857,11 +857,11 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
         topActivityBox.addView(floatBox, floatBoxParams)
 
         floatBox.setOnTouchListener(object : View.OnTouchListener {
-            internal var ry: Float = 0.toFloat()
-            internal var oy: Float = 0.toFloat()
+            private var ry: Float = 0.toFloat()
+            private var oy: Float = 0.toFloat()
 
-            internal var rx: Float = 0.toFloat()
-            internal var ox: Float = 0.toFloat()
+            private var rx: Float = 0.toFloat()
+            private var ox: Float = 0.toFloat()
 
             override fun onTouch(v: View, event: MotionEvent): Boolean {
                 // 获取相对屏幕的坐标，即以屏幕左上角为原点
@@ -896,15 +896,15 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
     }
 
     private fun removeFloatContainer() {
-        val activity = activity
-        if (activity != null) {
+//        val activity = activity
+//        if (activity != null) {
             val floatBox = activity.findViewById<View>(R.id.player_display_float_box)
             if (floatBox != null) {
                 VideoInfo.floatView_x = floatBox.x
                 VideoInfo.floatView_y = floatBox.y
             }
             removeFromParent(floatBox)
-        }
+//        }
     }
 
     private fun removeFromParent(view: View?) {
@@ -1065,14 +1065,14 @@ class GiraffePlayer private constructor(context: Context, val videoInfo: VideoIn
      */
     fun setLooping(looping: Boolean): GiraffePlayer {
         if (mediaPlayer != null && !isReleased) {
-            mediaPlayer!!.isLooping = looping
+            mediaPlayer?.isLooping = looping
         }
         return this
     }
 
     companion object {
-        val TAG = "GiraffePlayer"
-        val ACTION = "tcking.github.com.giraffeplayer2.action"
+//        val TAG = "GiraffePlayer"
+//        val ACTION = "tcking.github.com.giraffeplayer2.action"
         var debug = false
         var nativeDebug = false
         // Internal messages

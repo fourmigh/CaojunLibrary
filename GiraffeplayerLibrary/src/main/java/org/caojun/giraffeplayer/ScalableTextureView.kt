@@ -19,8 +19,8 @@ class ScalableTextureView : TextureView, ScalableDisplay {
         init()
     }
 
-    override fun setAspectRatio(aspectRatio: Int) {
-        measureHelper?.setAspectRatio(aspectRatio)
+    override fun setAspectRatio(ratio: Int) {
+        measureHelper?.setAspectRatio(ratio)
         requestLayout()
     }
 

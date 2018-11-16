@@ -22,7 +22,7 @@ import java.lang.ref.WeakReference
 
 
 class MeasureHelper(view: View) {
-    private val mWeakView: WeakReference<View>?
+    private val mWeakView= WeakReference(view)
 
     private var mVideoWidth: Int = 0
     private var mVideoHeight: Int = 0
@@ -39,11 +39,11 @@ class MeasureHelper(view: View) {
     private var mCurrentAspectRatio = VideoInfo.AR_ASPECT_FIT_PARENT
 
     val view: View?
-        get() = mWeakView?.get()
+        get() = mWeakView.get()
 
-    init {
-        mWeakView = WeakReference(view)
-    }
+//    init {
+//        mWeakView = WeakReference(view)
+//    }
 
     fun setVideoSize(videoWidth: Int, videoHeight: Int) {
         mVideoWidth = videoWidth

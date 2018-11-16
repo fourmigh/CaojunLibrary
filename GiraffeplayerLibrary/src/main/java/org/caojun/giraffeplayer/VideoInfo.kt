@@ -256,8 +256,8 @@ class VideoInfo : Parcelable {
         val PLAYER_IMPL_IJK = "ijk"
         val PLAYER_IMPL_SYSTEM = "system"
 
-        var floatView_width = 400
-        var floatView_height = 300
+        var FloatView_Width = 400
+        var FloatView_Height = 300
 
         var floatView_x = Integer.MAX_VALUE.toFloat() //max_value means unset
         var floatView_y = Integer.MAX_VALUE.toFloat()

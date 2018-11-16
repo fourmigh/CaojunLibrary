@@ -33,7 +33,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
     private var seekBar: SeekBar? = null
 
     private var volume = -1
-    private val maxVolume: Int = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+    private val MaxVolume: Int = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
 
 
     private var brightness: Float = 0.toFloat()
@@ -75,7 +75,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
             if (!instantSeeking) {
                 player.seekTo((player.duration * (seekBar.progress * 1.0 / 1000)).toInt())
             }
-            show(defaultTimeout)
+            show(DefaultTimeout)
             handler.removeMessages(BaseMediaController.MESSAGE_SHOW_PROGRESS)
             audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false)
             isDragging = false
@@ -148,7 +148,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
         //check player is active
         val currentPlayer = videoView!!.isCurrentActivePlayer
         if (!currentPlayer) {
-            seekBar!!.progress = 0
+            seekBar?.progress = 0
             return 0
         }
 
@@ -167,10 +167,10 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
         if (seekBar != null) {
             if (duration > 0) {
                 val pos = 1000L * position / duration
-                seekBar!!.progress = pos.toInt()
+                seekBar?.progress = pos.toInt()
             }
             val percent = player.bufferPercentage
-            seekBar!!.secondaryProgress = percent * 10
+            seekBar?.secondaryProgress = percent * 10
         }
 
         `$`?.id(R.id.app_video_currentTime)?.text(generateTime(position))
@@ -298,7 +298,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
                 videoView?.player?.seekTo(newPosition.toInt())
                 newPosition = -1
             }
-            BaseMediaController.Companion.MESSAGE_SHOW_PROGRESS -> {
+            BaseMediaController.MESSAGE_SHOW_PROGRESS -> {
                 setProgress()
                 if (!isDragging && isShowing) {
                     msg = handler.obtainMessage(BaseMediaController.MESSAGE_SHOW_PROGRESS)
@@ -350,7 +350,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
 
     override fun onStart(giraffePlayer: GiraffePlayer) {
         `$`?.id(R.id.app_video_replay)?.gone()
-        show(defaultTimeout)
+        show(DefaultTimeout)
     }
 
 
@@ -429,7 +429,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
             if (isShowing) {
                 hide(false)
             } else {
-                show(defaultTimeout)
+                show(DefaultTimeout)
             }
             return true
         }
@@ -449,9 +449,9 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
         }
         hide(true)
 
-        var index = (percent * maxVolume).toInt() + volume
-        if (index > maxVolume)
-            index = maxVolume
+        var index = (percent * MaxVolume).toInt() + volume
+        if (index > MaxVolume)
+            index = MaxVolume
         else if (index < 0)
             index = 0
 
@@ -459,7 +459,7 @@ class DefaultMediaController(context: Context) : BaseMediaController(context) {
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, index, 0)
 
         // 变更进度条
-        val i = (index * 1.0 / maxVolume * 100).toInt()
+        val i = (index * 1.0 / MaxVolume * 100).toInt()
         var s = i.toString() + "%"
         if (i == 0) {
             s = "off"

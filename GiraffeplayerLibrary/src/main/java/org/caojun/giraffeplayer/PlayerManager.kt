@@ -84,8 +84,8 @@ class PlayerManager {
             override fun onActivityPaused(activity: Activity) {
                 val currentPlayer = getPlayerByFingerprint(activity2playersRef[activity])
                 currentPlayer?.onActivityPaused()
-                if (topActivityRef != null && topActivityRef!!.get() === activity) {
-                    topActivityRef!!.clear()
+                if (topActivityRef != null && topActivityRef!!.get() == activity) {
+                    topActivityRef?.clear()
                 }
             }
 
@@ -110,9 +110,9 @@ class PlayerManager {
         //        log(currentPlayerFingerprint, "releaseCurrent");
         val currentPlayer = currentPlayer
         if (currentPlayer != null) {
-            if (currentPlayer.proxyPlayerListener != null) {
+//            if (currentPlayer.proxyPlayerListener != null) {
                 currentPlayer.proxyPlayerListener.onCompletion(currentPlayer)
-            }
+//            }
             currentPlayer.release()
         }
         currentPlayerFingerprint = null
