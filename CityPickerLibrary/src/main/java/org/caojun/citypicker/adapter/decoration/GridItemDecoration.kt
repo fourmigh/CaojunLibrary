@@ -9,7 +9,7 @@ class GridItemDecoration(spanCount: Int, space: Int) : RecyclerView.ItemDecorati
     private val mSpanCount: Int = spanCount
     private val mSpace: Int = space
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         val position = parent.getChildAdapterPosition(view)
         val column = position % mSpanCount
 

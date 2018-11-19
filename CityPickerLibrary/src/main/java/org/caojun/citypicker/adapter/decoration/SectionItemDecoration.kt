@@ -45,7 +45,7 @@ class SectionItemDecoration(context: Context, data: MutableList<City>) : Recycle
         this.mData = data
     }
 
-    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDraw(c, parent, state)
         val left = parent.paddingLeft
         val right = parent.width - parent.paddingRight
@@ -81,12 +81,12 @@ class SectionItemDecoration(context: Context, data: MutableList<City>) : Recycle
                 mTextPaint)
     }
 
-    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         val pos = (parent.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
         if (pos < 0) return
         if (mData.isEmpty()) return
         val section = mData[pos].getSection()
-        val child = parent.findViewHolderForLayoutPosition(pos).itemView
+        val child = parent.findViewHolderForLayoutPosition(pos)!!.itemView
 
         var flag = false
         if (pos + 1 < mData.size) {
@@ -111,7 +111,7 @@ class SectionItemDecoration(context: Context, data: MutableList<City>) : Recycle
             c.restore()
     }
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State?) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
         val position = (view.layoutParams as RecyclerView.LayoutParams).viewLayoutPosition
         if (!mData.isEmpty() && position <= mData.size - 1 && position > -1) {

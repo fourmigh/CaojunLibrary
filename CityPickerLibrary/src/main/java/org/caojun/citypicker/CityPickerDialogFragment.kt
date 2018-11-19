@@ -143,7 +143,7 @@ class CityPickerDialogFragment: AppCompatDialogFragment(), TextWatcher,
         mAdapter!!.setLayoutManager(mLayoutManager!!)
         mRecyclerView!!.adapter = mAdapter
         mRecyclerView!!.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 //确保定位城市能正常刷新
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     mAdapter!!.refreshLocationItem()
