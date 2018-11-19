@@ -6,12 +6,13 @@ import android.os.Bundle
 import com.socks.library.KLog
 import kotlinx.android.synthetic.main.activity_demo.*
 import org.caojun.activity.BaseActivity
-import org.caojun.imageview.ImageShow
+import org.caojun.areapicker.AreaPicker
+import org.caojun.areapicker.OnPickerClickListener
+import org.caojun.areapicker.PickerData
 import org.caojun.utils.AppSignUtils
 import org.caojun.utils.ChineseNumberUtils
 import org.caojun.utils.FormatUtils
 import org.caojun.widget.RulerView
-import org.caojun.utils.AppSignUtils.getSingInfo
 import org.jetbrains.anko.startActivity
 
 
@@ -51,7 +52,7 @@ class DemoActivity: BaseActivity() {
 //            val url = "https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/forgot_password_gi2d.svg"
 //            ImageShow.show(this@DemoActivity, url)
 
-            startActivity<GiraffePlayerActivity>()
+//            startActivity<GiraffePlayerActivity>()
         }
 
         KLog.d("ChineseNumberUtils", ChineseNumberUtils.getChineseNumber(0.00))
@@ -66,6 +67,18 @@ class DemoActivity: BaseActivity() {
 
         val signal = AppSignUtils.getSingInfo(applicationContext, "com.allinpay.yunshangtong", AppSignUtils.MD5)
         KLog.d("signal", "signal: $signal")
+
+        AreaPicker.init(this, "自定义标题", text_test, object : OnPickerClickListener {
+            override fun OnPickerClick(pickerData: PickerData) {
+                KLog.d("OnPickerClick", pickerData.selectText)
+                AreaPicker.dismiss()
+            }
+
+            override fun OnPickerConfirmClick(pickerData: PickerData) {
+                KLog.d("OnPickerConfirmClick", pickerData.selectText)
+                AreaPicker.dismiss()
+            }
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
