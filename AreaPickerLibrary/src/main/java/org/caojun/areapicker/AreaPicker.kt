@@ -89,6 +89,7 @@ object AreaPicker {
      */
 
     private fun initProvinceDatas(context: Context) {
+        //http://xzqh.mca.gov.cn/map
         val provinceList: List<ProvinceModel>?
         val asset = context.applicationContext.assets
         try {

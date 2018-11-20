@@ -15,7 +15,7 @@ class PickerData {
     var height = 0
 
     val selectText: String
-        get() = firstText + (if (secondText == "市辖区" || secondText == "县") "" else secondText) + thirdText + fourthText
+        get() = firstText + secondText + thirdText + fourthText
 
     /**
      * 获取当前的列表
