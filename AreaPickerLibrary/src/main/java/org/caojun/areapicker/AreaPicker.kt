@@ -35,11 +35,11 @@ object AreaPicker {
     /**
      * 当前省的名称
      */
-    private var mCurrentProviceName: String? = null
+    private var mCurrentProvinceName = ""
     /**
      * 当前市的名称
      */
-    private var mCurrentCityName: String? = null
+    private var mCurrentCityName = ""
     /**
      * 当前区的名称
      */
@@ -66,9 +66,9 @@ object AreaPicker {
             pickerView = PickerView(activity, data)
             view.setOnClickListener {
                 //显示选择器
-                pickerView!!.show(view)
+                pickerView?.show(view)
             }
-            pickerView!!.setOnPickerClickListener(listener)
+            pickerView?.setOnPickerClickListener(listener)
         }
     }
 
@@ -105,7 +105,7 @@ object AreaPicker {
             provinceList = handler.dataList
             //*/ 初始化默认选中的省、市、区
             if (provinceList.isNotEmpty()) {
-                mCurrentProviceName = provinceList[0].name
+                mCurrentProvinceName = provinceList[0].name
                 val cityList = provinceList[0].cityList
                 if (cityList.isNotEmpty()) {
                     mCurrentCityName = cityList[0].name

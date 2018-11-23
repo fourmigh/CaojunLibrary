@@ -28,7 +28,7 @@ class PickerData {
         var curr: Array<String?>? = arrayOf()
         when (index) {
             1 -> curr = firstDatas
-            2 -> curr = secondDatas!![currText]!!
+            2 -> curr = secondDatas!![currText]
             3 -> curr = thirdDatas!![currText]
             4 -> curr = fourthDatas!![currText]
         }

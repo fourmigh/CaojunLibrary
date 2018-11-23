@@ -69,12 +69,12 @@ class DemoActivity: BaseActivity() {
         KLog.d("signal", "signal: $signal")
 
         AreaPicker.init(this, "自定义标题", text_test, object : OnPickerClickListener {
-            override fun OnPickerClick(pickerData: PickerData) {
+            override fun onPickerClick(pickerData: PickerData) {
                 KLog.d("OnPickerClick", pickerData.selectText)
                 AreaPicker.dismiss()
             }
 
-            override fun OnPickerConfirmClick(pickerData: PickerData) {
+            override fun onPickerConfirmClick(pickerData: PickerData) {
                 KLog.d("OnPickerConfirmClick", pickerData.selectText)
                 AreaPicker.dismiss()
             }
