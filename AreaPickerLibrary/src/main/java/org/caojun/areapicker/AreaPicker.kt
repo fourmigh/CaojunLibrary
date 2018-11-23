@@ -110,7 +110,9 @@ object AreaPicker {
                 if (cityList.isNotEmpty()) {
                     mCurrentCityName = cityList[0].name
                     val districtList = cityList[0].districtList
-                    mCurrentDistrictName = districtList[0].name
+                    if (districtList.isNotEmpty()) {
+                        mCurrentDistrictName = districtList[0].name
+                    }
                 }
             }
             //*/

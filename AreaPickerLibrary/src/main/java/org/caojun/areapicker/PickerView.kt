@@ -183,6 +183,7 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
                 if (data != null && data.isNotEmpty()) {
                     currData = data
                     adapter!!.setList(currData)
+                    pickerList!!.smoothScrollToPosition(0)
                     index++
                 } else {
                     if (listener != null) {
