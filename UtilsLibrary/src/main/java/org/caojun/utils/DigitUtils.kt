@@ -12,7 +12,11 @@ object DigitUtils {
      * 保留newScale位小数
      */
     fun getRound(digit: Float, newScale: Int): String {
-        val b = BigDecimal(digit.toDouble())
+        return getRound(digit.toDouble(), newScale)
+    }
+
+    fun getRound(digit: Double, newScale: Int): String {
+        val b = BigDecimal(digit)
         val v = b.setScale(newScale, BigDecimal.ROUND_HALF_UP)
         return v.toString()
     }
