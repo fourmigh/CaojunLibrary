@@ -22,7 +22,10 @@ object FormatUtils {
      * 金额
      */
     fun amount(value: Any): String {
-        val amount = amountFormat(value)
+        var amount = amountFormat(value)
+        if (amount == ".00") {
+            amount = "0.00"
+        }
         val index = amount.indexOf('.')
         val number = numberFormat(amount.substring(0, index).toDouble())
         return "$number${amount.substring(index)}"
