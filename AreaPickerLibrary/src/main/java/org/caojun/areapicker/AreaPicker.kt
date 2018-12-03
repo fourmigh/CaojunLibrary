@@ -2,17 +2,11 @@ package org.caojun.areapicker
 
 import android.app.Activity
 import android.content.Context
-import android.content.res.AssetManager
+import android.text.TextUtils
 import android.view.View
-
-import org.caojun.areapicker.model.CityModel
 import org.caojun.areapicker.model.DistrictModel
 import org.caojun.areapicker.model.ProvinceModel
-
-import java.io.InputStream
 import java.util.HashMap
-
-import javax.xml.parsers.SAXParser
 import javax.xml.parsers.SAXParserFactory
 
 object AreaPicker {
@@ -45,16 +39,16 @@ object AreaPicker {
      */
     private var mCurrentDistrictName = ""
 
-    fun init(activity: Activity, view: View, listener: OnPickerClickListener) {
-        init(activity, null, view, listener)
+    fun init(activity: Activity, view: View, listener: OnPickerClickListener, firstProvince: String? = null) {
+        init(activity, null, view, listener, firstProvince)
     }
 
-    fun init(activity: Activity, title: String?, view: View?, listener: OnPickerClickListener) {
+    fun init(activity: Activity, title: String?, view: View?, listener: OnPickerClickListener, firstProvince: String? = null) {
         if (view == null) {
             return
         }
         synchronized(view) {
-            initProvinceDatas(activity)
+            initProvinceDatas(activity, firstProvince)
             //选择器数据实体类封装
             val data = PickerData()
             //设置数据，有多少层级自己确定
@@ -88,7 +82,7 @@ object AreaPicker {
      * 解析省市区的XML数据
      */
 
-    private fun initProvinceDatas(context: Context) {
+    private fun initProvinceDatas(context: Context, firstProvince: String? = null) {
         //http://xzqh.mca.gov.cn/map
         val provinceList: List<ProvinceModel>?
         val asset = context.applicationContext.assets
@@ -139,6 +133,13 @@ object AreaPicker {
                 }
                 // 省-市的数据，保存到mCitisDatasMap
                 mCitisDatasMap!![provinceList[i].name] = cityNames
+            }
+            if (mProvinceDatas != null && !TextUtils.isEmpty(firstProvince) && firstProvince in mProvinceDatas!!) {
+                val index = mProvinceDatas!!.indexOf(firstProvince)
+                for (i in index downTo 1) {
+                    mProvinceDatas!![i] = mProvinceDatas!![i - 1]
+                }
+                mProvinceDatas!![0] = firstProvince
             }
         } catch (e: Throwable) {
             e.printStackTrace()
