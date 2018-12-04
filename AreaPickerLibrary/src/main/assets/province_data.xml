@@ -1,174 +1,174 @@
 <root>
-    <province name="北京市">
-        <city name="东城区" />
-        <city name="西城区" />
-        <city name="朝阳区" />
-        <city name="丰台区" />
-        <city name="石景山区" />
-        <city name="海淀区" />
-        <city name="门头沟区" />
-        <city name="房山区" />
-        <city name="通州区" />
-        <city name="顺义区" />
-        <city name="昌平区" />
-        <city name="大兴区" />
-        <city name="怀柔区" />
-        <city name="平谷区" />
-        <city name="密云区" />
-        <city name="延庆区" />
+    <province name="北京市" adCode="110000">
+        <city name="东城区" adCode="110101" areaCode="010"/>
+        <city name="西城区" adCode="110102" areaCode="010"/>
+        <city name="朝阳区" adCode="110105" areaCode="010"/>
+        <city name="丰台区" adCode="110106" areaCode="010"/>
+        <city name="石景山区" adCode="110107" areaCode="010"/>
+        <city name="海淀区" adCode="110108" areaCode="010"/>
+        <city name="门头沟区" adCode="110109" areaCode="010"/>
+        <city name="房山区" adCode="110111" areaCode="010"/>
+        <city name="通州区" adCode="110112" areaCode="010"/>
+        <city name="顺义区" adCode="110113" areaCode="010"/>
+        <city name="昌平区" adCode="110114" areaCode="010"/>
+        <city name="大兴区" adCode="110115" areaCode="010"/>
+        <city name="怀柔区" adCode="110116" areaCode="010"/>
+        <city name="平谷区" adCode="110117" areaCode="010"/>
+        <city name="密云区" adCode="110118" areaCode="010"/>
+        <city name="延庆区" adCode="110119" areaCode="010"/>
     </province>
-    <province name="天津市">
-        <city name="河西区" />
-        <city name="和平区" />
-        <city name="河东区" />
-        <city name="南开区" />
-        <city name="河北区" />
-        <city name="红桥区" />
-        <city name="东丽区" />
-        <city name="西青区" />
-        <city name="津南区" />
-        <city name="北辰区" />
-        <city name="武清区" />
-        <city name="宝坻区" />
-        <city name="滨海新区" />
-        <city name="宁河区" />
-        <city name="静海区" />
-        <city name="蓟州区" />
+    <province name="天津市" adCode="120000">
+        <city name="河西区" adCode="120103" areaCode="022"/>
+        <city name="和平区" adCode="120101" areaCode="022"/>
+        <city name="河东区" adCode="120102" areaCode="022"/>
+        <city name="南开区" adCode="120104" areaCode="022"/>
+        <city name="河北区" adCode="120105" areaCode="022"/>
+        <city name="红桥区" adCode="120106" areaCode="022"/>
+        <city name="东丽区" adCode="120110" areaCode="022"/>
+        <city name="西青区" adCode="120111" areaCode="022"/>
+        <city name="津南区" adCode="120112" areaCode="022"/>
+        <city name="北辰区" adCode="120113" areaCode="022"/>
+        <city name="武清区" adCode="120114" areaCode="022"/>
+        <city name="宝坻区" adCode="120115" areaCode="022"/>
+        <city name="滨海新区" adCode="120116" areaCode="022"/>
+        <city name="宁河区" adCode="120117" areaCode="022"/>
+        <city name="静海区" adCode="120118" areaCode="022"/>
+        <city name="蓟州区" adCode="120119" areaCode="022"/>
     </province>
-    <province name="河北省">
-        <city name="石家庄市">
-            <district name="长安区" />
-            <district name="桥西区" />
-            <district name="新华区" />
-            <district name="井陉矿区" />
-            <district name="裕华区" />
-            <district name="藁城区" />
-            <district name="鹿泉区" />
-            <district name="栾城区" />
-            <district name="辛集市" />
-            <district name="晋州市" />
-            <district name="新乐市" />
-            <district name="井陉县" />
-            <district name="正定县" />
-            <district name="行唐县" />
-            <district name="灵寿县" />
-            <district name="高邑县" />
-            <district name="深泽县" />
-            <district name="赞皇县" />
-            <district name="无极县" />
-            <district name="平山县" />
-            <district name="元氏县" />
-            <district name="赵县" />
+    <province name="河北省" adCode="130000">
+        <city name="石家庄市" adCode="130100" areaCode="0311">
+            <district name="长安区" adCode="130102" areaCode="0311"/>
+            <district name="桥西区" adCode="130104" areaCode="0311"/>
+            <district name="新华区" adCode="130105" areaCode="0311"/>
+            <district name="井陉矿区" adCode="130107" areaCode="0311"/>
+            <district name="裕华区" adCode="130108" areaCode="0311"/>
+            <district name="藁城区" adCode="130109" areaCode="0311"/>
+            <district name="鹿泉区" adCode="130110" areaCode="0311"/>
+            <district name="栾城区" adCode="130111" areaCode="0311"/>
+            <district name="辛集市" adCode="130181" areaCode="0311"/>
+            <district name="晋州市" adCode="130183" areaCode="0311"/>
+            <district name="新乐市" adCode="130184" areaCode="0311"/>
+            <district name="井陉县" adCode="130121" areaCode="0311"/>
+            <district name="正定县" adCode="130123" areaCode="0311"/>
+            <district name="行唐县" adCode="130125" areaCode="0311"/>
+            <district name="灵寿县" adCode="130126" areaCode="0311"/>
+            <district name="高邑县" adCode="130127" areaCode="0311"/>
+            <district name="深泽县" adCode="130128" areaCode="0311"/>
+            <district name="赞皇县" adCode="130129" areaCode="0311"/>
+            <district name="无极县" adCode="130130" areaCode="0311"/>
+            <district name="平山县" adCode="130131" areaCode="0311"/>
+            <district name="元氏县" adCode="130132" areaCode="0311"/>
+            <district name="赵县" adCode="130133" areaCode="0311"/>
         </city>
-        <city name="唐山市">
-            <district name="路北区" />
-            <district name="路南区" />
-            <district name="古冶区" />
-            <district name="开平区" />
-            <district name="丰南区" />
-            <district name="丰润区" />
-            <district name="曹妃甸区" />
-            <district name="遵化市" />
-            <district name="迁安市" />
-            <district name="滦县" />
-            <district name="滦南县" />
-            <district name="乐亭县" />
-            <district name="迁西县" />
-            <district name="玉田县" />
+        <city name="唐山市" adCode="130200" areaCode="0315">
+            <district name="路北区" adCode="130203" areaCode="0315"/>
+            <district name="路南区" adCode="130202" areaCode="0315"/>
+            <district name="古冶区" adCode="130204" areaCode="0315"/>
+            <district name="开平区" adCode="130205" areaCode="0315"/>
+            <district name="丰南区" adCode="130207" areaCode="0315"/>
+            <district name="丰润区" adCode="130208" areaCode="0315"/>
+            <district name="曹妃甸区" adCode="130209" areaCode="0315"/>
+            <district name="遵化市" adCode="130281" areaCode="0315"/>
+            <district name="迁安市" adCode="130283" areaCode="0315"/>
+            <district name="滦县" adCode="130223" areaCode="0315"/>
+            <district name="滦南县" adCode="130224" areaCode="0315"/>
+            <district name="乐亭县" adCode="130225" areaCode="0315"/>
+            <district name="迁西县" adCode="130227" areaCode="0315"/>
+            <district name="玉田县" adCode="130229" areaCode="0315"/>
         </city>
-        <city name="秦皇岛市">
-            <district name="海港区" />
-            <district name="山海关区" />
-            <district name="北戴河区" />
-            <district name="抚宁区" />
-            <district name="昌黎县" />
-            <district name="卢龙县" />
-            <district name="青龙满族自治县" />
+        <city name="秦皇岛市" adCode="130300" areaCode="0335">
+            <district name="海港区" adCode="130302" areaCode="0335"/>
+            <district name="山海关区" adCode="130303" areaCode="0335"/>
+            <district name="北戴河区" adCode="130304" areaCode="0335"/>
+            <district name="抚宁区" adCode="130306" areaCode="0335"/>
+            <district name="昌黎县" adCode="130322" areaCode="0335"/>
+            <district name="卢龙县" adCode="130324" areaCode="0335"/>
+            <district name="青龙满族自治县" adCode="130321" areaCode="0335"/>
         </city>
-        <city name="邯郸市">
-            <district name="丛台区" />
-            <district name="邯山区" />
-            <district name="复兴区" />
-            <district name="峰峰矿区" />
-            <district name="肥乡区" />
-            <district name="永年区" />
-            <district name="武安市" />
-            <district name="临漳县" />
-            <district name="成安县" />
-            <district name="大名县" />
-            <district name="涉县" />
-            <district name="磁县" />
-            <district name="邱县" />
-            <district name="鸡泽县" />
-            <district name="广平县" />
-            <district name="馆陶县" />
-            <district name="魏县" />
-            <district name="曲周县" />
+        <city name="邯郸市" adCode="130400" areaCode="0310">
+            <district name="丛台区" adCode="130403" areaCode="0310"/>
+            <district name="邯山区" adCode="130402" areaCode="0310"/>
+            <district name="复兴区" adCode="130404" areaCode="0310"/>
+            <district name="峰峰矿区" adCode="130406" areaCode="0310"/>
+            <district name="肥乡区" adCode="130407" areaCode="0310"/>
+            <district name="永年区" adCode="130408" areaCode="0310"/>
+            <district name="武安市" adCode="130481" areaCode="0310"/>
+            <district name="临漳县" adCode="130423" areaCode="0310"/>
+            <district name="成安县" adCode="130424" areaCode="0310"/>
+            <district name="大名县" adCode="130425" areaCode="0310"/>
+            <district name="涉县" adCode="130426" areaCode="0310"/>
+            <district name="磁县" adCode="130427" areaCode="0310"/>
+            <district name="邱县" adCode="130430" areaCode="0310"/>
+            <district name="鸡泽县" adCode="130431" areaCode="0310"/>
+            <district name="广平县" adCode="130432" areaCode="0310"/>
+            <district name="馆陶县" adCode="130433" areaCode="0310"/>
+            <district name="魏县" adCode="130434" areaCode="0310"/>
+            <district name="曲周县" adCode="130435" areaCode="0310"/>
         </city>
-        <city name="邢台市">
-            <district name="桥东区" />
-            <district name="桥西区" />
-            <district name="南宫市" />
-            <district name="沙河市" />
-            <district name="邢台县" />
-            <district name="临城县" />
-            <district name="内丘县" />
-            <district name="柏乡县" />
-            <district name="隆尧县" />
-            <district name="任县" />
-            <district name="南和县" />
-            <district name="宁晋县" />
-            <district name="巨鹿县" />
-            <district name="新河县" />
-            <district name="广宗县" />
-            <district name="平乡县" />
-            <district name="威县" />
-            <district name="清河县" />
-            <district name="临西县" />
+        <city name="邢台市" adCode="130500" areaCode="0319">
+            <district name="桥东区" adCode="130502" areaCode="0319"/>
+            <district name="桥西区" adCode="130503" areaCode="0319"/>
+            <district name="南宫市" adCode="130581" areaCode="0319"/>
+            <district name="沙河市" adCode="130582" areaCode="0319"/>
+            <district name="邢台县" adCode="130521" areaCode="0319"/>
+            <district name="临城县" adCode="130522" areaCode="0319"/>
+            <district name="内丘县" adCode="130523" areaCode="0319"/>
+            <district name="柏乡县" adCode="130524" areaCode="0319"/>
+            <district name="隆尧县" adCode="130525" areaCode="0319"/>
+            <district name="任县" adCode="130526" areaCode="0319"/>
+            <district name="南和县" adCode="130527" areaCode="0319"/>
+            <district name="宁晋县" adCode="130528" areaCode="0319"/>
+            <district name="巨鹿县" adCode="130529" areaCode="0319"/>
+            <district name="新河县" adCode="130530" areaCode="0319"/>
+            <district name="广宗县" adCode="130531" areaCode="0319"/>
+            <district name="平乡县" adCode="130532" areaCode="0319"/>
+            <district name="威县" adCode="130533" areaCode="0319"/>
+            <district name="清河县" adCode="130534" areaCode="0319"/>
+            <district name="临西县" adCode="130535" areaCode="0319"/>
         </city>
-        <city name="保定市">
-            <district name="竞秀区" />
-            <district name="莲池区" />
-            <district name="满城区" />
-            <district name="清苑区" />
-            <district name="徐水区" />
-            <district name="涿州市" />
-            <district name="定州市" />
-            <district name="安国市" />
-            <district name="高碑店市" />
-            <district name="涞水县" />
-            <district name="阜平县" />
-            <district name="定兴县" />
-            <district name="唐县" />
-            <district name="高阳县" />
-            <district name="容城县" />
-            <district name="涞源县" />
-            <district name="望都县" />
-            <district name="安新县" />
-            <district name="易县" />
-            <district name="曲阳县" />
-            <district name="蠡县" />
-            <district name="顺平县" />
-            <district name="博野县" />
-            <district name="雄县" />
+        <city name="保定市" adCode="130600" areaCode="0312">
+            <district name="竞秀区" adCode="130602" areaCode="0312"/>
+            <district name="莲池区" adCode="130606" areaCode="0312"/>
+            <district name="满城区" adCode="130607" areaCode="0312"/>
+            <district name="清苑区" adCode="130608" areaCode="0312"/>
+            <district name="徐水区" adCode="130609" areaCode="0312"/>
+            <district name="涿州市" adCode="130681" areaCode="0312"/>
+            <district name="定州市" adCode="130682" areaCode="0312"/>
+            <district name="安国市" adCode="130683" areaCode="0312"/>
+            <district name="高碑店市" adCode="130684" areaCode="0312"/>
+            <district name="涞水县" adCode="130623" areaCode="0312"/>
+            <district name="阜平县" adCode="130624" areaCode="0312"/>
+            <district name="定兴县" adCode="130626" areaCode="0312"/>
+            <district name="唐县" adCode="130627" areaCode="0312"/>
+            <district name="高阳县" adCode="130628" areaCode="0312"/>
+            <district name="容城县" adCode="130629" areaCode="0312"/>
+            <district name="涞源县" adCode="130630" areaCode="0312"/>
+            <district name="望都县" adCode="130631" areaCode="0312"/>
+            <district name="安新县" adCode="130632" areaCode="0312"/>
+            <district name="易县" adCode="130633" areaCode="0312"/>
+            <district name="曲阳县" adCode="130634" areaCode="0312"/>
+            <district name="蠡县" adCode="130635" areaCode="0312"/>
+            <district name="顺平县" adCode="130636" areaCode="0312"/>
+            <district name="博野县" adCode="130637" areaCode="0312"/>
+            <district name="雄县" adCode="130638" areaCode="0312"/>
         </city>
-        <city name="张家口市">
-            <district name="桥西区" />
-            <district name="桥东区" />
-            <district name="宣化区" />
-            <district name="下花园区" />
-            <district name="万全区" />
-            <district name="崇礼区" />
-            <district name="张北县" />
-            <district name="康保县" />
-            <district name="沽源县" />
-            <district name="尚义县" />
-            <district name="蔚县" />
-            <district name="阳原县" />
-            <district name="怀安县" />
-            <district name="怀来县" />
-            <district name="涿鹿县" />
-            <district name="赤城县" />
+        <city name="张家口市" adCode="130700" areaCode="0313">
+            <district name="桥西区" adCode="130703" areaCode="0313"/>
+            <district name="桥东区" adCode="130702" areaCode="0313"/>
+            <district name="宣化区" adCode="130705" areaCode="0313"/>
+            <district name="下花园区" adCode="130706" areaCode="0313"/>
+            <district name="万全区" adCode="130708" areaCode="0313"/>
+            <district name="崇礼区" adCode="130709" areaCode="0313"/>
+            <district name="张北县" adCode="130722" areaCode="0313"/>
+            <district name="康保县" adCode="130723" areaCode="0313"/>
+            <district name="沽源县" adCode="130724" areaCode="0313"/>
+            <district name="尚义县" adCode="130725" areaCode="0313"/>
+            <district name="蔚县" adCode="130726" areaCode="0313"/>
+            <district name="阳原县" adCode="130727" areaCode="0313"/>
+            <district name="怀安县" adCode="130728" areaCode="0313"/>
+            <district name="怀来县" adCode="130730" areaCode="0313"/>
+            <district name="涿鹿县" adCode="130731" areaCode="0313"/>
+            <district name="赤城县" adCode="130732" areaCode="0313"/>
         </city>
         <city name="承德市">
             <district name="双桥区" />
