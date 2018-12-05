@@ -1,230 +1,231 @@
+<!-- province有areaCode，说明是直辖市 -->
 <root>
-    <province name="北京市" adCode="110000">
-        <city name="东城区" adCode="110101" areaCode="010"/>
-        <city name="西城区" adCode="110102" areaCode="010"/>
-        <city name="朝阳区" adCode="110105" areaCode="010"/>
-        <city name="丰台区" adCode="110106" areaCode="010"/>
-        <city name="石景山区" adCode="110107" areaCode="010"/>
-        <city name="海淀区" adCode="110108" areaCode="010"/>
-        <city name="门头沟区" adCode="110109" areaCode="010"/>
-        <city name="房山区" adCode="110111" areaCode="010"/>
-        <city name="通州区" adCode="110112" areaCode="010"/>
-        <city name="顺义区" adCode="110113" areaCode="010"/>
-        <city name="昌平区" adCode="110114" areaCode="010"/>
-        <city name="大兴区" adCode="110115" areaCode="010"/>
-        <city name="怀柔区" adCode="110116" areaCode="010"/>
-        <city name="平谷区" adCode="110117" areaCode="010"/>
-        <city name="密云区" adCode="110118" areaCode="010"/>
-        <city name="延庆区" adCode="110119" areaCode="010"/>
+    <province name="北京市" adCode="110000" areaCode="010">
+        <city name="东城区" adCode="110101" zipCode="100010"/>
+        <city name="西城区" adCode="110102" zipCode="100032"/>
+        <city name="朝阳区" adCode="110105" zipCode="100020"/>
+        <city name="丰台区" adCode="110106" zipCode="100071"/>
+        <city name="石景山区" adCode="110107" zipCode="100043"/>
+        <city name="海淀区" adCode="110108" zipCode="100089"/>
+        <city name="门头沟区" adCode="110109" zipCode="102300"/>
+        <city name="房山区" adCode="110111" zipCode="102488"/>
+        <city name="通州区" adCode="110112" zipCode="101149"/>
+        <city name="顺义区" adCode="110113" zipCode="101300"/>
+        <city name="昌平区" adCode="110114" zipCode="102200"/>
+        <city name="大兴区" adCode="110115" zipCode="102600"/>
+        <city name="怀柔区" adCode="110116" zipCode="101400"/>
+        <city name="平谷区" adCode="110117" zipCode="101200"/>
+        <city name="密云区" adCode="110118" zipCode="101500"/>
+        <city name="延庆区" adCode="110119" zipCode="102100"/>
     </province>
-    <province name="天津市" adCode="120000">
-        <city name="河西区" adCode="120103" areaCode="022"/>
-        <city name="和平区" adCode="120101" areaCode="022"/>
-        <city name="河东区" adCode="120102" areaCode="022"/>
-        <city name="南开区" adCode="120104" areaCode="022"/>
-        <city name="河北区" adCode="120105" areaCode="022"/>
-        <city name="红桥区" adCode="120106" areaCode="022"/>
-        <city name="东丽区" adCode="120110" areaCode="022"/>
-        <city name="西青区" adCode="120111" areaCode="022"/>
-        <city name="津南区" adCode="120112" areaCode="022"/>
-        <city name="北辰区" adCode="120113" areaCode="022"/>
-        <city name="武清区" adCode="120114" areaCode="022"/>
-        <city name="宝坻区" adCode="120115" areaCode="022"/>
-        <city name="滨海新区" adCode="120116" areaCode="022"/>
-        <city name="宁河区" adCode="120117" areaCode="022"/>
-        <city name="静海区" adCode="120118" areaCode="022"/>
-        <city name="蓟州区" adCode="120119" areaCode="022"/>
+    <province name="天津市" adCode="120000" areaCode="022">
+        <city name="河西区" adCode="120103" zipCode="300202"/>
+        <city name="和平区" adCode="120101" zipCode="300041"/>
+        <city name="河东区" adCode="120102" zipCode="300171"/>
+        <city name="南开区" adCode="120104" zipCode="300110"/>
+        <city name="河北区" adCode="120105" zipCode="300143"/>
+        <city name="红桥区" adCode="120106" zipCode="300131"/>
+        <city name="东丽区" adCode="120110" zipCode="300300"/>
+        <city name="西青区" adCode="120111" zipCode="300380"/>
+        <city name="津南区" adCode="120112" zipCode="300350"/>
+        <city name="北辰区" adCode="120113" zipCode="300400"/>
+        <city name="武清区" adCode="120114" zipCode="301700"/>
+        <city name="宝坻区" adCode="120115" zipCode="301800"/>
+        <city name="滨海新区" adCode="120116" zipCode="300451"/>
+        <city name="宁河区" adCode="120117" zipCode="301500"/>
+        <city name="静海区" adCode="120118" zipCode="301600"/>
+        <city name="蓟州区" adCode="120119" zipCode="301900"/>
     </province>
     <province name="河北省" adCode="130000">
-        <city name="石家庄市" adCode="130100" areaCode="0311">
-            <district name="长安区" adCode="130102" areaCode="0311"/>
-            <district name="桥西区" adCode="130104" areaCode="0311"/>
-            <district name="新华区" adCode="130105" areaCode="0311"/>
-            <district name="井陉矿区" adCode="130107" areaCode="0311"/>
-            <district name="裕华区" adCode="130108" areaCode="0311"/>
-            <district name="藁城区" adCode="130109" areaCode="0311"/>
-            <district name="鹿泉区" adCode="130110" areaCode="0311"/>
-            <district name="栾城区" adCode="130111" areaCode="0311"/>
-            <district name="辛集市" adCode="130181" areaCode="0311"/>
-            <district name="晋州市" adCode="130183" areaCode="0311"/>
-            <district name="新乐市" adCode="130184" areaCode="0311"/>
-            <district name="井陉县" adCode="130121" areaCode="0311"/>
-            <district name="正定县" adCode="130123" areaCode="0311"/>
-            <district name="行唐县" adCode="130125" areaCode="0311"/>
-            <district name="灵寿县" adCode="130126" areaCode="0311"/>
-            <district name="高邑县" adCode="130127" areaCode="0311"/>
-            <district name="深泽县" adCode="130128" areaCode="0311"/>
-            <district name="赞皇县" adCode="130129" areaCode="0311"/>
-            <district name="无极县" adCode="130130" areaCode="0311"/>
-            <district name="平山县" adCode="130131" areaCode="0311"/>
-            <district name="元氏县" adCode="130132" areaCode="0311"/>
-            <district name="赵县" adCode="130133" areaCode="0311"/>
+        <city name="石家庄市" adCode="130100" areaCode="0311" zipCode="050011">
+            <district name="长安区" adCode="130102" zipCode="050011"/>
+            <district name="桥西区" adCode="130104" zipCode="050091"/>
+            <district name="新华区" adCode="130105" zipCode="050051"/>
+            <district name="井陉矿区" adCode="130107" zipCode="050100"/>
+            <district name="裕华区" adCode="130108" zipCode="050031"/>
+            <district name="藁城区" adCode="130109" zipCode="052160"/>
+            <district name="鹿泉区" adCode="130110" zipCode="050200"/>
+            <district name="栾城区" adCode="130111" zipCode="051430"/>
+            <district name="辛集市" adCode="130181" zipCode="052360"/>
+            <district name="晋州市" adCode="130183" zipCode="052260"/>
+            <district name="新乐市" adCode="130184" zipCode="050700"/>
+            <district name="井陉县" adCode="130121" zipCode="050300"/>
+            <district name="正定县" adCode="130123" zipCode="050800"/>
+            <district name="行唐县" adCode="130125" zipCode="050600"/>
+            <district name="灵寿县" adCode="130126" zipCode="050500"/>
+            <district name="高邑县" adCode="130127" zipCode="051330"/>
+            <district name="深泽县" adCode="130128" zipCode="052560"/>
+            <district name="赞皇县" adCode="130129" zipCode="051230"/>
+            <district name="无极县" adCode="130130" zipCode="052460"/>
+            <district name="平山县" adCode="130131" zipCode="050400"/>
+            <district name="元氏县" adCode="130132" zipCode="051130"/>
+            <district name="赵县" adCode="130133" zipCode="051530"/>
         </city>
-        <city name="唐山市" adCode="130200" areaCode="0315">
-            <district name="路北区" adCode="130203" areaCode="0315"/>
-            <district name="路南区" adCode="130202" areaCode="0315"/>
-            <district name="古冶区" adCode="130204" areaCode="0315"/>
-            <district name="开平区" adCode="130205" areaCode="0315"/>
-            <district name="丰南区" adCode="130207" areaCode="0315"/>
-            <district name="丰润区" adCode="130208" areaCode="0315"/>
-            <district name="曹妃甸区" adCode="130209" areaCode="0315"/>
-            <district name="遵化市" adCode="130281" areaCode="0315"/>
-            <district name="迁安市" adCode="130283" areaCode="0315"/>
-            <district name="滦县" adCode="130223" areaCode="0315"/>
-            <district name="滦南县" adCode="130224" areaCode="0315"/>
-            <district name="乐亭县" adCode="130225" areaCode="0315"/>
-            <district name="迁西县" adCode="130227" areaCode="0315"/>
-            <district name="玉田县" adCode="130229" areaCode="0315"/>
+        <city name="唐山市" adCode="130200" areaCode="0315" zipCode="063000">
+            <district name="路北区" adCode="130203" zipCode="063000"/>
+            <district name="路南区" adCode="130202" zipCode="063000"/>
+            <district name="古冶区" adCode="130204" zipCode="063100"/>
+            <district name="开平区" adCode="130205" zipCode="063021"/>
+            <district name="丰南区" adCode="130207" zipCode="063300"/>
+            <district name="丰润区" adCode="130208" zipCode="064000"/>
+            <district name="曹妃甸区" adCode="130209" zipCode="063200"/>
+            <district name="遵化市" adCode="130281" zipCode="064200"/>
+            <district name="迁安市" adCode="130283" zipCode="064400"/>
+            <district name="滦县" adCode="130223" zipCode="063700"/>
+            <district name="滦南县" adCode="130224" zipCode="063500"/>
+            <district name="乐亭县" adCode="130225" zipCode="063600"/>
+            <district name="迁西县" adCode="130227" zipCode="064300"/>
+            <district name="玉田县" adCode="130229" zipCode="064100"/>
         </city>
-        <city name="秦皇岛市" adCode="130300" areaCode="0335">
-            <district name="海港区" adCode="130302" areaCode="0335"/>
-            <district name="山海关区" adCode="130303" areaCode="0335"/>
-            <district name="北戴河区" adCode="130304" areaCode="0335"/>
-            <district name="抚宁区" adCode="130306" areaCode="0335"/>
-            <district name="昌黎县" adCode="130322" areaCode="0335"/>
-            <district name="卢龙县" adCode="130324" areaCode="0335"/>
-            <district name="青龙满族自治县" adCode="130321" areaCode="0335"/>
+        <city name="秦皇岛市" adCode="130300" areaCode="0335" zipCode="066000">
+            <district name="海港区" adCode="130302" zipCode="066000"/>
+            <district name="山海关区" adCode="130303" zipCode="066200"/>
+            <district name="北戴河区" adCode="130304" zipCode="066100"/>
+            <district name="抚宁区" adCode="130306" zipCode="066300"/>
+            <district name="昌黎县" adCode="130322" zipCode="066600"/>
+            <district name="卢龙县" adCode="130324" zipCode="066400"/>
+            <district name="青龙满族自治县" adCode="130321" zipCode="066500"/>
         </city>
-        <city name="邯郸市" adCode="130400" areaCode="0310">
-            <district name="丛台区" adCode="130403" areaCode="0310"/>
-            <district name="邯山区" adCode="130402" areaCode="0310"/>
-            <district name="复兴区" adCode="130404" areaCode="0310"/>
-            <district name="峰峰矿区" adCode="130406" areaCode="0310"/>
-            <district name="肥乡区" adCode="130407" areaCode="0310"/>
-            <district name="永年区" adCode="130408" areaCode="0310"/>
-            <district name="武安市" adCode="130481" areaCode="0310"/>
-            <district name="临漳县" adCode="130423" areaCode="0310"/>
-            <district name="成安县" adCode="130424" areaCode="0310"/>
-            <district name="大名县" adCode="130425" areaCode="0310"/>
-            <district name="涉县" adCode="130426" areaCode="0310"/>
-            <district name="磁县" adCode="130427" areaCode="0310"/>
-            <district name="邱县" adCode="130430" areaCode="0310"/>
-            <district name="鸡泽县" adCode="130431" areaCode="0310"/>
-            <district name="广平县" adCode="130432" areaCode="0310"/>
-            <district name="馆陶县" adCode="130433" areaCode="0310"/>
-            <district name="魏县" adCode="130434" areaCode="0310"/>
-            <district name="曲周县" adCode="130435" areaCode="0310"/>
+        <city name="邯郸市" adCode="130400" areaCode="0310" zipCode="056002">
+            <district name="丛台区" adCode="130403" zipCode="056002"/>
+            <district name="邯山区" adCode="130402" zipCode="056001"/>
+            <district name="复兴区" adCode="130404" zipCode="056003"/>
+            <district name="峰峰矿区" adCode="130406" zipCode="056200"/>
+            <district name="肥乡区" adCode="130407" zipCode="057550"/>
+            <district name="永年区" adCode="130408" zipCode="057150"/>
+            <district name="武安市" adCode="130481" zipCode="056300"/>
+            <district name="临漳县" adCode="130423" zipCode="056600"/>
+            <district name="成安县" adCode="130424" zipCode="056700"/>
+            <district name="大名县" adCode="130425" zipCode="056900"/>
+            <district name="涉县" adCode="130426" zipCode="056400"/>
+            <district name="磁县" adCode="130427" zipCode="056500"/>
+            <district name="邱县" adCode="130430" zipCode="057450"/>
+            <district name="鸡泽县" adCode="130431" zipCode="057350"/>
+            <district name="广平县" adCode="130432" zipCode="057650"/>
+            <district name="馆陶县" adCode="130433" zipCode="057750"/>
+            <district name="魏县" adCode="130434" zipCode="056800"/>
+            <district name="曲周县" adCode="130435" zipCode="057250"/>
         </city>
-        <city name="邢台市" adCode="130500" areaCode="0319">
-            <district name="桥东区" adCode="130502" areaCode="0319"/>
-            <district name="桥西区" adCode="130503" areaCode="0319"/>
-            <district name="南宫市" adCode="130581" areaCode="0319"/>
-            <district name="沙河市" adCode="130582" areaCode="0319"/>
-            <district name="邢台县" adCode="130521" areaCode="0319"/>
-            <district name="临城县" adCode="130522" areaCode="0319"/>
-            <district name="内丘县" adCode="130523" areaCode="0319"/>
-            <district name="柏乡县" adCode="130524" areaCode="0319"/>
-            <district name="隆尧县" adCode="130525" areaCode="0319"/>
-            <district name="任县" adCode="130526" areaCode="0319"/>
-            <district name="南和县" adCode="130527" areaCode="0319"/>
-            <district name="宁晋县" adCode="130528" areaCode="0319"/>
-            <district name="巨鹿县" adCode="130529" areaCode="0319"/>
-            <district name="新河县" adCode="130530" areaCode="0319"/>
-            <district name="广宗县" adCode="130531" areaCode="0319"/>
-            <district name="平乡县" adCode="130532" areaCode="0319"/>
-            <district name="威县" adCode="130533" areaCode="0319"/>
-            <district name="清河县" adCode="130534" areaCode="0319"/>
-            <district name="临西县" adCode="130535" areaCode="0319"/>
+        <city name="邢台市" adCode="130500" areaCode="0319" zipCode="054001">
+            <district name="桥东区" adCode="130502" zipCode="054001"/>
+            <district name="桥西区" adCode="130503" zipCode="054000"/>
+            <district name="南宫市" adCode="130581" zipCode="055750"/>
+            <district name="沙河市" adCode="130582" zipCode="054100"/>
+            <district name="邢台县" adCode="130521" zipCode="054001"/>
+            <district name="临城县" adCode="130522" zipCode="054300"/>
+            <district name="内丘县" adCode="130523" zipCode="054200"/>
+            <district name="柏乡县" adCode="130524" zipCode="055450"/>
+            <district name="隆尧县" adCode="130525" zipCode="055350"/>
+            <district name="任县" adCode="130526" zipCode="055150"/>
+            <district name="南和县" adCode="130527" zipCode="054400"/>
+            <district name="宁晋县" adCode="130528" zipCode="055550"/>
+            <district name="巨鹿县" adCode="130529" zipCode="055250"/>
+            <district name="新河县" adCode="130530" zipCode="055650"/>
+            <district name="广宗县" adCode="130531" zipCode="054600"/>
+            <district name="平乡县" adCode="130532" zipCode="054500"/>
+            <district name="威县" adCode="130533" zipCode="054700"/>
+            <district name="清河县" adCode="130534" zipCode="054800"/>
+            <district name="临西县" adCode="130535" zipCode="054999"/>
         </city>
-        <city name="保定市" adCode="130600" areaCode="0312">
-            <district name="竞秀区" adCode="130602" areaCode="0312"/>
-            <district name="莲池区" adCode="130606" areaCode="0312"/>
-            <district name="满城区" adCode="130607" areaCode="0312"/>
-            <district name="清苑区" adCode="130608" areaCode="0312"/>
-            <district name="徐水区" adCode="130609" areaCode="0312"/>
-            <district name="涿州市" adCode="130681" areaCode="0312"/>
-            <district name="定州市" adCode="130682" areaCode="0312"/>
-            <district name="安国市" adCode="130683" areaCode="0312"/>
-            <district name="高碑店市" adCode="130684" areaCode="0312"/>
-            <district name="涞水县" adCode="130623" areaCode="0312"/>
-            <district name="阜平县" adCode="130624" areaCode="0312"/>
-            <district name="定兴县" adCode="130626" areaCode="0312"/>
-            <district name="唐县" adCode="130627" areaCode="0312"/>
-            <district name="高阳县" adCode="130628" areaCode="0312"/>
-            <district name="容城县" adCode="130629" areaCode="0312"/>
-            <district name="涞源县" adCode="130630" areaCode="0312"/>
-            <district name="望都县" adCode="130631" areaCode="0312"/>
-            <district name="安新县" adCode="130632" areaCode="0312"/>
-            <district name="易县" adCode="130633" areaCode="0312"/>
-            <district name="曲阳县" adCode="130634" areaCode="0312"/>
-            <district name="蠡县" adCode="130635" areaCode="0312"/>
-            <district name="顺平县" adCode="130636" areaCode="0312"/>
-            <district name="博野县" adCode="130637" areaCode="0312"/>
-            <district name="雄县" adCode="130638" areaCode="0312"/>
+        <city name="保定市" adCode="130600" areaCode="0312" zipCode="071052">
+            <district name="竞秀区" adCode="130602" zipCode="071051"/>
+            <district name="莲池区" adCode="130606" zipCode="071000"/>
+            <district name="满城区" adCode="130607" zipCode="072150"/>
+            <district name="清苑区" adCode="130608" zipCode="071100"/>
+            <district name="徐水区" adCode="130609" zipCode="072550"/>
+            <district name="涿州市" adCode="130681" zipCode="072750"/>
+            <district name="定州市" adCode="130682" zipCode="073000"/>
+            <district name="安国市" adCode="130683" zipCode="071200"/>
+            <district name="高碑店市" adCode="130684" zipCode="074000"/>
+            <district name="涞水县" adCode="130623" zipCode="074100"/>
+            <district name="阜平县" adCode="130624" zipCode="073200"/>
+            <district name="定兴县" adCode="130626" zipCode="072650"/>
+            <district name="唐县" adCode="130627" zipCode="072350"/>
+            <district name="高阳县" adCode="130628" zipCode="071500"/>
+            <district name="容城县" adCode="130629" zipCode="071700"/>
+            <district name="涞源县" adCode="130630" zipCode="074300"/>
+            <district name="望都县" adCode="130631" zipCode="072450"/>
+            <district name="安新县" adCode="130632" zipCode="071600"/>
+            <district name="易县" adCode="130633" zipCode="074200"/>
+            <district name="曲阳县" adCode="130634" zipCode="073100"/>
+            <district name="蠡县" adCode="130635" zipCode="071400"/>
+            <district name="顺平县" adCode="130636" zipCode="072250"/>
+            <district name="博野县" adCode="130637" zipCode="071300"/>
+            <district name="雄县" adCode="130638" zipCode="071800"/>
         </city>
-        <city name="张家口市" adCode="130700" areaCode="0313">
-            <district name="桥西区" adCode="130703" areaCode="0313"/>
-            <district name="桥东区" adCode="130702" areaCode="0313"/>
-            <district name="宣化区" adCode="130705" areaCode="0313"/>
-            <district name="下花园区" adCode="130706" areaCode="0313"/>
-            <district name="万全区" adCode="130708" areaCode="0313"/>
-            <district name="崇礼区" adCode="130709" areaCode="0313"/>
-            <district name="张北县" adCode="130722" areaCode="0313"/>
-            <district name="康保县" adCode="130723" areaCode="0313"/>
-            <district name="沽源县" adCode="130724" areaCode="0313"/>
-            <district name="尚义县" adCode="130725" areaCode="0313"/>
-            <district name="蔚县" adCode="130726" areaCode="0313"/>
-            <district name="阳原县" adCode="130727" areaCode="0313"/>
-            <district name="怀安县" adCode="130728" areaCode="0313"/>
-            <district name="怀来县" adCode="130730" areaCode="0313"/>
-            <district name="涿鹿县" adCode="130731" areaCode="0313"/>
-            <district name="赤城县" adCode="130732" areaCode="0313"/>
+        <city name="张家口市" adCode="130700" areaCode="0313" zipCode="075000">
+            <district name="桥西区" adCode="130703" zipCode="075061"/>
+            <district name="桥东区" adCode="130702" zipCode="075000"/>
+            <district name="宣化区" adCode="130705" zipCode="075100"/>
+            <district name="下花园区" adCode="130706" zipCode="075300"/>
+            <district name="万全区" adCode="130708" zipCode="076250"/>
+            <district name="崇礼区" adCode="130709" zipCode="076350"/>
+            <district name="张北县" adCode="130722" zipCode="076450"/>
+            <district name="康保县" adCode="130723" zipCode="076650"/>
+            <district name="沽源县" adCode="130724" zipCode="076550"/>
+            <district name="尚义县" adCode="130725" zipCode="076750"/>
+            <district name="蔚县" adCode="130726" zipCode="075700"/>
+            <district name="阳原县" adCode="130727" zipCode="075800"/>
+            <district name="怀安县" adCode="130728" zipCode="076150"/>
+            <district name="怀来县" adCode="130730" zipCode="075400"/>
+            <district name="涿鹿县" adCode="130731" zipCode="075600"/>
+            <district name="赤城县" adCode="130732" zipCode="075500"/>
         </city>
-        <city name="承德市">
-            <district name="双桥区" />
-            <district name="双滦区" />
-            <district name="鹰手营子矿区" />
-            <district name="平泉市" />
-            <district name="承德县" />
-            <district name="兴隆县" />
-            <district name="滦平县" />
-            <district name="隆化县" />
-            <district name="丰宁满族自治县" />
-            <district name="宽城满族自治县" />
-            <district name="围场满族蒙古族自治县" />
+        <city name="承德市" adCode="130800" areaCode="0314" zipCode="067000">
+            <district name="双桥区" adCode="130802" zipCode="067000"/>
+            <district name="双滦区" adCode="130803" zipCode="067001"/>
+            <district name="鹰手营子矿区" adCode="130804" zipCode="067200"/>
+            <district name="平泉市" adCode="130881" zipCode="067500"/>
+            <district name="承德县" adCode="130821" zipCode="067400"/>
+            <district name="兴隆县" adCode="130822" zipCode="067300"/>
+            <district name="滦平县" adCode="130824" zipCode="068250"/>
+            <district name="隆化县" adCode="130825" zipCode="068150"/>
+            <district name="丰宁满族自治县" adCode="130826" zipCode="068350"/>
+            <district name="宽城满族自治县" adCode="130827" zipCode="067600"/>
+            <district name="围场满族蒙古族自治县" adCode="130828" zipCode="068450"/>
         </city>
-        <city name="沧州市">
-            <district name="运河区" />
-            <district name="新华区" />
-            <district name="泊头市" />
-            <district name="任丘市" />
-            <district name="黄骅市" />
-            <district name="河间市" />
-            <district name="沧县" />
-            <district name="青县" />
-            <district name="东光县" />
-            <district name="海兴县" />
-            <district name="盐山县" />
-            <district name="肃宁县" />
-            <district name="南皮县" />
-            <district name="吴桥县" />
-            <district name="献县" />
-            <district name="孟村回族自治县" />
+        <city name="沧州市" adCode="130900" areaCode="0317" zipCode="061001">
+            <district name="运河区" adCode="130903" zipCode="061001"/>
+            <district name="新华区" adCode="130902" zipCode="061000"/>
+            <district name="泊头市" adCode="130981" zipCode="062150"/>
+            <district name="任丘市" adCode="130982" zipCode="062550"/>
+            <district name="黄骅市" adCode="130983" zipCode="061100"/>
+            <district name="河间市" adCode="130984" zipCode="062450"/>
+            <district name="沧县" adCode="130921" zipCode="061000"/>
+            <district name="青县" adCode="130922" zipCode="062650"/>
+            <district name="东光县" adCode="130923" zipCode="061600"/>
+            <district name="海兴县" adCode="130924" zipCode="061200"/>
+            <district name="盐山县" adCode="130925" zipCode="061300"/>
+            <district name="肃宁县" adCode="130926" zipCode="062350"/>
+            <district name="南皮县" adCode="130927" zipCode="061500"/>
+            <district name="吴桥县" adCode="130928" zipCode="061800"/>
+            <district name="献县" adCode="130929" zipCode="062250"/>
+            <district name="孟村回族自治县" adCode="130930" zipCode="061400"/>
         </city>
-        <city name="廊坊市">
-            <district name="广阳区" />
-            <district name="安次区" />
-            <district name="霸州市" />
-            <district name="三河市" />
-            <district name="固安县" />
-            <district name="永清县" />
-            <district name="香河县" />
-            <district name="大城县" />
-            <district name="文安县" />
-            <district name="大厂回族自治县" />
+        <city name="廊坊市" adCode="131000" areaCode="0316" zipCode="065000">
+            <district name="广阳区" adCode="131003" zipCode="065000"/>
+            <district name="安次区" adCode="131002" zipCode="065000"/>
+            <district name="霸州市" adCode="131081" zipCode="065700"/>
+            <district name="三河市" adCode="131082" zipCode="065200"/>
+            <district name="固安县" adCode="131022" zipCode="065500"/>
+            <district name="永清县" adCode="131023" zipCode="065600"/>
+            <district name="香河县" adCode="131024" zipCode="065400"/>
+            <district name="大城县" adCode="131025" zipCode="065900"/>
+            <district name="文安县" adCode="131026" zipCode="065800"/>
+            <district name="大厂回族自治县" adCode="131028" zipCode="065300"/>
         </city>
-        <city name="衡水市">
-            <district name="桃城区" />
-            <district name="冀州区" />
-            <district name="深州市" />
-            <district name="枣强县" />
-            <district name="武邑县" />
-            <district name="武强县" />
-            <district name="饶阳县" />
-            <district name="安平县" />
-            <district name="故城县" />
-            <district name="景县" />
-            <district name="阜城县" />
+        <city name="衡水市" adCode="131100" areaCode="0318" zipCode="053000">
+            <district name="桃城区" adCode="131102" zipCode="053000"/>
+            <district name="冀州区" adCode="131103" zipCode="053200"/>
+            <district name="深州市" adCode="131182" zipCode="053800"/>
+            <district name="枣强县" adCode="131121" zipCode="053100"/>
+            <district name="武邑县" adCode="131122" zipCode="053400"/>
+            <district name="武强县" adCode="131123" zipCode="053300"/>
+            <district name="饶阳县" adCode="131124" zipCode="053900"/>
+            <district name="安平县" adCode="131125" zipCode="053600"/>
+            <district name="故城县" adCode="131126" zipCode="053800"/>
+            <district name="景县" adCode="131127" zipCode="053500"/>
+            <district name="阜城县" adCode="131128" zipCode="053700"/>
         </city>
     </province>
     <province name="山西省">
