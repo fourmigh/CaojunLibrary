@@ -1,4 +1,4 @@
-<!-- province有areaCode，说明是直辖市 -->
+<!-- province有adCode和areaCode，说明是直辖市 -->
 <root>
     <province name="北京市" adCode="110000" areaCode="010">
         <city name="东城区" adCode="110101" zipCode="100010"/>
@@ -36,7 +36,7 @@
         <city name="静海区" adCode="120118" zipCode="301600"/>
         <city name="蓟州区" adCode="120119" zipCode="301900"/>
     </province>
-    <province name="河北省" adCode="130000">
+    <province name="河北省">
         <city name="石家庄市" adCode="130100" areaCode="0311" zipCode="050011">
             <district name="长安区" adCode="130102" zipCode="050011"/>
             <district name="桥西区" adCode="130104" zipCode="050091"/>
@@ -229,661 +229,660 @@
         </city>
     </province>
     <province name="山西省">
-        <city name="太原市">
-            <district name="杏花岭区" />
-            <district name="小店区" />
-            <district name="迎泽区" />
-            <district name="尖草坪区" />
-            <district name="万柏林区" />
-            <district name="晋源区" />
-            <district name="古交市" />
-            <district name="清徐县" />
-            <district name="阳曲县" />
-            <district name="娄烦县" />
+        <city name="太原市" adCode="140100" areaCode="0351" zipCode="030082">
+            <district name="杏花岭区" adCode="140107" zipCode="030009"/>
+            <district name="小店区" adCode="140105" zipCode="030032"/>
+            <district name="迎泽区" adCode="140106" zipCode="030002"/>
+            <district name="尖草坪区" adCode="140108" zipCode="030023"/>
+            <district name="万柏林区" adCode="140109" zipCode="030024"/>
+            <district name="晋源区" adCode="140110" zipCode="030025"/>
+            <district name="古交市" adCode="140181" zipCode="030200"/>
+            <district name="清徐县" adCode="140121" zipCode="030400"/>
+            <district name="阳曲县" adCode="140122" zipCode="030100"/>
+            <district name="娄烦县" adCode="140123" zipCode="030300"/>
         </city>
-        <city name="大同市">
-            <district name="城区" />
-            <district name="矿区" />
-            <district name="南郊区" />
-            <district name="新荣区" />
-            <district name="阳高县" />
-            <district name="天镇县" />
-            <district name="广灵县" />
-            <district name="灵丘县" />
-            <district name="浑源县" />
-            <district name="左云县" />
-            <district name="大同县" />
+        <city name="大同市" adCode="140200" areaCode="0352" zipCode="037008">
+            <district name="城区" adCode="140202" zipCode="037008"/>
+            <district name="矿区" adCode="140203" zipCode="037003"/>
+            <district name="南郊区" adCode="140211" zipCode="037001"/>
+            <district name="新荣区" adCode="140212" zipCode="037002"/>
+            <district name="阳高县" adCode="140221" zipCode="038100"/>
+            <district name="天镇县" adCode="140222" zipCode="038200"/>
+            <district name="广灵县" adCode="140223" zipCode="037500"/>
+            <district name="灵丘县" adCode="140224" zipCode="034400"/>
+            <district name="浑源县" adCode="140225" zipCode="037400"/>
+            <district name="左云县" adCode="140226" zipCode="037100"/>
+            <district name="大同县" adCode="140227" zipCode="037300"/>
         </city>
-        <city name="阳泉市">
-            <district name="城区" />
-            <district name="矿区" />
-            <district name="郊区" />
-            <district name="平定县" />
-            <district name="盂县" />
+        <city name="阳泉市" adCode="140300" areaCode="0353" zipCode="045000">
+            <district name="城区" adCode="140302" zipCode="045000"/>
+            <district name="矿区" adCode="140303" zipCode="045000"/>
+            <district name="郊区" adCode="140311" zipCode="045011"/>
+            <district name="平定县" adCode="140321" zipCode="045200"/>
+            <district name="盂县" adCode="140322" zipCode="045100"/>
         </city>
-        <city name="长治市">
-            <district name="城区" />
-            <district name="郊区" />
-            <district name="潞城市" />
-            <district name="长治县" />
-            <district name="襄垣县" />
-            <district name="屯留县" />
-            <district name="平顺县" />
-            <district name="黎城县" />
-            <district name="壶关县" />
-            <district name="长子县" />
-            <district name="武乡县" />
-            <district name="沁县" />
-            <district name="沁源县" />
+        <city name="长治市" adCode="140400" areaCode="0355" zipCode="046000">
+            <district name="城区" adCode="140402" zipCode="046011"/>
+            <district name="郊区" adCode="140411" zipCode="046011"/>
+            <district name="潞城市" adCode="140481" zipCode="047500"/>
+            <district name="长治县" adCode="140421" zipCode="047100"/>
+            <district name="襄垣县" adCode="140423" zipCode="046200"/>
+            <district name="屯留县" adCode="140424" zipCode="046100"/>
+            <district name="平顺县" adCode="140425" zipCode="047400"/>
+            <district name="黎城县" adCode="140426" zipCode="047600"/>
+            <district name="壶关县" adCode="140427" zipCode="047300"/>
+            <district name="长子县" adCode="140428" zipCode="046600"/>
+            <district name="武乡县" adCode="140429" zipCode="046300"/>
+            <district name="沁县" adCode="140430" zipCode="046400"/>
+            <district name="沁源县" adCode="140431" zipCode="046500"/>
         </city>
-        <city name="晋城市">
-            <district name="城区" />
-            <district name="高平市" />
-            <district name="沁水县" />
-            <district name="阳城县" />
-            <district name="陵川县" />
-            <district name="泽州县" />
+        <city name="晋城市" adCode="140500" areaCode="0356" zipCode="048000">
+            <district name="城区" adCode="140502" zipCode="048000"/>
+            <district name="高平市" adCode="140581" zipCode="048400"/>
+            <district name="沁水县" adCode="140521" zipCode="048200"/>
+            <district name="阳城县" adCode="140522" zipCode="048100"/>
+            <district name="陵川县" adCode="140524" zipCode="048300"/>
+            <district name="泽州县" adCode="140525" zipCode="048012"/>
         </city>
-        <city name="朔州市">
-            <district name="朔城区" />
-            <district name="平鲁区" />
-            <district name="山阴县" />
-            <district name="应县" />
-            <district name="右玉县" />
-            <district name="怀仁县" />
+        <city name="朔州市" adCode="140600" areaCode="0349" zipCode="038500">
+            <district name="朔城区" adCode="140602" zipCode="036000"/>
+            <district name="平鲁区" adCode="140603" zipCode="038600"/>
+            <district name="山阴县" adCode="140621" zipCode="036900"/>
+            <district name="应县" adCode="140622" zipCode="037600"/>
+            <district name="右玉县" adCode="140623" zipCode="037200"/>
+            <district name="怀仁县" adCode="140624" zipCode="038300"/>
         </city>
-        <city name="晋中市">
-            <district name="榆次区" />
-            <district name="介休市" />
-            <district name="榆社县" />
-            <district name="左权县" />
-            <district name="和顺县" />
-            <district name="昔阳县" />
-            <district name="寿阳县" />
-            <district name="太谷县" />
-            <district name="祁县" />
-            <district name="平遥县" />
-            <district name="灵石县" />
+        <city name="晋中市" adCode="140700" areaCode="0354" zipCode="030600">
+            <district name="榆次区" adCode="140702" zipCode="030600"/>
+            <district name="介休市" adCode="140781" zipCode="032000"/>
+            <district name="榆社县" adCode="140721" zipCode="031800"/>
+            <district name="左权县" adCode="140722" zipCode="032600"/>
+            <district name="和顺县" adCode="140723" zipCode="032700"/>
+            <district name="昔阳县" adCode="140724" zipCode="045300"/>
+            <district name="寿阳县" adCode="140725" zipCode="045400"/>
+            <district name="太谷县" adCode="140726" zipCode="030800"/>
+            <district name="祁县" adCode="140727" zipCode="030900"/>
+            <district name="平遥县" adCode="140728" zipCode="031100"/>
+            <district name="灵石县" adCode="140729" zipCode="031300"/>
         </city>
-        <city name="运城市">
-            <district name="盐湖区" />
-            <district name="永济市" />
-            <district name="河津市" />
-            <district name="临猗县" />
-            <district name="万荣县" />
-            <district name="闻喜县" />
-            <district name="稷山县" />
-            <district name="新绛县" />
-            <district name="绛县" />
-            <district name="垣曲县" />
-            <district name="夏县" />
-            <district name="平陆县" />
-            <district name="芮城县" />
+        <city name="运城市" adCode="140800" areaCode="0359" zipCode="044000">
+            <district name="盐湖区" adCode="140802" zipCode="044000"/>
+            <district name="永济市" adCode="140881" zipCode="044500"/>
+            <district name="河津市" adCode="140882" zipCode="043300"/>
+            <district name="临猗县" adCode="140821" zipCode="044100"/>
+            <district name="万荣县" adCode="140822" zipCode="044200"/>
+            <district name="闻喜县" adCode="140823" zipCode="043800"/>
+            <district name="稷山县" adCode="140824" zipCode="043200"/>
+            <district name="新绛县" adCode="140825" zipCode="043100"/>
+            <district name="绛县" adCode="140826" zipCode="043600"/>
+            <district name="垣曲县" adCode="140827" zipCode="043700"/>
+            <district name="夏县" adCode="140828" zipCode="044400"/>
+            <district name="平陆县" adCode="140829" zipCode="044300"/>
+            <district name="芮城县" adCode="140830" zipCode="044600"/>
         </city>
-        <city name="忻州市">
-            <district name="忻府区" />
-            <district name="原平市" />
-            <district name="定襄县" />
-            <district name="五台县" />
-            <district name="代县" />
-            <district name="繁峙县" />
-            <district name="宁武县" />
-            <district name="静乐县" />
-            <district name="神池县" />
-            <district name="五寨县" />
-            <district name="岢岚县" />
-            <district name="河曲县" />
-            <district name="保德县" />
-            <district name="偏关县" />
+        <city name="忻州市" adCode="140900" areaCode="0350" zipCode="034000">
+            <district name="忻府区" adCode="140902" zipCode="034000"/>
+            <district name="原平市" adCode="140981" zipCode="034100"/>
+            <district name="定襄县" adCode="140921" zipCode="035400"/>
+            <district name="五台县" adCode="140922" zipCode="035500"/>
+            <district name="代县" adCode="140923" zipCode="034200"/>
+            <district name="繁峙县" adCode="140924" zipCode="034300"/>
+            <district name="宁武县" adCode="140925" zipCode="036700"/>
+            <district name="静乐县" adCode="140926" zipCode="035100"/>
+            <district name="神池县" adCode="140927" zipCode="036100"/>
+            <district name="五寨县" adCode="140928" zipCode="036200"/>
+            <district name="岢岚县" adCode="140929" zipCode="036300"/>
+            <district name="河曲县" adCode="140930" zipCode="036500"/>
+            <district name="保德县" adCode="140931" zipCode="036600"/>
+            <district name="偏关县" adCode="140932" zipCode="036400"/>
         </city>
-        <city name="临汾市">
-            <district name="尧都区" />
-            <district name="侯马市" />
-            <district name="霍州市" />
-            <district name="曲沃县" />
-            <district name="翼城县" />
-            <district name="襄汾县" />
-            <district name="洪洞县" />
-            <district name="古县" />
-            <district name="安泽县" />
-            <district name="浮山县" />
-            <district name="曲沃县" zipcode="041000" />
-            <district name="吉县" />
-            <district name="乡宁县" />
-            <district name="大宁县" />
-            <district name="隰县" />
-            <district name="永和县" />
-            <district name="蒲县" />
-            <district name="汾西县" />
+        <city name="临汾市" adCode="141000" areaCode="0357" zipCode="0357">
+            <district name="尧都区" adCode="141002" zipCode="041000"/>
+            <district name="侯马市" adCode="141081" zipCode="043000"/>
+            <district name="霍州市" adCode="141082" zipCode="031400"/>
+            <district name="曲沃县" adCode="141021" zipCode="043400"/>
+            <district name="翼城县" adCode="141022" zipCode="043500"/>
+            <district name="襄汾县" adCode="141023" zipCode="041500"/>
+            <district name="洪洞县" adCode="141024" zipCode="041600"/>
+            <district name="古县" adCode="141025" zipCode="042400"/>
+            <district name="安泽县" adCode="141026" zipCode="042500"/>
+            <district name="浮山县" adCode="141027" zipCode="042600"/>
+            <district name="吉县" adCode="141028" zipCode="042200"/>
+            <district name="乡宁县" adCode="141029" zipCode="042100"/>
+            <district name="大宁县" adCode="141030" zipCode="042300"/>
+            <district name="隰县" adCode="141031" zipCode="041300"/>
+            <district name="永和县" adCode="141032" zipCode="041400"/>
+            <district name="蒲县" adCode="141033" zipCode="041200"/>
+            <district name="汾西县" adCode="141034" zipCode="031500"/>
         </city>
-        <city name="吕梁市">
-            <district name="离石区" />
-            <district name="孝义市" />
-            <district name="汾阳市" />
-            <district name="文水县" />
-            <district name="交城县" />
-            <district name="兴县" />
-            <district name="临县" />
-            <district name="柳林县" />
-            <district name="石楼县" />
-            <district name="岚县" />
-            <district name="方山县" />
-            <district name="中阳县" />
-            <district name="交口县" />
+        <city name="吕梁市" adCode="141100" areaCode="0358" zipCode="033000">
+            <district name="离石区" adCode="141102" zipCode="033000"/>
+            <district name="孝义市" adCode="141181" zipCode="032300"/>
+            <district name="汾阳市" adCode="141182" zipCode="032200"/>
+            <district name="文水县" adCode="141121" zipCode="032100"/>
+            <district name="交城县" adCode="141122" zipCode="030500"/>
+            <district name="兴县" adCode="141123" zipCode="033600"/>
+            <district name="临县" adCode="141124" zipCode="033200"/>
+            <district name="柳林县" adCode="141125" zipCode="033300"/>
+            <district name="石楼县" adCode="141126" zipCode="032500"/>
+            <district name="岚县" adCode="141127" zipCode="033500"/>
+            <district name="方山县" adCode="141128" zipCode="033100"/>
+            <district name="中阳县" adCode="141129" zipCode="033400"/>
+            <district name="交口县" adCode="141130" zipCode="032400"/>
         </city>
     </province>
     <province name="内蒙古自治区">
-        <city name="呼和浩特市">
-            <district name="新城区" />
-            <district name="回民区" />
-            <district name="玉泉区" />
-            <district name="赛罕区" />
-            <district name="托克托县" />
-            <district name="和林格尔县" />
-            <district name="清水河县" />
-            <district name="武川县" />
-            <district name="土默特左旗" />
+        <city name="呼和浩特市" adCode="150100" areaCode="0471" zipCode="010000">
+            <district name="新城区" adCode="150102" zipCode="010050"/>
+            <district name="回民区" adCode="150103" zipCode="010030"/>
+            <district name="玉泉区" adCode="150104" zipCode="010020"/>
+            <district name="赛罕区" adCode="150105" zipCode="010020"/>
+            <district name="托克托县" adCode="150122" zipCode="010200"/>
+            <district name="和林格尔县" adCode="150123" zipCode="011500"/>
+            <district name="清水河县" adCode="150124" zipCode="011600"/>
+            <district name="武川县" adCode="150125" zipCode="011700"/>
+            <district name="土默特左旗" adCode="150121" zipCode="010100"/>
         </city>
-        <city name="包头市">
-            <district name="昆都仑区" />
-            <district name="东河区" />
-            <district name="青山区" />
-            <district name="石拐区" />
-            <district name="白云鄂博矿区" />
-            <district name="九原区" />
-            <district name="固阳县" />
-            <district name="土默特右旗" />
-            <district name="达尔罕茂明安联合旗" />
+        <city name="包头市" adCode="150200" areaCode="0472" zipCode="014025">
+            <district name="昆都仑区" adCode="150203" zipCode="014010"/>
+            <district name="东河区" adCode="150202" zipCode="014040"/>
+            <district name="青山区" adCode="150204" zipCode="014030"/>
+            <district name="石拐区" adCode="150205" zipCode="014070"/>
+            <district name="白云鄂博矿区" adCode="150206" zipCode="014080"/>
+            <district name="九原区" adCode="150207" zipCode="014060"/>
+            <district name="固阳县" adCode="150222" zipCode="014200"/>
+            <district name="土默特右旗" adCode="150221" zipCode="014100"/>
+            <district name="达尔罕茂明安联合旗" adCode="150223" zipCode="014500"/>
         </city>
-        <city name="乌海市">
-            <district name="海勃湾区" />
-            <district name="海南区" />
-            <district name="乌达区" />
+        <city name="乌海市" adCode="150300" areaCode="0473" zipCode="016000">
+            <district name="海勃湾区" adCode="150302" zipCode="016000"/>
+            <district name="海南区" adCode="150303" zipCode="016030"/>
+            <district name="乌达区" adCode="150304" zipCode="016040"/>
         </city>
-        <city name="赤峰市">
-            <district name="红山区" />
-            <district name="元宝山区" />
-            <district name="松山区" />
-            <district name="林西县" />
-            <district name="宁城县" />
-            <district name="阿鲁科尔沁旗" />
-            <district name="巴林左旗" />
-            <district name="巴林右旗" />
-            <district name="克什克腾旗" />
-            <district name="翁牛特旗" />
-            <district name="喀喇沁旗" />
-            <district name="敖汉旗" />
+        <city name="赤峰市" adCode="150400" areaCode="0476" zipCode="024000">
+            <district name="红山区" adCode="150402" zipCode="024020"/>
+            <district name="元宝山区" adCode="150403" zipCode="024076"/>
+            <district name="松山区" adCode="150404" zipCode="024005"/>
+            <district name="林西县" adCode="150424" zipCode="025250"/>
+            <district name="宁城县" adCode="150429" zipCode="024200"/>
+            <district name="阿鲁科尔沁旗" adCode="150421" zipCode="025550"/>
+            <district name="巴林左旗" adCode="150422" zipCode="025450"/>
+            <district name="巴林右旗" adCode="150423" zipCode="025150"/>
+            <district name="克什克腾旗" adCode="150425" zipCode="025350"/>
+            <district name="翁牛特旗" adCode="150426" zipCode="024500"/>
+            <district name="喀喇沁旗" adCode="150428" zipCode="024400"/>
+            <district name="敖汉旗" adCode="150430" zipCode="024300"/>
         </city>
-        <city name="通辽市">
-            <district name="科尔沁区" />
-            <district name="霍林郭勒市" />
-            <district name="开鲁县" />
-            <district name="库伦旗" />
-            <district name="奈曼旗" />
-            <district name="扎鲁特旗" />
-            <district name="科尔沁左翼中旗" />
-            <district name="科尔沁左翼后旗" />
+        <city name="通辽市" adCode="150500" areaCode="0475" zipCode="028000">
+            <district name="科尔沁区" adCode="150502" zipCode="028000"/>
+            <district name="霍林郭勒市" adCode="150581" zipCode="029200"/>
+            <district name="开鲁县" adCode="150523" zipCode="028400"/>
+            <district name="库伦旗" adCode="150524" zipCode="028200"/>
+            <district name="奈曼旗" adCode="150525" zipCode="028300"/>
+            <district name="扎鲁特旗" adCode="150526" zipCode="029100"/>
+            <district name="科尔沁左翼中旗" adCode="150521" zipCode="029300"/>
+            <district name="科尔沁左翼后旗" adCode="150522" zipCode="028100"/>
         </city>
-        <city name="鄂尔多斯市">
-            <district name="东胜区" />
-            <district name="康巴什区" />
-            <district name="达拉特旗" />
-            <district name="准格尔旗" />
-            <district name="鄂托克前旗" />
-            <district name="鄂托克旗" />
-            <district name="杭锦旗" />
-            <district name="乌审旗" />
-            <district name="伊金霍洛旗" />
+        <city name="鄂尔多斯市" adCode="150600" areaCode="0477" zipCode="017004">
+            <district name="东胜区" adCode="150602" zipCode="017000"/>
+            <district name="康巴什区" adCode="150603" zipCode="017010"/>
+            <district name="达拉特旗" adCode="150621" zipCode="014300"/>
+            <district name="准格尔旗" adCode="150622" zipCode="017100"/>
+            <district name="鄂托克前旗" adCode="150623" zipCode="016200"/>
+            <district name="鄂托克旗" adCode="150624" zipCode="016100"/>
+            <district name="杭锦旗" adCode="150625" zipCode="017400"/>
+            <district name="乌审旗" adCode="150626" zipCode="017300"/>
+            <district name="伊金霍洛旗" adCode="150627" zipCode="017200"/>
         </city>
-        <city name="呼伦贝尔市">
-            <district name="海拉尔区" />
-            <district name="扎赉诺尔区" />
-            <district name="满洲里市" />
-            <district name="牙克石市" />
-            <district name="扎兰屯市" />
-            <district name="额尔古纳市" />
-            <district name="根河市" />
-            <district name="阿荣旗" />
-            <district name="陈巴尔虎旗" />
-            <district name="新巴尔虎左旗" />
-            <district name="新巴尔虎右旗" />
-            <district name="莫力达瓦达斡尔族自治旗" />
-            <district name="鄂伦春自治旗" />
-            <district name="鄂温克族自治旗" />
+        <city name="呼伦贝尔市" adCode="150700" areaCode="0470" zipCode="021008">
+            <district name="海拉尔区" adCode="150702" zipCode="021000"/>
+            <district name="扎赉诺尔区" adCode="150703" zipCode="021410"/>
+            <district name="满洲里市" adCode="150781" zipCode="021400"/>
+            <district name="牙克石市" adCode="150782" zipCode="022150"/>
+            <district name="扎兰屯市" adCode="150783" zipCode="162650"/>
+            <district name="额尔古纳市" adCode="150784" zipCode="022250"/>
+            <district name="根河市" adCode="150785" zipCode="022350"/>
+            <district name="阿荣旗" adCode="150721" zipCode="162750"/>
+            <district name="陈巴尔虎旗" adCode="150725" zipCode="021500"/>
+            <district name="新巴尔虎左旗" adCode="150726" zipCode="021200"/>
+            <district name="新巴尔虎右旗" adCode="150727" zipCode="021300"/>
+            <district name="莫力达瓦达斡尔族自治旗" adCode="150722" zipCode="162850"/>
+            <district name="鄂伦春自治旗" adCode="150723" zipCode="165450"/>
+            <district name="鄂温克族自治旗" adCode="150724" zipCode="021100"/>
         </city>
-        <city name="巴彦淖尔市">
-            <district name="临河区" />
-            <district name="五原县" />
-            <district name="磴口县" />
-            <district name="乌拉特前旗" />
-            <district name="乌拉特中旗" />
-            <district name="乌拉特后旗" />
-            <district name="杭锦后旗" />
+        <city name="巴彦淖尔市" adCode="150800" areaCode="0478" zipCode="015001">
+            <district name="临河区" adCode="150802" zipCode="015001"/>
+            <district name="五原县" adCode="150821" zipCode="015100"/>
+            <district name="磴口县" adCode="150822" zipCode="015200"/>
+            <district name="乌拉特前旗" adCode="150823" zipCode="014400"/>
+            <district name="乌拉特中旗" adCode="150824" zipCode="015300"/>
+            <district name="乌拉特后旗" adCode="150825" zipCode="015500"/>
+            <district name="杭锦后旗" adCode="150826" zipCode="015400"/>
         </city>
-        <city name="乌兰察布市">
-            <district name="集宁区" />
-            <district name="丰镇市" />
-            <district name="卓资县" />
-            <district name="化德县" />
-            <district name="商都县" />
-            <district name="兴和县" />
-            <district name="凉城县" />
-            <district name="察哈尔右翼前旗" />
-            <district name="察哈尔右翼中旗" />
-            <district name="察哈尔右翼后旗" />
-            <district name="四子王旗" />
+        <city name="乌兰察布市" adCode="150900" areaCode="0474" zipCode="012000">
+            <district name="集宁区" adCode="150902" zipCode="012000"/>
+            <district name="丰镇市" adCode="150981" zipCode="012100"/>
+            <district name="卓资县" adCode="150921" zipCode="012300"/>
+            <district name="化德县" adCode="150922" zipCode="013350"/>
+            <district name="商都县" adCode="150923" zipCode="013450"/>
+            <district name="兴和县" adCode="150924" zipCode="013650"/>
+            <district name="凉城县" adCode="150925" zipCode="013750"/>
+            <district name="察哈尔右翼前旗" adCode="150926" zipCode="012200"/>
+            <district name="察哈尔右翼中旗" adCode="150927" zipCode="013550"/>
+            <district name="察哈尔右翼后旗" adCode="150928" zipCode="012400"/>
+            <district name="四子王旗" adCode="150929" zipCode="011800"/>
         </city>
-        <city name="兴安盟">
-            <district name="乌兰浩特市" />
-            <district name="阿尔山市" />
-            <district name="突泉县" />
-            <district name="科尔沁右翼前旗" />
-            <district name="科尔沁右翼中旗" />
-            <district name="扎赉特旗" />
+        <city name="兴安盟" adCode="152200" areaCode="0482" zipCode="137401">
+            <district name="乌兰浩特市" adCode="152201" zipCode="137401"/>
+            <district name="阿尔山市" adCode="152202" zipCode="137800"/>
+            <district name="突泉县" adCode="152224" zipCode="137500"/>
+            <district name="科尔沁右翼前旗" adCode="152221" zipCode="137423"/>
+            <district name="科尔沁右翼中旗" adCode="152222" zipCode="029400"/>
+            <district name="扎赉特旗" adCode="152223" zipCode="137600"/>
         </city>
-        <city name="锡林郭勒盟">
-            <district name="锡林浩特市" />
-            <district name="二连浩特市" />
-            <district name="多伦县" />
-            <district name="阿巴嘎旗" />
-            <district name="苏尼特左旗" />
-            <district name="苏尼特右旗" />
-            <district name="东乌珠穆沁旗" />
-            <district name="西乌珠穆沁旗" />
-            <district name="太仆寺旗" />
-            <district name="镶黄旗" />
-            <district name="正镶白旗" />
-            <district name="正蓝旗" />
+        <city name="锡林郭勒盟" adCode="152500" areaCode="0479" zipCode="026000">
+            <district name="锡林浩特市" adCode="152502" zipCode="026021"/>
+            <district name="二连浩特市" adCode="152501" zipCode="011100"/>
+            <district name="多伦县" adCode="152531" zipCode="027300"/>
+            <district name="阿巴嘎旗" adCode="152522" zipCode="011400"/>
+            <district name="苏尼特左旗" adCode="152523" zipCode="011300"/>
+            <district name="苏尼特右旗" adCode="152524" zipCode="011200"/>
+            <district name="东乌珠穆沁旗" adCode="152525" zipCode="026300"/>
+            <district name="西乌珠穆沁旗" adCode="152526" zipCode="026200"/>
+            <district name="太仆寺旗" adCode="152527" zipCode="027000"/>
+            <district name="镶黄旗" adCode="152528" zipCode="013250"/>
+            <district name="正镶白旗" adCode="152529" zipCode="013800"/>
+            <district name="正蓝旗" adCode="152530" zipCode="027200"/>
         </city>
-        <city name="阿拉善盟">
-            <district name="阿拉善左旗" />
-            <district name="阿拉善右旗" />
-            <district name="额济纳旗" />
+        <city name="阿拉善盟" adCode="152900" areaCode="0483" zipCode="750306">
+            <district name="阿拉善左旗" adCode="152921" zipCode="750306"/>
+            <district name="阿拉善右旗" adCode="152922" zipCode="737300"/>
+            <district name="额济纳旗" adCode="152923" zipCode="735400"/>
         </city>
     </province>
     <province name="辽宁省">
-        <city name="沈阳市">
-            <district name="沈河区" />
-            <district name="和平区" />
-            <district name="大东区" />
-            <district name="皇姑区" />
-            <district name="铁西区" />
-            <district name="苏家屯区" />
-            <district name="浑南区" />
-            <district name="沈北新区" />
-            <district name="于洪区" />
-            <district name="辽中区" />
-            <district name="新民市" />
-            <district name="康平县" />
-            <district name="法库县" />
+        <city name="沈阳市" adCode="210100" areaCode="024" zipCode="110013">
+            <district name="沈河区" adCode="210103" zipCode="110011"/>
+            <district name="和平区" adCode="210102" zipCode="110001"/>
+            <district name="大东区" adCode="210104" zipCode="110041"/>
+            <district name="皇姑区" adCode="210105" zipCode="110031"/>
+            <district name="铁西区" adCode="210106" zipCode="110021"/>
+            <district name="苏家屯区" adCode="210111" zipCode="110101"/>
+            <district name="浑南区" adCode="210112" zipCode="110015"/>
+            <district name="沈北新区" adCode="210113" zipCode="110121"/>
+            <district name="于洪区" adCode="210114" zipCode="110141"/>
+            <district name="辽中区" adCode="210115" zipCode="110200"/>
+            <district name="新民市" adCode="210181" zipCode="110300"/>
+            <district name="康平县" adCode="210123" zipCode="110500"/>
+            <district name="法库县" adCode="210124" zipCode="110400"/>
         </city>
-        <city name="大连市">
-            <district name="西岗区" />
-            <district name="中山区" />
-            <district name="沙河口区" />
-            <district name="甘井子区" />
-            <district name="旅顺口区" />
-            <district name="金州区" />
-            <district name="瓦房店市" />
-            <district name="普兰店区" />
-            <district name="庄河市" />
-            <district name="长海县" />
+        <city name="大连市" adCode="210200" areaCode="0411" zipCode="116011">
+            <district name="西岗区" adCode="210203" zipCode="116011"/>
+            <district name="中山区" adCode="210202" zipCode="116001"/>
+            <district name="沙河口区" adCode="210204" zipCode="116021"/>
+            <district name="甘井子区" adCode="210211" zipCode="116033"/>
+            <district name="旅顺口区" adCode="210212" zipCode="116050"/>
+            <district name="金州区" adCode="210213" zipCode="116600"/>
+            <district name="瓦房店市" adCode="210281" zipCode="116300"/>
+            <district name="普兰店区" adCode="210214" zipCode="116299"/>
+            <district name="庄河市" adCode="210283" zipCode="116400"/>
+            <district name="长海县" adCode="210224" zipCode="116500"/>
         </city>
-        <city name="鞍山市">
-            <district name="铁东区" />
-            <district name="铁西区" />
-            <district name="立山区" />
-            <district name="千山区" />
-            <district name="海城市" />
-            <district name="台安县" />
-            <district name="岫岩满族自治县" />
+        <city name="鞍山市" adCode="210300" areaCode="0412" zipCode="114001">
+            <district name="铁东区" adCode="210302" zipCode="114001"/>
+            <district name="铁西区" adCode="210303" zipCode="114013"/>
+            <district name="立山区" adCode="210304" zipCode="114031"/>
+            <district name="千山区" adCode="210311" zipCode="114041"/>
+            <district name="海城市" adCode="210381" zipCode="114200"/>
+            <district name="台安县" adCode="210321" zipCode="114100"/>
+            <district name="岫岩满族自治县" adCode="210323" zipCode="114300"/>
         </city>
-        <city name="抚顺市">
-            <district name="顺城区" />
-            <district name="新抚区" />
-            <district name="东洲区" />
-            <district name="望花区" />
-            <district name="抚顺县" />
-            <district name="新宾满族自治县" />
-            <district name="清原满族自治县" />
+        <city name="抚顺市" adCode="210400" areaCode="024" zipCode="113008">
+            <district name="顺城区" adCode="210411" zipCode="113006"/>
+            <district name="新抚区" adCode="210402" zipCode="113008"/>
+            <district name="东洲区" adCode="210403" zipCode="113003"/>
+            <district name="望花区" adCode="210404" zipCode="113001"/>
+            <district name="抚顺县" adCode="210421" zipCode="113006"/>
+            <district name="新宾满族自治县" adCode="210422" zipCode="113200"/>
+            <district name="清原满族自治县" adCode="210423" zipCode="113300"/>
         </city>
-        <city name="本溪市">
-            <district name="平山区" />
-            <district name="溪湖区" />
-            <district name="明山区" />
-            <district name="南芬区" />
-            <district name="本溪满族自治县" />
-            <district name="桓仁满族自治县" />
+        <city name="本溪市" adCode="210500" areaCode="024" zipCode="117000">
+            <district name="平山区" adCode="210502" zipCode="117000"/>
+            <district name="溪湖区" adCode="210503" zipCode="117002"/>
+            <district name="明山区" adCode="210504" zipCode="117020"/>
+            <district name="南芬区" adCode="210505" zipCode="117014"/>
+            <district name="本溪满族自治县" adCode="210521" zipCode="117100"/>
+            <district name="桓仁满族自治县" adCode="210522" zipCode="117200"/>
         </city>
-        <city name="丹东市">
-            <district name="振兴区" />
-            <district name="元宝区" />
-            <district name="振安区" />
-            <district name="东港市" />
-            <district name="凤城市" />
-            <district name="宽甸满族自治县" />
+        <city name="丹东市" adCode="210600" areaCode="0415" zipCode="118000">
+            <district name="振兴区" adCode="210603" zipCode="118002"/>
+            <district name="元宝区" adCode="210602" zipCode="118000"/>
+            <district name="振安区" adCode="210604" zipCode="118001"/>
+            <district name="东港市" adCode="210681" zipCode="118300"/>
+            <district name="凤城市" adCode="210682" zipCode="118100"/>
+            <district name="宽甸满族自治县" adCode="210624" zipCode="118200"/>
         </city>
-        <city name="锦州市">
-            <district name="太和区" />
-            <district name="古塔区" />
-            <district name="凌河区" />
-            <district name="凌海市" />
-            <district name="北镇市" />
-            <district name="黑山县" />
-            <district name="义县" />
+        <city name="锦州市" adCode="210700" areaCode="0416" zipCode="121000">
+            <district name="太和区" adCode="210711" zipCode="121012"/>
+            <district name="古塔区" adCode="210702" zipCode="121004"/>
+            <district name="凌河区" adCode="210703" zipCode="121000"/>
+            <district name="凌海市" adCode="210781" zipCode="121200"/>
+            <district name="北镇市" adCode="210782" zipCode="121300"/>
+            <district name="黑山县" adCode="210726" zipCode="121400"/>
+            <district name="义县" adCode="210727" zipCode="121100"/>
         </city>
-        <city name="营口市">
-            <district name="站前区" />
-            <district name="西市区" />
-            <district name="鲅鱼圈区" />
-            <district name="老边区" />
-            <district name="盖州市" />
-            <district name="大石桥市" />
+        <city name="营口市" adCode="210800" areaCode="0417" zipCode="115003">
+            <district name="站前区" adCode="210802" zipCode="115002"/>
+            <district name="西市区" adCode="210803" zipCode="115004"/>
+            <district name="鲅鱼圈区" adCode="210804" zipCode="115007"/>
+            <district name="老边区" adCode="210811" zipCode="115005"/>
+            <district name="盖州市" adCode="210881" zipCode="115200"/>
+            <district name="大石桥市" adCode="210882" zipCode="115100"/>
         </city>
-        <city name="阜新市">
-            <district name="细河区" />
-            <district name="海州区" />
-            <district name="新邱区" />
-            <district name="太平区" />
-            <district name="清河门区" />
-            <district name="彰武县" />
-            <district name="阜新蒙古族自治县" />
+        <city name="阜新市" adCode="210900" areaCode="0418" zipCode="123000">
+            <district name="细河区" adCode="210911" zipCode="123000"/>
+            <district name="海州区" adCode="210902" zipCode="123000"/>
+            <district name="新邱区" adCode="210903" zipCode="123005"/>
+            <district name="太平区" adCode="210904" zipCode="123003"/>
+            <district name="清河门区" adCode="210905" zipCode="123006"/>
+            <district name="彰武县" adCode="210922" zipCode="123200"/>
+            <district name="阜新蒙古族自治县" adCode="210921" zipCode="123100"/>
         </city>
-        <city name="辽阳市">
-            <district name="白塔区" />
-            <district name="文圣区" />
-            <district name="宏伟区" />
-            <district name="弓长岭区" />
-            <district name="太子河区" />
-            <district name="灯塔市" />
-            <district name="辽阳县" />
+        <city name="辽阳市" adCode="211000" areaCode="0419" zipCode="111000">
+            <district name="白塔区" adCode="211002" zipCode="111000"/>
+            <district name="文圣区" adCode="211003" zipCode="111000"/>
+            <district name="宏伟区" adCode="211004" zipCode="111003"/>
+            <district name="弓长岭区" adCode="211005" zipCode="111008"/>
+            <district name="太子河区" adCode="211011" zipCode="111000"/>
+            <district name="灯塔市" adCode="211081" zipCode="111300"/>
+            <district name="辽阳县" adCode="211021" zipCode="111200"/>
         </city>
-        <city name="盘锦市">
-            <district name="兴隆台区" />
-            <district name="双台子区" />
-            <district name="大洼区" />
-            <district name="盘山县" />
+        <city name="盘锦市" adCode="211100" areaCode="0427" zipCode="124010">
+            <district name="兴隆台区" adCode="211103" zipCode="124010"/>
+            <district name="双台子区" adCode="211102" zipCode="124000"/>
+            <district name="大洼区" adCode="211104" zipCode="124200"/>
+            <district name="盘山县" adCode="211122" zipCode="124107"/>
         </city>
-        <city name="铁岭市">
-            <district name="银州区" />
-            <district name="清河区" />
-            <district name="调兵山市" />
-            <district name="开原市" />
-            <district name="铁岭县" />
-            <district name="西丰县" />
-            <district name="昌图县" />
+        <city name="铁岭市" adCode="211200" areaCode="024" zipCode="112000">
+            <district name="银州区" adCode="211202" zipCode="112000"/>
+            <district name="清河区" adCode="211204" zipCode="112003"/>
+            <district name="调兵山市" adCode="211281" zipCode="112700"/>
+            <district name="开原市" adCode="211282" zipCode="112300"/>
+            <district name="铁岭县" adCode="211221" zipCode="112000"/>
+            <district name="西丰县" adCode="211223" zipCode="112400"/>
+            <district name="昌图县" adCode="211224" zipCode="112500"/>
         </city>
-        <city name="朝阳市">
-            <district name="双塔区" />
-            <district name="龙城区" />
-            <district name="北票市" />
-            <district name="凌源市" />
-            <district name="朝阳县" />
-            <district name="建平县" />
-            <district name="喀喇沁左翼蒙古族自治县" />
+        <city name="朝阳市" adCode="211300" areaCode="0421" zipCode="122000">
+            <district name="双塔区" adCode="211302" zipCode="122000"/>
+            <district name="龙城区" adCode="211303" zipCode="122000"/>
+            <district name="北票市" adCode="211381" zipCode="122100"/>
+            <district name="凌源市" adCode="211382" zipCode="122500"/>
+            <district name="朝阳县" adCode="211321" zipCode="122000"/>
+            <district name="建平县" adCode="211322" zipCode="122400"/>
+            <district name="喀喇沁左翼蒙古族自治县" adCode="211324" zipCode="122300"/>
         </city>
-        <city name="葫芦岛市">
-            <district name="龙港区" />
-            <district name="连山区" />
-            <district name="南票区" />
-            <district name="兴城市" />
-            <district name="绥中县" />
-            <district name="建昌县" />
+        <city name="葫芦岛市" adCode="211400" areaCode="0429" zipCode="125000">
+            <district name="龙港区" adCode="211403" zipCode="125003"/>
+            <district name="连山区" adCode="211402" zipCode="125001"/>
+            <district name="南票区" adCode="211404" zipCode="125027"/>
+            <district name="兴城市" adCode="211481" zipCode="125100"/>
+            <district name="绥中县" adCode="211421" zipCode="125200"/>
+            <district name="建昌县" adCode="211422" zipCode="125300"/>
         </city>
     </province>
     <province name="吉林省">
-        <city name="长春市">
-            <district name="南关区" />
-            <district name="宽城区" />
-            <district name="朝阳区" />
-            <district name="二道区" />
-            <district name="绿园区" />
-            <district name="双阳区" />
-            <district name="九台区" />
-            <district name="榆树市" />
-            <district name="德惠市" />
-            <district name="农安县" />
+        <city name="长春市" adCode="220100" areaCode="0431" zipCode="130022">
+            <district name="南关区" adCode="220102" zipCode="130022"/>
+            <district name="宽城区" adCode="220103" zipCode="130051"/>
+            <district name="朝阳区" adCode="220104" zipCode="130012"/>
+            <district name="二道区" adCode="220105" zipCode="130031"/>
+            <district name="绿园区" adCode="220106" zipCode="130062"/>
+            <district name="双阳区" adCode="220112" zipCode="130600"/>
+            <district name="九台区" adCode="220113" zipCode="130500"/>
+            <district name="榆树市" adCode="220182" zipCode="130400"/>
+            <district name="德惠市" adCode="220183" zipCode="130300"/>
+            <district name="农安县" adCode="220122" zipCode="130200"/>
         </city>
-        <city name="吉林市">
-            <district name="船营区" />
-            <district name="昌邑区" />
-            <district name="龙潭区" />
-            <district name="丰满区" />
-            <district name="蛟河市" />
-            <district name="桦甸市" />
-            <district name="舒兰市" />
-            <district name="磐石市" />
-            <district name="永吉县" />
+        <city name="吉林市" adCode="220200" areaCode="0432" zipCode="132011">
+            <district name="船营区" adCode="220204" zipCode="132011"/>
+            <district name="昌邑区" adCode="220202" zipCode="132002"/>
+            <district name="龙潭区" adCode="220203" zipCode="132021"/>
+            <district name="丰满区" adCode="220211" zipCode="132013"/>
+            <district name="蛟河市" adCode="220281" zipCode="132500"/>
+            <district name="桦甸市" adCode="220282" zipCode="132400"/>
+            <district name="舒兰市" adCode="220283" zipCode="132600"/>
+            <district name="磐石市" adCode="220284" zipCode="132300"/>
+            <district name="永吉县" adCode="220221" zipCode="132200"/>
         </city>
-        <city name="四平市">
-            <district name="铁西区" />
-            <district name="铁东区" />
-            <district name="公主岭市" />
-            <district name="双辽市" />
-            <district name="梨树县" />
-            <district name="伊通满族自治县" />
+        <city name="四平市" adCode="220300" areaCode="0434" zipCode="136000">
+            <district name="铁西区" adCode="220302" zipCode="136000"/>
+            <district name="铁东区" adCode="220303" zipCode="136001"/>
+            <district name="公主岭市" adCode="220381" zipCode="136100"/>
+            <district name="双辽市" adCode="220382" zipCode="136400"/>
+            <district name="梨树县" adCode="220322" zipCode="136500"/>
+            <district name="伊通满族自治县" adCode="220323" zipCode="130700"/>
         </city>
-        <city name="辽源市">
-            <district name="龙山区" />
-            <district name="西安区" />
-            <district name="东丰县" />
-            <district name="东辽县" />
+        <city name="辽源市" adCode="220400" areaCode="0437" zipCode="136200">
+            <district name="龙山区" adCode="220402" zipCode="136200"/>
+            <district name="西安区" adCode="220403" zipCode="136201"/>
+            <district name="东丰县" adCode="220421" zipCode="136300"/>
+            <district name="东辽县" adCode="220422" zipCode="136600"/>
         </city>
-        <city name="通化市">
-            <district name="东昌区" />
-            <district name="二道江区" />
-            <district name="梅河口市" />
-            <district name="集安市" />
-            <district name="通化县" />
-            <district name="辉南县" />
-            <district name="柳河县" />
+        <city name="通化市" adCode="220500" areaCode="0435" zipCode="134001">
+            <district name="东昌区" adCode="220502" zipCode="134001"/>
+            <district name="二道江区" adCode="220503" zipCode="134003"/>
+            <district name="梅河口市" adCode="220581" zipCode="135000"/>
+            <district name="集安市" adCode="220582" zipCode="134200"/>
+            <district name="通化县" adCode="220521" zipCode="134100"/>
+            <district name="辉南县" adCode="220523" zipCode="135100"/>
+            <district name="柳河县" adCode="220524" zipCode="135300"/>
         </city>
-        <city name="白山市">
-            <district name="浑江区" />
-            <district name="江源区" />
-            <district name="临江市" />
-            <district name="抚松县" />
-            <district name="靖宇县" />
-            <district name="长白朝鲜族自治县" />
+        <city name="白山市" adCode="220600" areaCode="0439" zipCode="134300">
+            <district name="浑江区" adCode="220602" zipCode="134300"/>
+            <district name="江源区" adCode="220605" zipCode="134700"/>
+            <district name="临江市" adCode="220681" zipCode="134600"/>
+            <district name="抚松县" adCode="220621" zipCode="134500"/>
+            <district name="靖宇县" adCode="220622" zipCode="135200"/>
+            <district name="长白朝鲜族自治县" adCode="220623" zipCode="134400"/>
         </city>
-        <city name="松原市">
-            <district name="宁江区" />
-            <district name="扶余市" />
-            <district name="长岭县" />
-            <district name="乾安县" />
-            <district name="前郭尔罗斯蒙古族自治县" />
+        <city name="松原市" adCode="220700" areaCode="0438" zipCode="138000">
+            <district name="宁江区" adCode="220702" zipCode="138000"/>
+            <district name="扶余市" adCode="220781" zipCode="131200"/>
+            <district name="长岭县" adCode="220722" zipCode="131500"/>
+            <district name="乾安县" adCode="220723" zipCode="131400"/>
+            <district name="前郭尔罗斯蒙古族自治县" adCode="220721" zipCode="138000"/>
         </city>
-        <city name="白城市">
-            <district name="洮北区" />
-            <district name="洮南市" />
-            <district name="大安市" />
-            <district name="镇赉县" />
-            <district name="通榆县" />
+        <city name="白城市" adCode="220800" areaCode="0436" zipCode="137000">
+            <district name="洮北区" adCode="220802" zipCode="137000"/>
+            <district name="洮南市" adCode="220881" zipCode="137100"/>
+            <district name="大安市" adCode="220882" zipCode="131300"/>
+            <district name="镇赉县" adCode="220821" zipCode="137300"/>
+            <district name="通榆县" adCode="220822" zipCode="137200"/>
         </city>
-        <city name="延边朝鲜族自治州">
-            <district name="延吉市" />
-            <district name="图们市" />
-            <district name="敦化市" />
-            <district name="珲春市" />
-            <district name="龙井市" />
-            <district name="和龙市" />
-            <district name="汪清县" />
-            <district name="安图县" />
+        <city name="延边朝鲜族自治州" adCode="222400" areaCode="0433" zipCode="133000">
+            <district name="延吉市" adCode="222401" zipCode="133000"/>
+            <district name="图们市" adCode="222402" zipCode="133100"/>
+            <district name="敦化市" adCode="222403" zipCode="133700"/>
+            <district name="珲春市" adCode="222404" zipCode="133300"/>
+            <district name="龙井市" adCode="222405" zipCode="133400"/>
+            <district name="和龙市" adCode="222406" zipCode="133500"/>
+            <district name="汪清县" adCode="222424" zipCode="133200"/>
+            <district name="安图县" adCode="222426" zipCode="133600"/>
         </city>
     </province>
     <province name="黑龙江省">
-        <city name="哈尔滨市">
-            <district name="松北区" />
-            <district name="道里区" />
-            <district name="南岗区" />
-            <district name="道外区" />
-            <district name="平房区" />
-            <district name="香坊区" />
-            <district name="呼兰区" />
-            <district name="阿城区" />
-            <district name="双城区" />
-            <district name="尚志市" />
-            <district name="五常市" />
-            <district name="依兰县" />
-            <district name="方正县" />
-            <district name="宾县" />
-            <district name="巴彦县" />
-            <district name="木兰县" />
-            <district name="通河县" />
-            <district name="延寿县" />
+        <city name="哈尔滨市" adCode="230100" areaCode="0451" zipCode="150010">
+            <district name="松北区" adCode="230109" zipCode="150028"/>
+            <district name="道里区" adCode="230102" zipCode="150010"/>
+            <district name="南岗区" adCode="230103" zipCode="150006"/>
+            <district name="道外区" adCode="230104" zipCode="150020"/>
+            <district name="平房区" adCode="230108" zipCode="150060"/>
+            <district name="香坊区" adCode="230110" zipCode="150036"/>
+            <district name="呼兰区" adCode="230111" zipCode="150500"/>
+            <district name="阿城区" adCode="230112" zipCode="150300"/>
+            <district name="双城区" adCode="230113" zipCode="150100"/>
+            <district name="尚志市" adCode="230183" zipCode="150600"/>
+            <district name="五常市" adCode="230184" zipCode="150200"/>
+            <district name="依兰县" adCode="230123" zipCode="154800"/>
+            <district name="方正县" adCode="230124" zipCode="150800"/>
+            <district name="宾县" adCode="230125" zipCode="150400"/>
+            <district name="巴彦县" adCode="230126" zipCode="151800"/>
+            <district name="木兰县" adCode="230127" zipCode="151900"/>
+            <district name="通河县" adCode="230128" zipCode="150900"/>
+            <district name="延寿县" adCode="230129" zipCode="150700"/>
         </city>
-        <city name="齐齐哈尔市">
-            <district name="建华区" />
-            <district name="龙沙区" />
-            <district name="铁锋区" />
-            <district name="昂昂溪区" />
-            <district name="富拉尔基区" />
-            <district name="碾子山区" />
-            <district name="梅里斯达斡尔族区" />
-            <district name="讷河市" />
-            <district name="龙江县" />
-            <district name="依安县" />
-            <district name="泰来县" />
-            <district name="甘南县" />
-            <district name="富裕县" />
-            <district name="克山县" />
-            <district name="克东县" />
-            <district name="拜泉县" />
+        <city name="齐齐哈尔市" adCode="230200" areaCode="0452" zipCode="161005">
+            <district name="建华区" adCode="230203" zipCode="161006"/>
+            <district name="龙沙区" adCode="230202" zipCode="161000"/>
+            <district name="铁锋区" adCode="230204" zipCode="161000"/>
+            <district name="昂昂溪区" adCode="230205" zipCode="161031"/>
+            <district name="富拉尔基区" adCode="230206" zipCode="161041"/>
+            <district name="碾子山区" adCode="230207" zipCode="161046"/>
+            <district name="梅里斯达斡尔族区" adCode="230208" zipCode="161021"/>
+            <district name="讷河市" adCode="230281" zipCode="161300"/>
+            <district name="龙江县" adCode="230221" zipCode="161100"/>
+            <district name="依安县" adCode="230223" zipCode="161500"/>
+            <district name="泰来县" adCode="230224" zipCode="162400"/>
+            <district name="甘南县" adCode="230225" zipCode="162100"/>
+            <district name="富裕县" adCode="230227" zipCode="161200"/>
+            <district name="克山县" adCode="230229" zipCode="161600"/>
+            <district name="克东县" adCode="230230" zipCode="164800"/>
+            <district name="拜泉县" adCode="230231" zipCode="164700"/>
         </city>
-        <city name="鸡西市">
-            <district name="鸡冠区" />
-            <district name="恒山区" />
-            <district name="滴道区" />
-            <district name="梨树区" />
-            <district name="城子河区" />
-            <district name="麻山区" />
-            <district name="虎林市" />
-            <district name="密山市" />
-            <district name="鸡东县" />
+        <city name="鸡西市" adCode="230300" areaCode="0467" zipCode="158100">
+            <district name="鸡冠区" adCode="230302" zipCode="158100"/>
+            <district name="恒山区" adCode="230303" zipCode="158130"/>
+            <district name="滴道区" adCode="230304" zipCode="158150"/>
+            <district name="梨树区" adCode="230305" zipCode="158160"/>
+            <district name="城子河区" adCode="230306" zipCode="158170"/>
+            <district name="麻山区" adCode="230307" zipCode="158180"/>
+            <district name="虎林市" adCode="230381" zipCode="158400"/>
+            <district name="密山市" adCode="230382" zipCode="158300"/>
+            <district name="鸡东县" adCode="230321" zipCode="158200"/>
         </city>
-        <city name="鹤岗市">
-            <district name="向阳区" />
-            <district name="工农区" />
-            <district name="南山区" />
-            <district name="兴安区" />
-            <district name="东山区" />
-            <district name="兴山区" />
-            <district name="萝北县" />
-            <district name="绥滨县" />
+        <city name="鹤岗市" adCode="230400" areaCode="0468" zipCode="154100">
+            <district name="向阳区" adCode="230402" zipCode="154100"/>
+            <district name="工农区" adCode="230403" zipCode="154101"/>
+            <district name="南山区" adCode="230404" zipCode="154104"/>
+            <district name="兴安区" adCode="230405" zipCode="154102"/>
+            <district name="东山区" adCode="230406" zipCode="154106"/>
+            <district name="兴山区" adCode="230407" zipCode="154105"/>
+            <district name="萝北县" adCode="230421" zipCode="154200"/>
+            <district name="绥滨县" adCode="230422" zipCode="156200"/>
         </city>
-        <city name="双鸭山市">
-            <district name="尖山区" />
-            <district name="岭东区" />
-            <district name="四方台区" />
-            <district name="宝山区" />
-            <district name="集贤县" />
-            <district name="友谊县" />
-            <district name="宝清县" />
-            <district name="饶河县" />
+        <city name="双鸭山市" adCode="230500" areaCode="0469" zipCode="155100">
+            <district name="尖山区" adCode="230502" zipCode="155100"/>
+            <district name="岭东区" adCode="230503" zipCode="155120"/>
+            <district name="四方台区" adCode="230505" zipCode="155130"/>
+            <district name="宝山区" adCode="230506" zipCode="155131"/>
+            <district name="集贤县" adCode="230521" zipCode="155900"/>
+            <district name="友谊县" adCode="230522" zipCode="155800"/>
+            <district name="宝清县" adCode="230523" zipCode="155600"/>
+            <district name="饶河县" adCode="230524" zipCode="155700"/>
         </city>
-        <city name="大庆市">
-            <district name="萨尔图区" />
-            <district name="龙凤区" />
-            <district name="让胡路区" />
-            <district name="红岗区" />
-            <district name="大同区" />
-            <district name="肇州县" />
-            <district name="肇源县" />
-            <district name="林甸县" />
-            <district name="杜尔伯特蒙古族自治县" />
+        <city name="大庆市" adCode="230600" areaCode="0459" zipCode="163000">
+            <district name="萨尔图区" adCode="230602" zipCode="163001"/>
+            <district name="龙凤区" adCode="230603" zipCode="163711"/>
+            <district name="让胡路区" adCode="230604" zipCode="163712"/>
+            <district name="红岗区" adCode="230605" zipCode="163511"/>
+            <district name="大同区" adCode="230606" zipCode="163515"/>
+            <district name="肇州县" adCode="230621" zipCode="166400"/>
+            <district name="肇源县" adCode="230622" zipCode="166500"/>
+            <district name="林甸县" adCode="230623" zipCode="166300"/>
+            <district name="杜尔伯特蒙古族自治县" adCode="230624" zipCode="166200"/>
         </city>
-        <city name="伊春市">
-            <district name="伊春区" />
-            <district name="南岔区" />
-            <district name="友好区" />
-            <district name="西林区" />
-            <district name="翠峦区" />
-            <district name="新青区" />
-            <district name="美溪区" />
-            <district name="金山屯区" />
-            <district name="五营区" />
-            <district name="乌马河区" />
-            <district name="汤旺河区" />
-            <district name="带岭区" />
-            <district name="乌伊岭区" />
-            <district name="红星区" />
-            <district name="上甘岭区" />
-            <district name="铁力市" />
-            <district name="嘉荫县" />
+        <city name="伊春市" adCode="230700" areaCode="0458" zipCode="153000">
+            <district name="伊春区" adCode="230702" zipCode="153000"/>
+            <district name="南岔区" adCode="230703" zipCode="153100"/>
+            <district name="友好区" adCode="230704" zipCode="153031"/>
+            <district name="西林区" adCode="230705" zipCode="153025"/>
+            <district name="翠峦区" adCode="230706" zipCode="153013"/>
+            <district name="新青区" adCode="230707" zipCode="153036"/>
+            <district name="美溪区" adCode="230708" zipCode="153021"/>
+            <district name="金山屯区" adCode="230709" zipCode="153026"/>
+            <district name="五营区" adCode="230710" zipCode="153033"/>
+            <district name="乌马河区" adCode="230711" zipCode="153011"/>
+            <district name="汤旺河区" adCode="230712" zipCode="153037"/>
+            <district name="带岭区" adCode="230713" zipCode="153106"/>
+            <district name="乌伊岭区" adCode="230714" zipCode="153038"/>
+            <district name="红星区" adCode="230715" zipCode="153035"/>
+            <district name="上甘岭区" adCode="230716" zipCode="153032"/>
+            <district name="铁力市" adCode="230781" zipCode="152500"/>
+            <district name="嘉荫县" adCode="230722" zipCode="153200"/>
         </city>
-        <city name="佳木斯市">
-            <district name="前进区" />
-            <district name="向阳区" />
-            <district name="东风区" />
-            <district name="郊区" />
-            <district name="同江市" />
-            <district name="富锦市" />
-            <district name="抚远市" />
-            <district name="桦南县" />
-            <district name="桦川县" />
-            <district name="汤原县" />
+        <city name="佳木斯市" adCode="230800" areaCode="0454" zipCode="154002">
+            <district name="前进区" adCode="230804" zipCode="154002"/>
+            <district name="向阳区" adCode="230803" zipCode="154002"/>
+            <district name="东风区" adCode="230805" zipCode="154005"/>
+            <district name="郊区" adCode="230811" zipCode="154004"/>
+            <district name="同江市" adCode="230881" zipCode="156400"/>
+            <district name="富锦市" adCode="230882" zipCode="156100"/>
+            <district name="抚远市" adCode="230883" zipCode="156500"/>
+            <district name="桦南县" adCode="230822" zipCode="154400"/>
+            <district name="桦川县" adCode="230826" zipCode="154300"/>
+            <district name="汤原县" adCode="230828" zipCode="154700"/>
         </city>
-        <city name="七台河市">
-            <district name="桃山区" />
-            <district name="新兴区" />
-            <district name="茄子河区" />
-            <district name="勃利县" />
+        <city name="七台河市" adCode="230900" areaCode="0464" zipCode="154600">
+            <district name="桃山区" adCode="230903" zipCode="154600"/>
+            <district name="新兴区" adCode="230902" zipCode="154604"/>
+            <district name="茄子河区" adCode="230904" zipCode="154622"/>
+            <district name="勃利县" adCode="230921" zipCode="154500"/>
         </city>
-        <city name="牡丹江市">
-            <district name="东安区" />
-            <district name="阳明区" />
-            <district name="爱民区" />
-            <district name="西安区" />
-            <district name="绥芬河市" />
-            <district name="海林市" />
-            <district name="宁安市" />
-            <district name="穆棱市" />
-            <district name="东宁市" />
-            <district name="林口县" />
+        <city name="牡丹江市" adCode="231000" areaCode="0453" zipCode="157000">
+            <district name="东安区" adCode="231002" zipCode="157000"/>
+            <district name="阳明区" adCode="231003" zipCode="157013"/>
+            <district name="爱民区" adCode="231004" zipCode="157009"/>
+            <district name="西安区" adCode="231005" zipCode="157000"/>
+            <district name="绥芬河市" adCode="231081" zipCode="157300"/>
+            <district name="海林市" adCode="231083" zipCode="157100"/>
+            <district name="宁安市" adCode="231084" zipCode="157400"/>
+            <district name="穆棱市" adCode="231085" zipCode="157500"/>
+            <district name="东宁市" adCode="231086" zipCode="157200"/>
+            <district name="林口县" adCode="231025" zipCode="157600"/>
         </city>
-        <city name="黑河市">
-            <district name="爱辉区" />
-            <district name="北安市" />
-            <district name="五大连池市" />
-            <district name="嫩江县" />
-            <district name="逊克县" />
-            <district name="孙吴县" />
+        <city name="黑河市" adCode="231100" areaCode="0456" zipCode="164300">
+            <district name="爱辉区" adCode="231102" zipCode="164300"/>
+            <district name="北安市" adCode="231181" zipCode="164000"/>
+            <district name="五大连池市" adCode="231182" zipCode="164100"/>
+            <district name="嫩江县" adCode="231121" zipCode="161400"/>
+            <district name="逊克县" adCode="231123" zipCode="164400"/>
+            <district name="孙吴县" adCode="231124" zipCode="164200"/>
         </city>
-        <city name="绥化市">
-            <district name="北林区" />
-            <district name="安达市" />
-            <district name="肇东市" />
-            <district name="海伦市" />
-            <district name="望奎县" />
-            <district name="兰西县" />
-            <district name="青冈县" />
-            <district name="庆安县" />
-            <district name="明水县" />
-            <district name="绥棱县" />
+        <city name="绥化市" adCode="231200" areaCode="0455" zipCode="152000">
+            <district name="北林区" adCode="231202" zipCode="152000"/>
+            <district name="安达市" adCode="231281" zipCode="151400"/>
+            <district name="肇东市" adCode="231282" zipCode="151100"/>
+            <district name="海伦市" adCode="231283" zipCode="152300"/>
+            <district name="望奎县" adCode="231221" zipCode="152100"/>
+            <district name="兰西县" adCode="231222" zipCode="151500"/>
+            <district name="青冈县" adCode="231223" zipCode="151600"/>
+            <district name="庆安县" adCode="231224" zipCode="152400"/>
+            <district name="明水县" adCode="231225" zipCode="151700"/>
+            <district name="绥棱县" adCode="231226" zipCode="152200"/>
         </city>
-        <city name="大兴安岭地区">
-            <district name="呼玛县" />
-            <district name="塔河县" />
-            <district name="漠河县" />
+        <city name="大兴安岭地区" adCode="232700" areaCode="0457" zipCode="165000">
+            <district name="呼玛县" adCode="232721" zipCode="165100"/>
+            <district name="塔河县" adCode="232722" zipCode="165200"/>
+            <district name="漠河县" adCode="232723" zipCode="165300"/>
         </city>
     </province>
-    <province name="上海市">
-        <city name="黄浦区" />
-        <city name="徐汇区" />
-        <city name="长宁区" />
-        <city name="静安区" />
-        <city name="普陀区" />
-        <city name="虹口区" />
-        <city name="杨浦区" />
-        <city name="闵行区" />
-        <city name="宝山区" />
-        <city name="嘉定区" />
-        <city name="浦东新区" />
-        <city name="金山区" />
-        <city name="松江区" />
-        <city name="青浦区" />
-        <city name="奉贤区" />
-        <city name="崇明区" />
+    <province name="上海市" adCode="310000" areaCode="021">
+        <city name="黄浦区" adCode="310101" zipCode="200001"/>
+        <city name="徐汇区" adCode="310104" zipCode="200030"/>
+        <city name="长宁区" adCode="310105" zipCode="200050"/>
+        <city name="静安区" adCode="310106" zipCode="200040"/>
+        <city name="普陀区" adCode="310107" zipCode="200333"/>
+        <city name="虹口区" adCode="310109" zipCode="200086"/>
+        <city name="杨浦区" adCode="310110" zipCode="200082"/>
+        <city name="闵行区" adCode="310112" zipCode="201100"/>
+        <city name="宝山区" adCode="310113" zipCode="201900"/>
+        <city name="嘉定区" adCode="310114" zipCode="201800"/>
+        <city name="浦东新区" adCode="310115" zipCode="200135"/>
+        <city name="金山区" adCode="310116" zipCode="200540"/>
+        <city name="松江区" adCode="310117" zipCode="201600"/>
+        <city name="青浦区" adCode="310118" zipCode="201700"/>
+        <city name="奉贤区" adCode="310120" zipCode="201400"/>
+        <city name="崇明区" adCode="310151" zipCode="202150"/>
     </province>
     <province name="江苏省">
         <city name="南京市">
