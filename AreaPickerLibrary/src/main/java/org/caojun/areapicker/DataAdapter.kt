@@ -8,14 +8,14 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 
 
-class DataAdapter(private val context: Context, private var mDatas: Array<String?>?) : BaseAdapter() {
+class DataAdapter(private val context: Context, private var list: ArrayList<String>) : BaseAdapter() {
 
     override fun getCount(): Int {
-        return if (mDatas == null) 0 else mDatas!!.size
+        return if (list.isEmpty()) 0 else list.size
     }
 
     override fun getItem(position: Int): Any? {
-        return mDatas!![position]
+        return list[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -40,14 +40,15 @@ class DataAdapter(private val context: Context, private var mDatas: Array<String
             holder = view.tag as ViewHolder
         }
 
-        holder.textView?.text = mDatas!![position]
+        holder.textView?.text = list[position]
 
         return view!!
     }
 
-    fun setList(datas: Array<String?>?) {
-        if (datas != null && datas.isNotEmpty()) {
-            mDatas = datas
+    fun setList(list: ArrayList<String>) {
+        this.list.clear()
+        if (list.isNotEmpty()) {
+            this.list.addAll(list)
         }
         notifyDataSetChanged()
     }

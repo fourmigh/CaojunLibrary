@@ -16,17 +16,15 @@ import android.widget.RadioGroup
 import android.widget.TextView
 
 class PickerView(private val context: Activity, private val pickerData: PickerData) : PopupWindow(context), View.OnClickListener {
-    private var mTextFirst: RadioButton? = null
-    private var mTextSecond: RadioButton? = null
-    private var mTextThird: RadioButton? = null
-    private var mTextFourth: RadioButton? = null
+    private var rbProvince: RadioButton? = null
+    private var rbCity: RadioButton? = null
+    private var rbDistrict: RadioButton? = null
     private var groupSelect: RadioGroup? = null
     private var pickerList: ListView? = null
     private var emptyView: TextView? = null
     private var pickerTitleName: TextView? = null
     private var pickerConfirm: TextView? = null
     private var index = 1
-    private var currData: Array<String?>? = null
     private var adapter: DataAdapter? = null
     private var listener: OnPickerClickListener? = null
 
@@ -53,7 +51,7 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
         val dw = ColorDrawable(-0x50000000)
         this.setBackgroundDrawable(dw)
         setOnDismissListener {
-            mTextFirst!!.isChecked = true
+            rbProvince!!.isChecked = true
             index = 1
             val lp = context.window.attributes
             lp.alpha = 1f
@@ -65,16 +63,16 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
         pickerTitleName = contentView.findViewById(R.id.pickerTitleName)
         pickerConfirm = contentView.findViewById(R.id.pickerConfirm)
         groupSelect = contentView.findViewById(R.id.groupSelect)
-        mTextFirst = contentView.findViewById(R.id.mTextFirst)
-        mTextSecond = contentView.findViewById(R.id.mTextSecond)
-        mTextThird = contentView.findViewById(R.id.mTextThird)
-        mTextFourth = contentView.findViewById(R.id.mTextFourth)
+        rbProvince = contentView.findViewById(R.id.rbProvince)
+        rbCity = contentView.findViewById(R.id.rbCity)
+        rbDistrict = contentView.findViewById(R.id.rbDistrict)
+//        mTextFourth = contentView.findViewById(R.id.mTextFourth)
         pickerList = contentView.findViewById(R.id.pickerList)
         emptyView = contentView.findViewById(R.id.empty_data_hints)
         pickerList?.emptyView = contentView.findViewById(R.id.picker_list_empty_data)
-        mTextFirst?.setOnClickListener(this)
-        mTextSecond?.setOnClickListener(this)
-        mTextThird?.setOnClickListener(this)
+        rbProvince?.setOnClickListener(this)
+        rbCity?.setOnClickListener(this)
+        rbDistrict?.setOnClickListener(this)
         pickerConfirm?.setOnClickListener(this)
         if (!TextUtils.isEmpty(pickerData.pickerTitleName)) {
             pickerTitleName?.text = pickerData.pickerTitleName
@@ -90,57 +88,51 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
     }
 
     private fun initData() {
-        currData = pickerData.getCurrDatas(index, "")
+        val currData = pickerData.getCurrDatas(index, "")
         adapter = DataAdapter(context, currData)
         pickerList?.adapter = adapter
-        if (currData == null) {
+        if (currData.isEmpty()) {
             emptyView?.visibility = View.VISIBLE
         } else {
             emptyView?.visibility = View.GONE
         }
-        if (!TextUtils.isEmpty(pickerData.firstText)) {
-            mTextFirst?.text = pickerData.firstText
-            if (!TextUtils.isEmpty(pickerData.secondText)) {
-                mTextSecond?.text = pickerData.secondText
-                if (!TextUtils.isEmpty(pickerData.thirdText)) {
-                    mTextThird?.text = pickerData.thirdText
-                    if (!TextUtils.isEmpty(pickerData.fourthText)) {
-                        mTextFourth?.text = pickerData.fourthText
-                    }
+        if (pickerData.province != null) {
+            rbProvince?.text = pickerData.province?.name
+            if (pickerData.city != null) {
+                rbCity?.text = pickerData.city?.name
+                if (pickerData.district != null) {
+                    rbDistrict?.text = pickerData.district?.name
                 }
             }
-            mTextFirst?.isChecked = true
+            rbProvince?.isChecked = true
         }
         pickerList?.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-            val currText = currData!![position] ?: ""
+            val currText = currData[position]
             pickerData.clearSelectText(index)
-            mTextFirst?.text = pickerData.firstText
-            mTextSecond?.text = pickerData.secondText
-            mTextThird?.text = pickerData.thirdText
+            rbProvince?.text = pickerData.provinceText
+            rbCity?.text = pickerData.cityText
+            rbDistrict?.text = pickerData.districtText
             when (index) {
                 1 -> {
-                    pickerData.firstText = currText
-                    mTextFirst?.text = currText
-                    groupSelect?.check(mTextFirst!!.id)
-                    UpdateData(currText, pickerData.secondDatas).invoke()
+                    //省
+                    pickerData.setCurrDatas(index, currText)
+                    rbProvince?.text = currText
+                    groupSelect?.check(rbProvince!!.id)
+                    UpdateData(currText, pickerData.province!!.cities.isNotEmpty()).invoke()
                 }
                 2 -> {
-                    pickerData.secondText = currText
-                    mTextSecond?.text = currText
-                    groupSelect?.check(mTextSecond!!.id)
-                    UpdateData(currText, pickerData.secondDatas).invoke()
+                    //市
+                    pickerData.setCurrDatas(index, currText)
+                    rbCity?.text = currText
+                    groupSelect?.check(rbCity!!.id)
+                    UpdateData(currText, pickerData.city!!.districts.isNotEmpty()).invoke()
                 }
                 3 -> {
-                    pickerData.thirdText = currText
-                    mTextThird?.text = currText
-                    groupSelect?.check(mTextThird!!.id)
-                    UpdateData(currText, pickerData.secondDatas).invoke()
-                }
-                4 -> {
-                    pickerData.fourthText = currText
-                    mTextFourth?.text = currText
-                    groupSelect?.check(mTextFourth!!.id)
-                    listener?.onPickerClick(pickerData)
+                    //区
+                    pickerData.setCurrDatas(index, currText)
+                    rbDistrict?.text = currText
+                    groupSelect?.check(rbDistrict!!.id)
+                    UpdateData(currText, false).invoke()
                 }
             }
         }
@@ -148,25 +140,17 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.mTextFirst -> {
+            R.id.rbProvince -> {
                 index = 1
-                currData = pickerData.getCurrDatas(index, "")
-                adapter?.setList(currData)
+                adapter?.setList(pickerData.getCurrDatas(index, ""))
             }
-            R.id.mTextSecond -> {
+            R.id.rbCity -> {
                 index = 2
-                currData = pickerData.getCurrDatas(index, mTextFirst!!.text.toString())
-                adapter?.setList(currData)
+                adapter?.setList(pickerData.getCurrDatas(index, rbProvince!!.text.toString()))
             }
-            R.id.mTextThird -> {
+            R.id.rbDistrict -> {
                 index = 3
-                currData = pickerData.getCurrDatas(index, mTextSecond!!.text.toString())
-                adapter?.setList(currData)
-            }
-            R.id.mTextFourth -> {
-                index = 4
-                currData = pickerData.getCurrDatas(index, mTextFourth!!.text.toString())
-                adapter?.setList(currData)
+                adapter?.setList(pickerData.getCurrDatas(index, rbCity!!.text.toString()))
             }
             R.id.pickerConfirm -> {
                 dismiss()
@@ -176,14 +160,13 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
     }
 
 
-    private inner class UpdateData(private val text: String, private val data: Map<String, Array<String?>>?) {
+    private inner class UpdateData(private val text: String, private val hasSubData: Boolean) {
 
         operator fun invoke() {
-            if (data != null && !data.isEmpty()) {
+            if (hasSubData) {
                 val data = pickerData.getCurrDatas(index + 1, text)
-                if (data != null && data.isNotEmpty()) {
-                    currData = data
-                    adapter?.setList(currData)
+                if (data.isNotEmpty()) {
+                    adapter?.setList(data)
                     pickerList?.smoothScrollToPosition(0)
                     index++
                 } else {

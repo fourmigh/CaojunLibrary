@@ -4,40 +4,10 @@ import android.app.Activity
 import android.content.Context
 import android.text.TextUtils
 import android.view.View
-import org.caojun.areapicker.model.DistrictModel
-import org.caojun.areapicker.model.ProvinceModel
-import java.util.HashMap
 import javax.xml.parsers.SAXParserFactory
 
 object AreaPicker {
     private var pickerView: PickerView? = null
-
-
-    /**
-     * 所有省
-     */
-    private var mProvinceDatas: Array<String?>? = null
-    /**
-     * key - 省 value - 市
-     */
-    private var mCitisDatasMap: MutableMap<String, Array<String?>>? = HashMap()
-    /**
-     * key - 市 values - 区
-     */
-    private var mDistrictDatasMap: MutableMap<String, Array<String?>>? = HashMap()
-
-    /**
-     * 当前省的名称
-     */
-    private var mCurrentProvinceName = ""
-    /**
-     * 当前市的名称
-     */
-    private var mCurrentCityName = ""
-    /**
-     * 当前区的名称
-     */
-    private var mCurrentDistrictName = ""
 
     fun init(activity: Activity, view: View, listener: OnPickerClickListener, firstProvince: String? = null) {
         init(activity, null, view, listener, firstProvince)
@@ -48,14 +18,7 @@ object AreaPicker {
             return
         }
         synchronized(view) {
-            initProvinceDatas(activity, firstProvince)
-            //选择器数据实体类封装
-            val data = PickerData()
-            //设置数据，有多少层级自己确定
-            data.firstDatas = mProvinceDatas
-            data.secondDatas = mCitisDatasMap
-            data.thirdDatas = mDistrictDatasMap
-            data.fourthDatas = HashMap()
+            val data = initProvinceDatas(activity as Context, firstProvince) ?: return@synchronized
             data.pickerTitleName = title?:""
             pickerView = PickerView(activity, data)
             view.setOnClickListener {
@@ -73,18 +36,14 @@ object AreaPicker {
     fun clear() {
         dismiss()
         pickerView = null
-        mProvinceDatas = null
-        mCitisDatasMap = null
-        mDistrictDatasMap = null
     }
 
     /**
      * 解析省市区的XML数据
      */
 
-    private fun initProvinceDatas(context: Context, firstProvince: String? = null) {
+    private fun initProvinceDatas(context: Context, firstProvince: String? = null): PickerData? {
         //http://xzqh.mca.gov.cn/map
-        val provinceList: List<ProvinceModel>?
         val asset = context.applicationContext.assets
         try {
             val input = asset.open("province_data.xml")
@@ -96,55 +55,31 @@ object AreaPicker {
             parser.parse(input, handler)
             input.close()
             // 获取解析出来的数据
-            provinceList = handler.dataList
-            //*/ 初始化默认选中的省、市、区
-            if (provinceList.isNotEmpty()) {
-                mCurrentProvinceName = provinceList[0].name
-                val cityList = provinceList[0].cityList
-                if (cityList.isNotEmpty()) {
-                    mCurrentCityName = cityList[0].name
-                    val districtList = cityList[0].districtList
-                    if (districtList.isNotEmpty()) {
-                        mCurrentDistrictName = districtList[0].name
+            val provinces = handler.dataList
+
+            if (!TextUtils.isEmpty(firstProvince)) {
+                var index = -1
+                for (i in provinces.indices) {
+                    if (provinces[i].name == firstProvince) {
+                        index = i
+                        break
                     }
                 }
-            }
-            //*/
-            mProvinceDatas = arrayOfNulls(provinceList.size)
-            for (i in provinceList.indices) {
-                // 遍历所有省的数据
-                mProvinceDatas!![i] = provinceList[i].name
-                val cityList = provinceList[i].cityList
-                val cityNames = arrayOfNulls<String>(cityList.size)
-                for (j in cityList.indices) {
-                    // 遍历省下面的所有市的数据
-                    cityNames[j] = cityList[j].name
-                    val districtList = cityList[j].districtList
-                    val distrinctNameArray = arrayOfNulls<String>(districtList.size)
-                    val distrinctArray = arrayOfNulls<DistrictModel>(districtList.size)
-                    for (k in districtList.indices) {
-                        // 遍历市下面所有区/县的数据
-                        val districtModel = DistrictModel(districtList[k].name)
-                        distrinctArray[k] = districtModel
-                        distrinctNameArray[k] = districtModel.name
+                if (index > 0) {
+                    val province = provinces[index]
+                    for (i in index downTo 1) {
+                        provinces[i] = provinces[i - 1]
                     }
-                    // 市-区/县的数据，保存到mDistrictDatasMap
-                    mDistrictDatasMap!![cityNames[j]!!] = distrinctNameArray
+                    provinces[0] = province
                 }
-                // 省-市的数据，保存到mCitisDatasMap
-                mCitisDatasMap!![provinceList[i].name] = cityNames
             }
-            if (mProvinceDatas != null && !TextUtils.isEmpty(firstProvince) && firstProvince in mProvinceDatas!!) {
-                val index = mProvinceDatas!!.indexOf(firstProvince)
-                for (i in index downTo 1) {
-                    mProvinceDatas!![i] = mProvinceDatas!![i - 1]
-                }
-                mProvinceDatas!![0] = firstProvince
-            }
+
+            val pickerData = PickerData()
+            pickerData.provinces = provinces
+            return pickerData
         } catch (e: Throwable) {
             e.printStackTrace()
-        } finally {
-
+            return null
         }
     }
 }

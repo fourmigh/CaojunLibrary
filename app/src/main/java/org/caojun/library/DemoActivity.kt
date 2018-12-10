@@ -78,7 +78,7 @@ class DemoActivity: BaseActivity() {
                 KLog.d("OnPickerConfirmClick", pickerData.selectText)
                 AreaPicker.dismiss()
             }
-        })
+        }, "上海市")
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

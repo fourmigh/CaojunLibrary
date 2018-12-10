@@ -49,7 +49,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/mTextFirst"
+                android:id="@+id/rbProvince"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -60,7 +60,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/mTextSecond"
+                android:id="@+id/rbCity"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
@@ -70,7 +70,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/mTextThird"
+                android:id="@+id/rbDistrict"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
@@ -79,14 +79,14 @@
                 android:textColor="@drawable/text_selecter"
                 android:textSize="16sp" />
 
-            <RadioButton
-                android:id="@+id/mTextFourth"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/tab_indicator_selector"
-                android:button="@null"
-                android:textColor="@drawable/text_selecter"
-                android:textSize="16sp" />
+            <!--<RadioButton-->
+                <!--android:id="@+id/mTextFourth"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/tab_indicator_selector"-->
+                <!--android:button="@null"-->
+                <!--android:textColor="@drawable/text_selecter"-->
+                <!--android:textSize="16sp" />-->
         </RadioGroup>
 
         <TextView
