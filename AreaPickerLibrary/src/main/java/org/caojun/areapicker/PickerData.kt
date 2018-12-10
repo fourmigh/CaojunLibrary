@@ -42,29 +42,78 @@ class PickerData {
                 }
             }
             2 -> {
-                for (i in provinces.indices) {
-                    if (currText == provinces[i].name) {
-                        province = provinces[i]
-                        break
-                    }
-                }
+//                for (i in provinces.indices) {
+//                    if (currText == provinces[i].name) {
+//                        province = provinces[i]
+//                        break
+//                    }
+//                }
                 for (i in province!!.cities.indices) {
                     list.add(province!!.cities[i].name)
                 }
             }
             3 -> {
-                for (i in province!!.cities.indices) {
-                    if (currText == province!!.cities[i].name) {
-                        city = province!!.cities[i]
-                        break
-                    }
-                }
+//                for (i in province!!.cities.indices) {
+//                    if (currText == province!!.cities[i].name) {
+//                        city = province!!.cities[i]
+//                        break
+//                    }
+//                }
                 for (i in city!!.districts.indices) {
                     list.add(city!!.districts[i].name)
                 }
             }
         }
         return list
+    }
+
+    fun getListIndex(index: Int, name: String): Int {
+        when (index) {
+            1 -> {
+                for (i in provinces.indices) {
+                    if (name == provinces[i].name) {
+                        return i
+                    }
+                }
+            }
+            2 -> {
+                if (province != null) {
+                    for (i in province!!.cities.indices) {
+                        if (name == province!!.cities[i].name) {
+                            return i
+                        }
+                    }
+                }
+            }
+            3 -> {
+                if (city != null) {
+                    for (i in city!!.districts.indices) {
+                        if (name == city!!.districts[i].name) {
+                            return i
+                        }
+                    }
+                }
+            }
+        }
+        return 0
+    }
+
+    fun hasSubData(index: Int): Boolean {
+        when (index) {
+            1 -> {
+                if (province == null) {
+                    return false
+                }
+                return province!!.cities.isNotEmpty()
+            }
+            2 -> {
+                if (city == null) {
+                    return false
+                }
+                return city!!.districts.isNotEmpty()
+            }
+            else -> return false
+        }
     }
 
     fun setCurrDatas(index: Int, currText: String) {

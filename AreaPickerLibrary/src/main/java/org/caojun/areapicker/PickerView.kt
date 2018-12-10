@@ -66,7 +66,6 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
         rbProvince = contentView.findViewById(R.id.rbProvince)
         rbCity = contentView.findViewById(R.id.rbCity)
         rbDistrict = contentView.findViewById(R.id.rbDistrict)
-//        mTextFourth = contentView.findViewById(R.id.mTextFourth)
         pickerList = contentView.findViewById(R.id.pickerList)
         emptyView = contentView.findViewById(R.id.empty_data_hints)
         pickerList?.emptyView = contentView.findViewById(R.id.picker_list_empty_data)
@@ -118,21 +117,21 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
                     pickerData.setCurrDatas(index, currText)
                     rbProvince?.text = currText
                     groupSelect?.check(rbProvince!!.id)
-                    UpdateData(currText, pickerData.province!!.cities.isNotEmpty()).invoke()
+                    UpdateData(currText, pickerData.hasSubData(index)).invoke()
                 }
                 2 -> {
                     //市
                     pickerData.setCurrDatas(index, currText)
                     rbCity?.text = currText
                     groupSelect?.check(rbCity!!.id)
-                    UpdateData(currText, pickerData.city!!.districts.isNotEmpty()).invoke()
+                    UpdateData(currText, pickerData.hasSubData(index)).invoke()
                 }
                 3 -> {
                     //区
                     pickerData.setCurrDatas(index, currText)
                     rbDistrict?.text = currText
                     groupSelect?.check(rbDistrict!!.id)
-                    UpdateData(currText, false).invoke()
+                    UpdateData(currText, pickerData.hasSubData(index)).invoke()
                 }
             }
         }
@@ -143,14 +142,20 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
             R.id.rbProvince -> {
                 index = 1
                 adapter?.setList(pickerData.getCurrDatas(index, ""))
+                val index = pickerData.getListIndex(index, rbProvince!!.text.toString())
+                pickerList?.smoothScrollToPosition(index)
             }
             R.id.rbCity -> {
                 index = 2
                 adapter?.setList(pickerData.getCurrDatas(index, rbProvince!!.text.toString()))
+                val index = pickerData.getListIndex(index, rbCity!!.text.toString())
+                pickerList?.smoothScrollToPosition(index)
             }
             R.id.rbDistrict -> {
                 index = 3
                 adapter?.setList(pickerData.getCurrDatas(index, rbCity!!.text.toString()))
+                val index = pickerData.getListIndex(index, rbDistrict!!.text.toString())
+                pickerList?.smoothScrollToPosition(index)
             }
             R.id.pickerConfirm -> {
                 dismiss()
@@ -167,7 +172,6 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
                 val data = pickerData.getCurrDatas(index + 1, text)
                 if (data.isNotEmpty()) {
                     adapter?.setList(data)
-                    pickerList?.smoothScrollToPosition(0)
                     index++
                 } else {
                     listener?.onPickerClick(pickerData)
