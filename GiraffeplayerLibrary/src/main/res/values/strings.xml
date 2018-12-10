@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">GiraffeplayerLibrary</string>
     <string name="giraffe_player_url_empty">Please specify the address of the video playback</string>
     <string name="small_problem">something error</string>
     <string name="can_not_play">can not play this video</string>
