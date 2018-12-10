@@ -10,4 +10,8 @@ open class BaseRegion(var name: String) {
     var areaCode: String? = null
     //邮编
     var zipCode: String? = null
+
+    override fun toString(): String {
+        return "name: $name, adCode: $adCode, areaCode: $areaCode, zipCode: $zipCode"
+    }
 }

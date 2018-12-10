@@ -87,7 +87,7 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
     }
 
     private fun initData() {
-        val currData = pickerData.getCurrDatas(index, "")
+        val currData = pickerData.getCurrDatas(index)
         adapter = DataAdapter(context, currData)
         pickerList?.adapter = adapter
         if (currData.isEmpty()) {
@@ -141,19 +141,19 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
         when (v.id) {
             R.id.rbProvince -> {
                 index = 1
-                adapter?.setList(pickerData.getCurrDatas(index, ""))
+                adapter?.setList(pickerData.getCurrDatas(index))
                 val index = pickerData.getListIndex(index, rbProvince!!.text.toString())
                 pickerList?.smoothScrollToPosition(index)
             }
             R.id.rbCity -> {
                 index = 2
-                adapter?.setList(pickerData.getCurrDatas(index, rbProvince!!.text.toString()))
+                adapter?.setList(pickerData.getCurrDatas(index))
                 val index = pickerData.getListIndex(index, rbCity!!.text.toString())
                 pickerList?.smoothScrollToPosition(index)
             }
             R.id.rbDistrict -> {
                 index = 3
-                adapter?.setList(pickerData.getCurrDatas(index, rbCity!!.text.toString()))
+                adapter?.setList(pickerData.getCurrDatas(index))
                 val index = pickerData.getListIndex(index, rbDistrict!!.text.toString())
                 pickerList?.smoothScrollToPosition(index)
             }
@@ -169,7 +169,7 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
 
         operator fun invoke() {
             if (hasSubData) {
-                val data = pickerData.getCurrDatas(index + 1, text)
+                val data = pickerData.getCurrDatas(index + 1)
                 if (data.isNotEmpty()) {
                     adapter?.setList(data)
                     index++

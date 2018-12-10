@@ -4,11 +4,9 @@ import org.caojun.areapicker.model.City
 import org.caojun.areapicker.model.District
 import org.caojun.areapicker.model.Province
 
-class PickerData {
+class PickerData(private val provinces: ArrayList<Province>) {
     var pickerTitleName = ""
     var height = 0
-
-    var provinces = ArrayList<Province>()
 
     var province: Province? = null
     var city: City? = null
@@ -33,7 +31,7 @@ class PickerData {
      * @param currText 当前选中的文字key
      * @return 返回当前的数据数组
      */
-    fun getCurrDatas(index: Int, currText: String): ArrayList<String> {
+    fun getCurrDatas(index: Int): ArrayList<String> {
         val list = ArrayList<String>()
         when (index) {
             1 -> {
@@ -42,23 +40,11 @@ class PickerData {
                 }
             }
             2 -> {
-//                for (i in provinces.indices) {
-//                    if (currText == provinces[i].name) {
-//                        province = provinces[i]
-//                        break
-//                    }
-//                }
                 for (i in province!!.cities.indices) {
                     list.add(province!!.cities[i].name)
                 }
             }
             3 -> {
-//                for (i in province!!.cities.indices) {
-//                    if (currText == province!!.cities[i].name) {
-//                        city = province!!.cities[i]
-//                        break
-//                    }
-//                }
                 for (i in city!!.districts.indices) {
                     list.add(city!!.districts[i].name)
                 }

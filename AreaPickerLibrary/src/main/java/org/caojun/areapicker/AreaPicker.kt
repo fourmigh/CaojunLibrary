@@ -74,9 +74,7 @@ object AreaPicker {
                 }
             }
 
-            val pickerData = PickerData()
-            pickerData.provinces = provinces
-            return pickerData
+            return PickerData(provinces)
         } catch (e: Throwable) {
             e.printStackTrace()
             return null
