@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 
-
 class DataAdapter(private val context: Context, private var list: ArrayList<String>) : BaseAdapter() {
 
     override fun getCount(): Int {
@@ -23,11 +22,6 @@ class DataAdapter(private val context: Context, private var list: ArrayList<Stri
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-//        var convertView = convertView
-//        convertView = View.inflate(context, R.layout.data_textview, null)
-//        val textView = convertView.findViewById<View>(R.id.data_text) as TextView
-//        textView.text = mDatas!![position]
-//        return textView
 
         val holder: ViewHolder
         var view = convertView
@@ -47,6 +41,7 @@ class DataAdapter(private val context: Context, private var list: ArrayList<Stri
 
     fun setList(list: ArrayList<String>) {
         this.list.clear()
+        notifyDataSetChanged()
         if (list.isNotEmpty()) {
             this.list.addAll(list)
         }
