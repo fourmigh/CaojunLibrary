@@ -8,21 +8,51 @@ class PickerData(private val provinces: ArrayList<Province>) {
     var pickerTitleName = ""
     var height = 0
 
-    var province: Province? = null
-    var city: City? = null
-    var district: District? = null
+    private var province: Province? = null
+    private var city: City? = null
+    private var district: District? = null
 
-    val provinceText: String
+    val provinceName: String
         get() = if(province != null) province!!.name else ""
 
-    val cityText: String
+    val cityName: String
         get() = if(city != null) city!!.name else ""
 
-    val districtText: String
+    val districtName: String
         get() = if(district != null) district!!.name else ""
 
     val selectText: String
-        get() = provinceText + cityText + districtText
+        get() = provinceName + cityName + districtName
+
+    val adCode: String?
+        get() {
+            return when {
+                district != null -> district!!.adCode
+                city != null -> city!!.adCode
+                province != null -> province!!.adCode
+                else -> null
+            }
+        }
+
+    val areaCode: String?
+        get() {
+            return when {
+                district != null -> district!!.areaCode
+                city != null -> city!!.areaCode
+                province != null -> province!!.areaCode
+                else -> null
+            }
+        }
+
+    val zipCode: String?
+        get() {
+            return when {
+                district != null -> district!!.zipCode
+                city != null -> city!!.zipCode
+                province != null -> province!!.zipCode
+                else -> null
+            }
+        }
 
     /**
      * 获取当前的列表

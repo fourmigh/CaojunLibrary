@@ -95,22 +95,18 @@ class PickerView(private val context: Activity, private val pickerData: PickerDa
         } else {
             emptyView?.visibility = View.GONE
         }
-        if (pickerData.province != null) {
-            rbProvince?.text = pickerData.province?.name
-            if (pickerData.city != null) {
-                rbCity?.text = pickerData.city?.name
-                if (pickerData.district != null) {
-                    rbDistrict?.text = pickerData.district?.name
-                }
-            }
-            rbProvince?.isChecked = true
-        }
+
+        rbProvince?.text = pickerData.provinceName
+        rbCity?.text = pickerData.cityName
+        rbDistrict?.text = pickerData.districtName
+        rbProvince?.isChecked = !TextUtils.isEmpty(pickerData.provinceName)
+
         pickerList?.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             val currText = currData[position]
             pickerData.clearSelectText(index)
-            rbProvince?.text = pickerData.provinceText
-            rbCity?.text = pickerData.cityText
-            rbDistrict?.text = pickerData.districtText
+            rbProvince?.text = pickerData.provinceName
+            rbCity?.text = pickerData.cityName
+            rbDistrict?.text = pickerData.districtName
             when (index) {
                 1 -> {
                     //省

@@ -71,25 +71,18 @@ class DemoActivity: BaseActivity() {
         AreaPicker.init(this, "自定义标题", text_test, object : OnPickerClickListener {
             override fun onPickerClick(pickerData: PickerData) {
                 KLog.d("OnPickerClick", pickerData.selectText)
-                if (pickerData.district != null) {
-                    KLog.d("OnPickerClick.district", pickerData.district.toString())
-                } else if (pickerData.city != null) {
-                    KLog.d("OnPickerClick.city", pickerData.city.toString())
-                } else if (pickerData.province != null) {
-                    KLog.d("OnPickerClick.province", pickerData.province.toString())
-                }
+                KLog.d("OnPickerClick", "adCode: ${pickerData.adCode}")
+                KLog.d("OnPickerClick", "areaCode: ${pickerData.areaCode}")
+                KLog.d("OnPickerClick", "zipCode: ${pickerData.zipCode}")
                 AreaPicker.dismiss()
             }
 
             override fun onPickerConfirmClick(pickerData: PickerData) {
                 KLog.d("OnPickerConfirmClick", pickerData.selectText)
-                if (pickerData.district != null) {
-                    KLog.d("OnPickerConfirmClick.district", pickerData.district.toString())
-                } else if (pickerData.city != null) {
-                    KLog.d("OnPickerConfirmClick.city", pickerData.city.toString())
-                } else if (pickerData.province != null) {
-                    KLog.d("OnPickerConfirmClick.province", pickerData.province.toString())
-                }
+
+                KLog.d("OnPickerConfirmClick", "adCode: ${pickerData.adCode}")
+                KLog.d("OnPickerConfirmClick", "areaCode: ${pickerData.areaCode}")
+                KLog.d("OnPickerConfirmClick", "zipCode: ${pickerData.zipCode}")
                 AreaPicker.dismiss()
             }
         }, "上海市")
