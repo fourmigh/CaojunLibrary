@@ -13,10 +13,7 @@ object AreaPicker {
         init(activity, null, view, listener, firstProvince)
     }
 
-    fun init(activity: Activity, title: String?, view: View?, listener: OnPickerClickListener, firstProvince: String? = null) {
-        if (view == null) {
-            return
-        }
+    fun init(activity: Activity, title: String?, view: View, listener: OnPickerClickListener, firstProvince: String? = null) {
         synchronized(view) {
             val data = initProvinceDatas(activity as Context, firstProvince) ?: return@synchronized
             data.pickerTitleName = title?:""

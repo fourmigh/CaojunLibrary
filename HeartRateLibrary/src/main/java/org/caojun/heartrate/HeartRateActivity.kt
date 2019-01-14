@@ -131,7 +131,7 @@ class HeartRateActivity: Activity() {
         previewHolder!!.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS)
 
         val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
-        wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen")
+        wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, this.javaClass.name)
     }
 
     //	曲线
