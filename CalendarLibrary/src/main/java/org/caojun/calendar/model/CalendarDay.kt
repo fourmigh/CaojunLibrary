@@ -94,9 +94,9 @@ class CalendarDay {
     fun setStringDay(ymd: String) {
         if (TextUtils.isEmpty(ymd)) return
         val strings = ymd.split("-".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        year = Integer.valueOf(strings[0])!!
-        month = Integer.valueOf(strings[1])!! - 1
-        day = Integer.valueOf(strings[2])!!
+        year = Integer.valueOf(strings[0])
+        month = Integer.valueOf(strings[1]) - 1
+        day = Integer.valueOf(strings[2])
         if (calendar == null) {
             calendar = Calendar.getInstance()
         }
