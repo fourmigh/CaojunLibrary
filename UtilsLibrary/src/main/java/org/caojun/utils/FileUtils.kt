@@ -13,7 +13,11 @@ object FileUtils {
 
     fun getDiskCachePath(context: Context): String {
         return if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState() || !Environment.isExternalStorageRemovable()) {
-            context.externalCacheDir.path
+            if (context.externalCacheDir == null) {
+                context.cacheDir.path
+            } else {
+                context.externalCacheDir!!.path
+            }
         } else {
             context.cacheDir.path
         }
@@ -25,7 +29,7 @@ object FileUtils {
                 arrayOf(MediaStore.Images.Media._ID), MediaStore.Images.Media.DATA + "=? ",
                 arrayOf(filePath), null)
         return if (cursor != null && cursor.moveToFirst()) {
-            val id = cursor.getInt(cursor.getColumnIndex(MediaStore.MediaColumns._ID))
+            val id = cursor.getInt(cursor.getColumnIndex(MediaColumns._ID))
             val baseUri = Uri.parse("content://media/external/images/media")
             Uri.withAppendedPath(baseUri, "" + id)
         } else {
@@ -53,5 +57,37 @@ object FileUtils {
         filePath = cursor.getString(columnIndex)
         cursor.close()
         return filePath
+    }
+
+    private val list = ArrayList<String>()
+
+    fun searchFile(extName: String): ArrayList<String> {
+        list.clear()
+
+        val rootDir = Environment.getExternalStorageDirectory()
+        searchFolder(rootDir.absolutePath, extName)
+
+        return list
+    }
+
+    private fun searchFolder(path: String, extName: String) {
+        val file = File(path)
+        if (!file.exists()) {
+            return
+        }
+        if (file.isDirectory) {
+            val files = file.listFiles()
+            if (files == null || files.isEmpty()) {
+                return
+            }
+            for (f in files) {
+                searchFolder(f.absolutePath, extName)
+            }
+            return
+        }
+        val fileName = file.name
+        if (fileName.endsWith(".$extName")) {
+            list.add(file.absolutePath)
+        }
     }
 }

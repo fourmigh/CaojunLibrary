@@ -11,8 +11,10 @@ import org.caojun.areapicker.OnPickerClickListener
 import org.caojun.areapicker.PickerData
 import org.caojun.utils.AppSignUtils
 import org.caojun.utils.ChineseNumberUtils
+import org.caojun.utils.FileUtils
 import org.caojun.utils.FormatUtils
 import org.caojun.widget.RulerView
+import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.startActivity
 
 
@@ -86,6 +88,11 @@ class DemoActivity: BaseActivity() {
                 AreaPicker.dismiss()
             }
         }, "上海市")
+
+        doAsync {
+            val list = FileUtils.searchFile("txt")
+            KLog.d("searchFile", list)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
