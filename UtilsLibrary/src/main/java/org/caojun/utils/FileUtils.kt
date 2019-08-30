@@ -7,7 +7,10 @@ import android.content.ContentResolver
 import android.net.Uri
 import android.provider.MediaStore
 import android.content.ContentValues
+import android.text.TextUtils
 import java.io.File
+import java.io.FileInputStream
+import java.io.InputStream
 
 object FileUtils {
 
@@ -21,6 +24,20 @@ object FileUtils {
         } else {
             context.cacheDir.path
         }
+    }
+
+    fun getInputStream(filePath: String): InputStream? {
+        if (TextUtils.isEmpty(filePath)) {
+            return null
+        }
+        val file = File(filePath)
+        if (!file.exists()) {
+            return null
+        }
+        if (file.isDirectory) {
+            return null
+        }
+        return FileInputStream(file)
     }
 
     fun getUri(context: Context, imageFile: File): Uri? {
