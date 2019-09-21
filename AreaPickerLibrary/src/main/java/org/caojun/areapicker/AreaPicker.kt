@@ -3,7 +3,9 @@ package org.caojun.areapicker
 import android.app.Activity
 import android.content.Context
 import android.text.TextUtils
+import android.view.MotionEvent
 import android.view.View
+import android.widget.EditText
 import javax.xml.parsers.SAXParserFactory
 
 object AreaPicker {
@@ -18,9 +20,19 @@ object AreaPicker {
             val data = initProvinceDatas(activity as Context, firstProvince) ?: return@synchronized
             data.pickerTitleName = title?:""
             pickerView = PickerView(activity, data)
-            view.setOnClickListener {
-                //显示选择器
-                pickerView?.show(view)
+            if (view is EditText) {
+                view.setOnTouchListener { v, event ->
+                    if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+                        //显示选择器
+                        pickerView?.show(view)
+                    }
+                    true
+                }
+            } else {
+                view.setOnClickListener {
+                    //显示选择器
+                    pickerView?.show(view)
+                }
             }
             pickerView?.setOnPickerClickListener(listener)
         }
