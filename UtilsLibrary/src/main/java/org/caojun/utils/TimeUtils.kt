@@ -96,7 +96,7 @@ object TimeUtils {
     }
 
     fun getWeekdayString(date: Date): String {
-        val weekDay = TimeUtils.getDayOfWeek(date)
+        val weekDay = getDayOfWeek(date)
         return DateFormatSymbols.getInstance().shortWeekdays[weekDay]
     }
 

@@ -2,4 +2,9 @@
     package="org.caojun.utils" >
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!--<uses-permission android:name="android.permission.READ_SMS"/>-->
+
+    <!--获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DimensLibrary</string>
+    <string name="dpi">dpi</string>
+    <string name="swdp">swdp</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <org.caojun.marquee.MarqueeTextView
+            android:id="@+id/tvMarquee"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scroll_first_delay="2000"
+            app:scroll_interval="10000"
+            app:scroll_mode="mode_forever"/>
+
+    <TextView
+            android:id="@+id/tvCenter"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+</LinearLayout>

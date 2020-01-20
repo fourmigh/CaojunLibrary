@@ -1,16 +1,15 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion rootProject.ext.sdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion 14
+        targetSdkVersion rootProject.ext.sdkVersion
         versionCode 1
         versionName "1.0"
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
@@ -19,11 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation "org.jetbrains.anko:anko-common:$anko_version"
-    implementation project(':UtilsLibrary')
 }

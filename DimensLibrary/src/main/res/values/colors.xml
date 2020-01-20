@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="translucent">#00FFFFFF</color>
+    <color name="translucent_10">#19FFFFFF</color>
+    <color name="translucent_20">#33FFFFFF</color>
+    <color name="translucent_30">#4CFFFFFF</color>
+    <color name="translucent_40">#66FFFFFF</color>
+    <color name="translucent_50">#7FFFFFFF</color>
+    <color name="translucent_60">#99FFFFFF</color>
+    <color name="translucent_70">#B2FFFFFF</color>
+    <color name="translucent_80">#CCFFFFFF</color>
+    <color name="translucent_90">#E5FFFFFF</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="transparent_10">#19000000</color>
+    <color name="transparent_20">#33000000</color>
+    <color name="transparent_30">#4C000000</color>
+    <color name="transparent_40">#66000000</color>
+    <color name="transparent_50">#70000000</color>
+    <color name="transparent_60">#99000000</color>
+    <color name="transparent_70">#B2000000</color>
+    <color name="transparent_80">#CC000000</color>
+    <color name="transparent_90">#E5000000</color>
+</resources>
