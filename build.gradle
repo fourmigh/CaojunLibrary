@@ -29,7 +29,7 @@ allprojects {
         google()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
 
-//        maven { url "https://jitpack.io" }
+        maven { url "https://jitpack.io" }
         //implementation 'com.github.PhilJay:MPAndroidChart:latest.release'
     }
 }
