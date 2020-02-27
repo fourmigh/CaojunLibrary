@@ -1,8 +1,13 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 
 android {
     compileSdkVersion rootProject.ext.sdkVersion
@@ -26,7 +31,9 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "com.android.support:appcompat-v7:$androidsupport_version"
+    implementation ("com.android.support:appcompat-v7:$androidsupport_version") {
+        exclude group: 'com.android.support:support-media-compat'
+    }
     implementation "org.jetbrains.anko:anko-common:$anko_version"
     implementation 'com.github.zhaokaiqiang.klog:library:latest.release'
     implementation project(':WidgetLibrary')
@@ -35,4 +42,6 @@ dependencies {
     implementation project(':ImageViewLibrary')
     implementation project(':GiraffeplayerLibrary')
     implementation project(':AreaPickerLibrary')
+    implementation project(':ARouterLibrary')
+    kapt 'com.alibaba:arouter-compiler:1.2.0'
 }

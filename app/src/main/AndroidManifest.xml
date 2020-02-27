@@ -22,5 +22,10 @@
         <activity android:name=".GiraffePlayerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="sensor"/>
+
+        <activity android:name=".arouter.LoginActivity"/>
+        <activity android:name=".arouter.Test1Activity"/>
+        <activity android:name=".arouter.Test2Activity"/>
+        <activity android:name=".arouter.Test3Activity"/>
     </application>
 </manifest>
