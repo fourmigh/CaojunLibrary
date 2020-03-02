@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".DemoActivity">
+        <activity android:name=".udpsocket.UDPSocketActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,5 +27,8 @@
         <activity android:name=".arouter.Test1Activity"/>
         <activity android:name=".arouter.Test2Activity"/>
         <activity android:name=".arouter.Test3Activity"/>
+
+        <activity android:name=".udpsocket.ServerActivity"/>
+        <activity android:name=".udpsocket.ClientActivity"/>
     </application>
 </manifest>

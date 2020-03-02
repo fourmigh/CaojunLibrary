@@ -44,4 +44,5 @@ dependencies {
     implementation project(':AreaPickerLibrary')
     implementation project(':ARouterLibrary')
     kapt 'com.alibaba:arouter-compiler:1.2.0'
+    implementation project(':UdpSocketLibrary')
 }
