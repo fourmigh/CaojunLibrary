@@ -17,16 +17,16 @@ object AppUtils {
         }
     }
 
-    fun getVersionName(): String {
-//        val packageInfo = getPackageInfo(context)
-//        return packageInfo?.versionName?:""
-        return BuildConfig.VERSION_NAME
+    fun getVersionName(context: Context): String {
+        val packageInfo = getPackageInfo(context)
+        return packageInfo?.versionName?:""
+//        return BuildConfig.VERSION_NAME
     }
 
-    fun getVersionCode(): Int {
-//        val packageInfo = getPackageInfo(context)
-//        return packageInfo?.versionCode?:0
-        return BuildConfig.VERSION_CODE
+    fun getVersionCode(context: Context): Int {
+        val packageInfo = getPackageInfo(context)
+        return packageInfo?.versionCode?:0
+//        return BuildConfig.VERSION_CODE
     }
 
     fun getAppName(context: Context): String {
